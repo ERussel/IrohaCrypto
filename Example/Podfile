@@ -1,0 +1,6 @@
+use_frameworks!
+target 'IrohaCrypto_Tests' do
+  pod 'IrohaCrypto', :path => '../'
+  
+  
+end
