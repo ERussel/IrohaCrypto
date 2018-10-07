@@ -1,0 +1,16 @@
+PODS:
+  - IrohaCrypto (0.1.0)
+
+DEPENDENCIES:
+  - IrohaCrypto (from `../`)
+
+EXTERNAL SOURCES:
+  IrohaCrypto:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  IrohaCrypto: 9c906fd3bdff658dd0f07aa3dfb82ea6e8169952
+
+PODFILE CHECKSUM: c87cd68e825d45ab60a829c132af98be9693fe29
+
+COCOAPODS: 1.5.3
