@@ -1,6 +1,10 @@
-use_frameworks!
-target 'IrohaCrypto_Tests' do
-  pod 'IrohaCrypto', :path => '../'
-  
+platform :ios, '9.0'
+
+abstract_target 'IrohaCrypto' do
+    use_frameworks!
+
+    pod 'IrohaCrypto', :path => '../'
+
+    target 'IrohaCryptoExample'
   
 end
