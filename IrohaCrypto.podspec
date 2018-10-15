@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'IrohaCrypto'
   s.version          = '0.1.0'
-  s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by IROHA blockchain.'
+  s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by Iroha blockchain.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -31,6 +31,5 @@ TODO: Add long description of the pod here.
   s.source_files = 'IrohaCrypto/Classes/**/*', 'IrohaCryptoImp/**/*.{h,c}'
 
   s.public_header_files = 'IrohaCrypto/Classes/**/*.h'
-  s.private_header_files = 'IrohaCryptoImpl/include/**/*.h'
 
 end

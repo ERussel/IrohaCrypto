@@ -13,12 +13,13 @@
 		02A93E5C216A9CA000F28112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A93E5B216A9CA000F28112 /* Assets.xcassets */; };
 		02A93E5F216A9CA000F28112 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02A93E5D216A9CA000F28112 /* LaunchScreen.storyboard */; };
 		02A93E62216A9CA000F28112 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A93E61216A9CA000F28112 /* main.m */; };
+		0D8B38A11BC13EDB2DF4B02F /* Pods_IrohaCrypto_IrohaCrypto_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947AFD850C8F6529B5B9064A /* Pods_IrohaCrypto_IrohaCrypto_Tests.framework */; };
 		5F5528D26BB25E8D403D2832 /* Pods_IrohaCrypto_IrohaCryptoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5CBBDFA68C37E52BF87E2B /* Pods_IrohaCrypto_IrohaCryptoExample.framework */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6003F5BC195388D20070C39A /* IRCryptoKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* IRCryptoKeyFactoryTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		02A93E60216A9CA000F28112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02A93E61216A9CA000F28112 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0EEC76B6F2666ACF7171BAB7 /* Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig"; sourceTree = "<group>"; };
+		34F480EB4BCC88A39A1B8679 /* Pods-IrohaCrypto-IrohaCrypto_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCrypto_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCrypto_Tests/Pods-IrohaCrypto-IrohaCrypto_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		410CAEC90AEDCC996FD13736 /* Pods_IrohaCrypto_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IrohaCrypto_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,11 +53,13 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		6003F5BB195388D20070C39A /* IRCryptoKeyFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCryptoKeyFactoryTests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		8184F7CFF470E93079C8307C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8D5CBBDFA68C37E52BF87E2B /* Pods_IrohaCrypto_IrohaCryptoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IrohaCrypto_IrohaCryptoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DB3ACD17904D45EB315625 /* Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig"; sourceTree = "<group>"; };
+		947AFD850C8F6529B5B9064A /* Pods_IrohaCrypto_IrohaCrypto_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IrohaCrypto_IrohaCrypto_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21A885321FAA88D5FE7A2A9 /* Pods-IrohaCrypto-IrohaCrypto_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCrypto_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCrypto_Tests/Pods-IrohaCrypto-IrohaCrypto_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D4CDA4CE796B696B6B831669 /* IrohaCrypto.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = IrohaCrypto.podspec; path = ../IrohaCrypto.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D97702193DAE8C4A2DECBC15 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +80,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
+				0D8B38A11BC13EDB2DF4B02F /* Pods_IrohaCrypto_IrohaCrypto_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +108,8 @@
 			children = (
 				0EEC76B6F2666ACF7171BAB7 /* Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig */,
 				90DB3ACD17904D45EB315625 /* Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig */,
+				C21A885321FAA88D5FE7A2A9 /* Pods-IrohaCrypto-IrohaCrypto_Tests.debug.xcconfig */,
+				34F480EB4BCC88A39A1B8679 /* Pods-IrohaCrypto-IrohaCrypto_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -137,6 +144,7 @@
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				410CAEC90AEDCC996FD13736 /* Pods_IrohaCrypto_Tests.framework */,
 				8D5CBBDFA68C37E52BF87E2B /* Pods_IrohaCrypto_IrohaCryptoExample.framework */,
+				947AFD850C8F6529B5B9064A /* Pods_IrohaCrypto_IrohaCrypto_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,7 +152,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
+				6003F5BB195388D20070C39A /* IRCryptoKeyFactoryTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -196,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "IrohaCrypto_Tests" */;
 			buildPhases = (
+				54C045744AF6A7794677DD0D /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
+				A595E1FD4B2B5688EAF27DD4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,9 +233,6 @@
 					02A93E4F216A9C9F00F28112 = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
-					};
-					6003F5AD195388D20070C39A = {
-						TestTargetID = 02A93E4F216A9C9F00F28112;
 					};
 				};
 			};
@@ -270,6 +277,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		54C045744AF6A7794677DD0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IrohaCrypto-IrohaCrypto_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A595E1FD4B2B5688EAF27DD4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IrohaCrypto-IrohaCrypto_Tests/Pods-IrohaCrypto-IrohaCrypto_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IrohaCrypto/IrohaCrypto.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IrohaCrypto.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IrohaCrypto-IrohaCrypto_Tests/Pods-IrohaCrypto-IrohaCrypto_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F0786256816D8F753858F4E3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,7 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				6003F5BC195388D20070C39A /* IRCryptoKeyFactoryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +604,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C21A885321FAA88D5FE7A2A9 /* Pods-IrohaCrypto-IrohaCrypto_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -568,13 +620,13 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IrohaCryptoExample.app/IrohaCryptoExample";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34F480EB4BCC88A39A1B8679 /* Pods-IrohaCrypto-IrohaCrypto_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -586,7 +638,6 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IrohaCryptoExample.app/IrohaCryptoExample";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

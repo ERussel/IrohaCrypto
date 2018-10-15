@@ -22,15 +22,13 @@ static const int SHA3_512_SIZE = 64;
     switch (variant) {
         case sha256Variant:
             size = SHA3_256_SIZE;
-            hash = malloc(size*sizeof(unsigned char));
+            hash = malloc(size * sizeof(unsigned char));
             result = sha256(hash, self.bytes, self.length);
             break;
         case sha512Variant:
             size = SHA3_512_SIZE;
-            hash = malloc(size*sizeof(unsigned char));
+            hash = malloc(size * sizeof(unsigned char));
             result = sha512(hash, self.bytes, self.length);
-        default:
-            break;
     }
 
     NSData *hashData = [[NSData alloc] initWithBytes:hash length:size];

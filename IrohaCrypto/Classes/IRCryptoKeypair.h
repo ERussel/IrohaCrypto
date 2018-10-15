@@ -11,8 +11,8 @@
 
 @protocol IRCryptoKeypairProtocol
 
-- (_Nonnull id<IRPublicKeyProtocol>*)publicKey;
-- (_Nonnull id<IRPrivateKeyProtocol>*)privateKey;
+- (_Nonnull id<IRPublicKeyProtocol>)publicKey;
+- (_Nonnull id<IRPrivateKeyProtocol>)privateKey;
 
 @end
 
