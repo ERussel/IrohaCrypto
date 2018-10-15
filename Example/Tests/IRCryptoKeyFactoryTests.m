@@ -9,6 +9,8 @@
 @import XCTest;
 @import IrohaCrypto;
 
+#import "Constants.h"
+
 @interface IRCryptoKeyFactoryTests : XCTestCase
 
 @property(nonatomic, strong)IREd25519KeyFactory *keysFactory;
@@ -38,23 +40,13 @@
 }
 
 - (void)testKeyDeriviation {
-    NSArray<NSString *> *privateKeys = @[@"nWGxne/9WmC6hEr0kuwsxERJxWl7MmkZcDusAxyuf2A=",
-                                         @"TM0Imyj/ltqdtsNG7BFOD1uKMZ81q6Yk2oz27U+4pvs=",
-                                         @"xaqN9D+fg3vtt0QvMdy3sWbThTUHbwlLhc46LgtEWPc=",
-                                         @"DUoFsHNSpUNuGANW2grm76A0X/f7FXJXV3LoAF7ZeOk="];
-
-    NSArray<NSString *> *publicKeys = @[@"p9QfLqYBZtLE/L4UXpfkuO+PAkcekrsxWMcFndfQ+ZA=",
-                                        @"GUODZzUvZ4tBh65p/mjchh0VSawNJpNAtNUjh0Mrid0=",
-                                        @"oI/UbuU05i0I5XeoSihgGQPUJL3yiL5FZE7OKTZylD4=",
-                                        @"0dD5gL0zt1zn26r9taanQ5od4JpYBk7sD7c3bc88XSM="];
-
-    for (int index = 0; index < privateKeys.count; index++) {
-        NSData *rawKey = [[NSData alloc] initWithBase64EncodedString:privateKeys[index] options:0];
+    for (int index = 0; index < KEYS_COUNT; index++) {
+        NSData *rawKey = [[NSData alloc] initWithBase64EncodedString:PRIVATE_KEYS[index] options:0];
         IREd25519PrivateKey *privateKey = [[IREd25519PrivateKey alloc] initWithRawData:rawKey];
         id<IRCryptoKeypairProtocol> keyPair = [_keysFactory deriveFromPrivateKey:privateKey];
 
         XCTAssertEqualObjects(keyPair.privateKey.rawData, privateKey.rawData);
-        XCTAssertEqualObjects([keyPair.publicKey.rawData base64EncodedStringWithOptions:0], publicKeys[index]);
+        XCTAssertEqualObjects([keyPair.publicKey.rawData base64EncodedStringWithOptions:0], PUBLIC_KEYS[index]);
     }
 }
 

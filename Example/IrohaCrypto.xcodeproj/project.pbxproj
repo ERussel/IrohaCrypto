@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0208DE182174C04D0031804C /* IRHashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208DE172174C04D0031804C /* IRHashTests.m */; };
+		0208DE1A2174D7480031804C /* IRSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208DE192174D7480031804C /* IRSignatureTests.m */; };
 		02A93E54216A9CA000F28112 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A93E53216A9CA000F28112 /* AppDelegate.m */; };
 		02A93E57216A9CA000F28112 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A93E56216A9CA000F28112 /* ViewController.m */; };
 		02A93E5A216A9CA000F28112 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02A93E58216A9CA000F28112 /* Main.storyboard */; };
@@ -33,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0208DE162174BA470031804C /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		0208DE172174C04D0031804C /* IRHashTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRHashTests.m; sourceTree = "<group>"; };
+		0208DE192174D7480031804C /* IRSignatureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRSignatureTests.m; sourceTree = "<group>"; };
 		02A93E50216A9C9F00F28112 /* IrohaCryptoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrohaCryptoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A93E52216A9CA000F28112 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		02A93E53216A9CA000F28112 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -152,7 +157,10 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0208DE162174BA470031804C /* Constants.h */,
 				6003F5BB195388D20070C39A /* IRCryptoKeyFactoryTests.m */,
+				0208DE172174C04D0031804C /* IRHashTests.m */,
+				0208DE192174D7480031804C /* IRSignatureTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -383,6 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BC195388D20070C39A /* IRCryptoKeyFactoryTests.m in Sources */,
+				0208DE182174C04D0031804C /* IRHashTests.m in Sources */,
+				0208DE1A2174D7480031804C /* IRSignatureTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,11 +616,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C21A885321FAA88D5FE7A2A9 /* Pods-IrohaCrypto-IrohaCrypto_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -628,11 +634,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34F480EB4BCC88A39A1B8679 /* Pods-IrohaCrypto-IrohaCrypto_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";

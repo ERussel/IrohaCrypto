@@ -11,16 +11,6 @@ Pod::Spec.new do |s|
   s.version          = '0.1.0'
   s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by Iroha blockchain.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
   s.homepage         = 'https://github.com/ERussel/IrohaCrypto'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ERussel' => 'emkil.russel@gmail.com' }
@@ -28,8 +18,16 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'IrohaCrypto/Classes/**/*', 'IrohaCryptoImp/**/*.{h,c}'
-
+  s.source_files = 'IrohaCrypto/Classes/**/*'
   s.public_header_files = 'IrohaCrypto/Classes/**/*.h'
+
+  s.subspec 'IrohaCryptoImp' do |ici|
+      ici.preserve_paths = 'IrohaCryptoImp/**/*.h'
+      ici.source_files = 'IrohaCryptoImp/**/*.h'
+      ici.private_header_files = 'IrohaCryptoImp/**/*.h'
+      ici.vendored_libraries = 'IrohaCryptoImp/libed25519.a'
+      ici.libraries = 'ed25519'
+      ici.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/IrohaCryptoImp/include/**", 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }
+  end
 
 end
