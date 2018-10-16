@@ -11,23 +11,20 @@ Pod::Spec.new do |s|
   s.version          = '0.1.0'
   s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by Iroha blockchain.'
 
-  s.homepage         = 'https://github.com/ERussel/IrohaCrypto'
+  s.homepage         = 'https://github.com/soramitsu'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ERussel' => 'emkil.russel@gmail.com' }
   s.source           = { :git => 'https://github.com/ERussel/IrohaCrypto.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'IrohaCrypto/Classes/**/*'
+  s.source_files = 'IrohaCrypto/Classes/**/*', 'IrohaCryptoImp/**/*.h'
   s.public_header_files = 'IrohaCrypto/Classes/**/*.h'
+  s.private_header_files = 'IrohaCryptoImp/**/*.h'
+  s.vendored_libraries = 'IrohaCryptoImp/libed25519.a'
+  s.preserve_paths = 'IrohaCryptoImp/**/*.h'
+  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/IrohaCryptoImp/include/**", 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }
 
-  s.subspec 'IrohaCryptoImp' do |ici|
-      ici.preserve_paths = 'IrohaCryptoImp/**/*.h'
-      ici.source_files = 'IrohaCryptoImp/**/*.h'
-      ici.private_header_files = 'IrohaCryptoImp/**/*.h'
-      ici.vendored_libraries = 'IrohaCryptoImp/libed25519.a'
-      ici.libraries = 'ed25519'
-      ici.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/IrohaCryptoImp/include/**", 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }
-  end
+  s.libraries = 'ed25519'
 
 end

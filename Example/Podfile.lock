@@ -1,7 +1,5 @@
 PODS:
-  - IrohaCrypto (0.1.0):
-    - IrohaCrypto/IrohaCryptoImp (= 0.1.0)
-  - IrohaCrypto/IrohaCryptoImp (0.1.0)
+  - IrohaCrypto (0.1.0)
 
 DEPENDENCIES:
   - IrohaCrypto (from `../`)
@@ -11,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  IrohaCrypto: f13ff349eb50b2a110455df44e0ca4a3f4a42c95
+  IrohaCrypto: 9bfcee904a97bf21616bcadd4b031e2904ecf8cf
 
 PODFILE CHECKSUM: 1f02d9992a3e79c930a6596abe01adbaedf06130
 

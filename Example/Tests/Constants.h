@@ -45,16 +45,16 @@ static const int HASHES_COUNT = 4;
 
 static NSString * const HASH_SHA_256[] = {
     @"p//G+L8e12ZRwUdWoGHWYvWA/03kO0n6gtgKS4D4Q0o=",
-    @"eUJtnC12F/9jxcxMETWa04UG81/qxcrUdaOL2gSsg7w=",
-    @"N4MF5fcV0O9ZJxef+AOurAvVv9cX8h9eR1mY8OD/ZCM=",
-    @"jQ0n4WowiNWgWmbJ+4g8CceNhjdunrgOp58L6SzxI00="
+    @"MPyGIPl1QooL3vgymdbBfO60CdOQCTtYwIW1S10/GP8=",
+    @"16SBcZ5W5t7kdYAGxj8+QH/Eg61++dyhfKe4R2bdlD0=",
+    @"w6yUvcKFHd2wemyFqvQfR8gQl4/9nKG12iP4Lgr/d/Q="
 };
 
 static NSString * const HASH_SHA_512[] = {
     @"pp9zzKI6msXItWfcGFp1bpfJghZP4lhZ4NHcwUdcgKYVshI68fX5TBHj6UAsOsVY9QAZnZW20+MBdYWGKB3NJg==",
-    @"Llg3sAri0qhn0HKeVVEW2diMO7383yh8iCXsGh/GkY+QF8uh+kwGbhrzrrcWldasBjFgCSAwYqAk/xfIAtEnGg==",
-    @"WBZr5Cwjpc5Y5oz8VyWbcQ+K82mpcXj4ajHGqVSYbmKDM3EuQ+O8KJbyo0IZVV1v6frybw7F0eL9mzinKOwvHA==",
-    @"C8E4c0Bv/smyUXS3gKW9HK4gE7trvKM1XGKl27TclV/s9DbrPwQww73sAeuHIINc8sjUD7iJdX+Fzw0O42Necg=="
+    @"3klraprylpyHxYFtAsBNrsNvYNG57qqU9pVwP4z6OmM0tS3+I1nIcVqO3MRRCbATNqGBLYMpZL5BedrYcC2L2g==",
+    @"vilS5cKcw92O6d6XejPxIZPt0dOjBqwZ65vB220yJ+7fEYQzQgYVIrXy8Ca2b2XXqp2fg7MnpfhT25y1w818Fw==",
+    @"T+FsBeT/GDPSYK2QQCpfPfWu3vKNMchHS/ltbb0Va1Tq4dsjc8jINNzlmvcKb6ydiuHTHyeocVzHNk+ctrFS6g=="
 };
 
 #endif /* Constants_h */
