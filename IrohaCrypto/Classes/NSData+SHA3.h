@@ -7,13 +7,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-    sha256Variant,
-    sha512Variant
-}Sha3Variant;
+typedef NS_ENUM(NSInteger, IRSha3Variant) {
+    IRSha3Variant256,
+    IRSha3Variant512
+};
 
 @interface NSData (SHA3)
 
-- (nullable NSData *)sha3:(Sha3Variant)variant;
+- (nullable NSData *)sha3:(IRSha3Variant)variant;
 
 @end

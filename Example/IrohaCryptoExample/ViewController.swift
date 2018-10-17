@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         if privatePhraseTextView.text.count > 0 {
             let optionalRawKey = privatePhraseTextView.text.data(using: .utf8)
 
-            if let rawKey = (optionalRawKey as NSData?)?.sha3(sha256Variant) {
+            if let rawKey = (optionalRawKey as NSData?)?.sha3(.variant256) {
                 optionalPrivateKey = IREd25519PrivateKey(rawData: rawKey)
             }
         }

@@ -14,18 +14,18 @@ static const int SHA3_512_SIZE = 64;
 
 @implementation NSData (SHA3)
 
-- (nullable NSData *)sha3:(Sha3Variant)variant {
+- (nullable NSData *)sha3:(IRSha3Variant)variant {
     int result = 0;
     int size = 0;
     unsigned char *hash = NULL;
 
     switch (variant) {
-        case sha256Variant:
+        case IRSha3Variant256:
             size = SHA3_256_SIZE;
             hash = malloc(size * sizeof(unsigned char));
             result = sha256(hash, self.bytes, self.length);
             break;
-        case sha512Variant:
+        case IRSha3Variant512:
             size = SHA3_512_SIZE;
             hash = malloc(size * sizeof(unsigned char));
             result = sha512(hash, self.bytes, self.length);
