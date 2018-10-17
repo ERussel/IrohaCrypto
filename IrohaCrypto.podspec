@@ -27,4 +27,8 @@ Pod::Spec.new do |s|
 
   s.libraries = 'ed25519'
 
+  s.test_spec do |ts|
+      ts.source_files = 'Tests/**/*.{h,m}'
+  end
+
 end

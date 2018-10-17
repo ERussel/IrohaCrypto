@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02D61B8B21771F400047F7E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D61B8A21771F400047F7E7 /* AppDelegate.swift */; };
+		02D61B8D21771F400047F7E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D61B8C21771F400047F7E7 /* ViewController.swift */; };
+		02D61B9021771F400047F7E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D61B8E21771F400047F7E7 /* Main.storyboard */; };
+		02D61B9221771F410047F7E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D61B9121771F410047F7E7 /* Assets.xcassets */; };
+		02D61B9521771F410047F7E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D61B9321771F410047F7E7 /* LaunchScreen.storyboard */; };
+		2817CE7C97D0674382F2272E /* Pods_IrohaCrypto_IrohaCryptoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A1810515BA7920095CDACE4 /* Pods_IrohaCrypto_IrohaCryptoExample.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02D61B8721771F400047F7E7 /* IrohaCryptoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrohaCryptoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02D61B8A21771F400047F7E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		02D61B8C21771F400047F7E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02D61B8F21771F400047F7E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		02D61B9121771F410047F7E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02D61B9421771F410047F7E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		02D61B9621771F410047F7E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6587131F84355F24ED7B61AF /* Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig"; sourceTree = "<group>"; };
+		6A1810515BA7920095CDACE4 /* Pods_IrohaCrypto_IrohaCryptoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IrohaCrypto_IrohaCryptoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		770555D80415B52BE18A4088 /* Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02D61B8421771F400047F7E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2817CE7C97D0674382F2272E /* Pods_IrohaCrypto_IrohaCryptoExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02D61B7E21771F400047F7E7 = {
+			isa = PBXGroup;
+			children = (
+				02D61B8921771F400047F7E7 /* IrohaCryptoExample */,
+				02D61B8821771F400047F7E7 /* Products */,
+				A4A2791F64DCB0B0F177BA70 /* Pods */,
+				2366EB11F31186109FC36B42 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		02D61B8821771F400047F7E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02D61B8721771F400047F7E7 /* IrohaCryptoExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02D61B8921771F400047F7E7 /* IrohaCryptoExample */ = {
+			isa = PBXGroup;
+			children = (
+				02D61B8A21771F400047F7E7 /* AppDelegate.swift */,
+				02D61B8C21771F400047F7E7 /* ViewController.swift */,
+				02D61B8E21771F400047F7E7 /* Main.storyboard */,
+				02D61B9121771F410047F7E7 /* Assets.xcassets */,
+				02D61B9321771F410047F7E7 /* LaunchScreen.storyboard */,
+				02D61B9621771F410047F7E7 /* Info.plist */,
+			);
+			path = IrohaCryptoExample;
+			sourceTree = "<group>";
+		};
+		2366EB11F31186109FC36B42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A1810515BA7920095CDACE4 /* Pods_IrohaCrypto_IrohaCryptoExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4A2791F64DCB0B0F177BA70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6587131F84355F24ED7B61AF /* Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig */,
+				770555D80415B52BE18A4088 /* Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		02D61B8621771F400047F7E7 /* IrohaCryptoExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02D61B9921771F410047F7E7 /* Build configuration list for PBXNativeTarget "IrohaCryptoExample" */;
+			buildPhases = (
+				C27991EA549C0CD3DE9EB02F /* [CP] Check Pods Manifest.lock */,
+				02D61B8321771F400047F7E7 /* Sources */,
+				02D61B8421771F400047F7E7 /* Frameworks */,
+				02D61B8521771F400047F7E7 /* Resources */,
+				0CD274A5000452FE445CED45 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IrohaCryptoExample;
+			productName = IrohaCryptoExample;
+			productReference = 02D61B8721771F400047F7E7 /* IrohaCryptoExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		02D61B7F21771F400047F7E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Ruslan Rezin";
+				TargetAttributes = {
+					02D61B8621771F400047F7E7 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 02D61B8221771F400047F7E7 /* Build configuration list for PBXProject "IrohaCryptoExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 02D61B7E21771F400047F7E7;
+			productRefGroup = 02D61B8821771F400047F7E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02D61B8621771F400047F7E7 /* IrohaCryptoExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02D61B8521771F400047F7E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02D61B9521771F410047F7E7 /* LaunchScreen.storyboard in Resources */,
+				02D61B9221771F410047F7E7 /* Assets.xcassets in Resources */,
+				02D61B9021771F400047F7E7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CD274A5000452FE445CED45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IrohaCrypto/IrohaCrypto.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IrohaCrypto.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C27991EA549C0CD3DE9EB02F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IrohaCrypto-IrohaCryptoExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02D61B8321771F400047F7E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02D61B8D21771F400047F7E7 /* ViewController.swift in Sources */,
+				02D61B8B21771F400047F7E7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		02D61B8E21771F400047F7E7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02D61B8F21771F400047F7E7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		02D61B9321771F410047F7E7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02D61B9421771F410047F7E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		02D61B9721771F410047F7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		02D61B9821771F410047F7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		02D61B9A21771F410047F7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6587131F84355F24ED7B61AF /* Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = IrohaCryptoExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.soramitsu.IrohaCryptoExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		02D61B9B21771F410047F7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 770555D80415B52BE18A4088 /* Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = IrohaCryptoExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.soramitsu.IrohaCryptoExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		02D61B8221771F400047F7E7 /* Build configuration list for PBXProject "IrohaCryptoExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02D61B9721771F410047F7E7 /* Debug */,
+				02D61B9821771F410047F7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02D61B9921771F410047F7E7 /* Build configuration list for PBXNativeTarget "IrohaCryptoExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02D61B9A21771F410047F7E7 /* Debug */,
+				02D61B9B21771F410047F7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 02D61B7F21771F400047F7E7 /* Project object */;
+}
