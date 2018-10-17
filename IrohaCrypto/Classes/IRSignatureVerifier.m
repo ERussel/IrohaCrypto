@@ -10,8 +10,7 @@
 
 @implementation IREd25519Sha512Verifier
 
-- (BOOL)verify:(id<IRSignatureProtocol> _Nonnull)signature
-forOriginalData:(NSData *)originalData
+- (BOOL)verify:(id<IRSignatureProtocol> _Nonnull)signature forOriginalData:(NSData *)originalData
 usingPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey {
     signature_t signature_bytes;
     memcpy(signature_bytes.data, signature.rawData.bytes, ed25519_signature_SIZE);

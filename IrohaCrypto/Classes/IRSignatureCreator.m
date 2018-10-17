@@ -10,14 +10,16 @@
 
 @interface IREd25519Sha512Signer()
 
-@property(nonatomic)_Nonnull id<IRPrivateKeyProtocol> privateKey;
+@property(strong, nonatomic)_Nonnull id<IRPrivateKeyProtocol> privateKey;
 
 @end
 
 @implementation IREd25519Sha512Signer
 
 - (nullable instancetype)initWithPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey {
-    if (self = [super init]) {
+    self = [super init];
+    
+    if (self) {
         self.privateKey = privateKey;
     }
 

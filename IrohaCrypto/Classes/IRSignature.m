@@ -10,7 +10,7 @@
 
 @interface IREd25519Sha512Signature()
 
-@property(nonatomic, copy)NSData *rawData;
+@property(copy, nonatomic)NSData *rawData;
 
 @end
 
@@ -21,7 +21,9 @@
         return nil;
     }
 
-    if (self = [super init]) {
+    self = [super init];
+
+    if (self) {
         self.rawData = data;
     }
 

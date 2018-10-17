@@ -10,7 +10,7 @@
 
 @protocol IRCryptoKeyProtocol
 
-- (nullable instancetype)initWithRawData:(NSData*)data;
+- (nullable instancetype)initWithRawData:(nonnull NSData*)data;
 - (nonnull NSData*)rawData;
 
 @end

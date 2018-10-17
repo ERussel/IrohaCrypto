@@ -9,8 +9,8 @@
 
 @interface IRCryptoKeypair()
 
-@property(nonatomic)_Nonnull id<IRPublicKeyProtocol> publicKey;
-@property(nonatomic)_Nonnull id<IRPrivateKeyProtocol> privateKey;
+@property(strong, nonatomic)_Nonnull id<IRPublicKeyProtocol> publicKey;
+@property(strong, nonatomic)_Nonnull id<IRPrivateKeyProtocol> privateKey;
 
 @end
 
@@ -19,7 +19,9 @@
 
 - (instancetype)initPublicKey:(_Nonnull id<IRPublicKeyProtocol>)publicKey
                    privateKey:(_Nonnull id<IRPrivateKeyProtocol>)privateKey {
-    if (self = [super init]) {
+    self = [super init];
+
+    if (self) {
         _publicKey = publicKey;
         _privateKey = privateKey;
     }
