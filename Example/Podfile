@@ -6,4 +6,5 @@ abstract_target 'IrohaCrypto' do
     pod 'IrohaCrypto', :path => '../'
 
     target 'IrohaCryptoExample'
+    target 'IrohaCryptoTests'
 end
