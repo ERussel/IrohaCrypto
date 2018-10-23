@@ -34,6 +34,13 @@ static NSString * const MESSAGES[] = {
     @"y8d7"
 };
 
+static NSString * const HEX_MESSAGES[] = {
+    @"",
+    @"72",
+    @"af82",
+    @"cbc77b"
+};
+
 static NSString * const SIGNATURES[] = {
     @"p8S3pDvv350rg+YFzaWZUavTedvuyJzihBQpiRE06hlbCaDvvx9R6m+D0PdWB9vOh0JJSfCoPGwcxkK/FersAg==",
     @"SGfW6NRov36LmlQ9bhpBRQ7l1jzVEIE5uV09IB+hKvAk1SEbOdE5h8TEy/BZlWq2+COkc8ymcHq0KvpxQjsSAQ==",
