@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IrohaCrypto'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by Iroha blockchain.'
 
   s.homepage         = 'https://github.com/soramitsu'
