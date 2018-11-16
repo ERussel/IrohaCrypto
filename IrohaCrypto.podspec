@@ -20,12 +20,12 @@ Pod::Spec.new do |s|
 
   s.source_files = 'IrohaCrypto/Classes/**/*', 'IrohaCryptoImp/**/*.h'
   s.public_header_files = 'IrohaCrypto/Classes/**/*.h'
-  s.private_header_files = 'IrohaCryptoImp/**/*.h'
-  s.vendored_libraries = 'IrohaCryptoImp/libed25519.a'
+  s.private_header_files = 'IrohaCryptoImp/**/*.h', 'libsodium-ios/**/*.h'
+  s.vendored_libraries = 'IrohaCryptoImp/libed25519.a', 'libsodium-ios/lib/libsodium.a'
   s.preserve_paths = 'IrohaCryptoImp/**/*.h'
   s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/IrohaCryptoImp/include/**", 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }
 
-  s.libraries = 'ed25519'
+  s.libraries = 'ed25519', 'sodium'
 
   s.test_spec do |ts|
       ts.source_files = 'Tests/**/*.{h,m}'
