@@ -16,22 +16,15 @@
 
 @implementation IRMnemonicCreatorTests
 
-- (void)test100DifferentMnemonics {
+- (void)testMnemonicCreationPerformance {
     IRBIP39MnemonicCreator *mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
 
-    for(IRMnemonicStrength strength = IREntropy128; strength <= IREntropy320; strength += 32) {
-        NSMutableSet<NSString*>* mnemonics = [NSMutableSet set];
-
-        for(int i = 0; i < 100; i++) {
+    [self measureBlock:^{
+        for(IRMnemonicStrength strength = IREntropy128; strength <= IREntropy320; strength += 32) {
             id<IRMnemonicProtocol> mnemonic = [mnemonicCreator randomMnemonic:strength error:nil];
             XCTAssertNotNil(mnemonic);
-
-            NSString *mnemonicString = [mnemonic toString];
-            XCTAssertFalse([mnemonics containsObject:mnemonicString]);
-
-            [mnemonics addObject:mnemonicString];
         }
-    }
+    }];
 }
 
 - (void)testMnemonicValidness {
@@ -54,7 +47,7 @@
     IRBIP39MnemonicCreator *mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
 
     for(int index = 0; index < MNEMONIC_COUNT; index++) {
-        NSData *entropy = [[NSData alloc] initWithHexString:MNEMONIC_SEED[index]];
+        NSData *entropy = [[NSData alloc] initWithHexString:MNEMONIC_ENTROPY[index]];
 
         id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromEntropy:entropy error:nil];
         XCTAssertNotNil(mnemonic);
@@ -74,7 +67,7 @@
         id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromList:words error:nil];
         XCTAssertNotNil(mnemonic);
 
-        NSData *expectedEntropy = [[NSData alloc] initWithHexString:MNEMONIC_SEED[index]];
+        NSData *expectedEntropy = [[NSData alloc] initWithHexString:MNEMONIC_ENTROPY[index]];
         NSData *resultEntropy = mnemonic.entropy;
         XCTAssertEqualObjects(expectedEntropy, resultEntropy);
     }

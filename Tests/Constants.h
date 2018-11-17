@@ -66,7 +66,7 @@ static NSString * const HASH_SHA_512[] = {
 
 static const int MNEMONIC_COUNT = 24;
 
-static NSString * const MNEMONIC_SEED[] = {
+static NSString * const MNEMONIC_ENTROPY[] = {
     @"00000000000000000000000000000000",
     @"7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
     @"80808080808080808080808080808080",

@@ -59,7 +59,7 @@ const char *randombytes_implementation_name(void);
 /* -- NaCl compatibility interface -- */
 
 SODIUM_EXPORT
-void randombytes(unsigned char * const buf, const unsigned long long buf_len);
+void sodiumrandombytes(unsigned char * const buf, const unsigned long long buf_len);
 
 #ifdef __cplusplus
 }

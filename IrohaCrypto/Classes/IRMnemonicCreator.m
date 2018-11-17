@@ -26,6 +26,10 @@ static const unsigned char BITS_PER_WORD = 11;
 
 #pragma mark - Initialization
 
++ (instancetype)defaultCreator {
+    return [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+}
+
 - (nonnull instancetype)initWithLanguage:(IRMnemonicLanguage)language {
     if (self = [super init]) {
         _language = language;

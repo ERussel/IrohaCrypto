@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02920380219DBB6E00D9BACD /* IRMnemonicCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */; };
+		0292040421A09FA200D9BACD /* IRBIP39ScryptSeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292040321A09FA200D9BACD /* IRBIP39ScryptSeedTests.m */; };
 		02C85055217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85051217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m */; };
 		02C85056217F679800C6A4E7 /* IRHashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85052217F679800C6A4E7 /* IRHashTests.m */; };
 		02C85057217F679800C6A4E7 /* IRSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85054217F679800C6A4E7 /* IRSignatureTests.m */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IRMnemonicCreatorTests.m; path = ../../Tests/IRMnemonicCreatorTests.m; sourceTree = "<group>"; };
+		0292040321A09FA200D9BACD /* IRBIP39ScryptSeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IRBIP39ScryptSeedTests.m; path = ../../Tests/IRBIP39ScryptSeedTests.m; sourceTree = "<group>"; };
 		02C85049217F678200C6A4E7 /* IrohaCryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IrohaCryptoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C8504D217F678200C6A4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C85051217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRCryptoKeyFactoryTests.m; path = ../../Tests/IRCryptoKeyFactoryTests.m; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				02C85054217F679800C6A4E7 /* IRSignatureTests.m */,
 				02C85058217F687B00C6A4E7 /* IRHexTests.m */,
 				0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */,
+				0292040321A09FA200D9BACD /* IRBIP39ScryptSeedTests.m */,
 				02C8504D217F678200C6A4E7 /* Info.plist */,
 			);
 			path = IrohaCryptoTests;
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0292040421A09FA200D9BACD /* IRBIP39ScryptSeedTests.m in Sources */,
 				02920380219DBB6E00D9BACD /* IRMnemonicCreatorTests.m in Sources */,
 				02C85056217F679800C6A4E7 /* IRHashTests.m in Sources */,
 				02C85055217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m in Sources */,
@@ -372,6 +376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ANAULAA354;
 				INFOPLIST_FILE = IrohaCryptoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,6 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ANAULAA354;
 				INFOPLIST_FILE = IrohaCryptoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -524,7 +530,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ANAULAA354;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = IrohaCryptoExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -543,7 +551,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ANAULAA354;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = IrohaCryptoExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
