@@ -212,7 +212,7 @@ static const unsigned char BITS_PER_WORD = 11;
 - (nullable instancetype)initWithWords:(nonnull NSArray<NSString*>*)words andEntropy:(nonnull NSData*)entropy {
     if (self = [super init]) {
         _words = [words copy];
-        _entropy = entropy;
+        _entropy = [entropy copy];
     }
 
     return self;
