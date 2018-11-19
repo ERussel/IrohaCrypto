@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
 
-  s.exclude_files = 'libsodium-ios/include/sodium/randombytes.h', 'libsodium-ios/include/sodium.h'
   s.source_files = 'IrohaCrypto/Classes/**/*', 'IrohaCryptoImp/**/*.h', 'libsodium-ios/**/*.h'
   s.public_header_files = 'IrohaCrypto/Classes/**/*.h'
   s.private_header_files = 'IrohaCryptoImp/**/*.h', 'libsodium-ios/**/*.h'

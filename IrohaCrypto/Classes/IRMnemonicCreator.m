@@ -41,7 +41,7 @@ static const unsigned char BITS_PER_WORD = 11;
 #pragma mark - IRMnemonicCreatorProtocol
 
 - (nullable id<IRMnemonicProtocol>)randomMnemonic:(IRMnemonicStrength)strength error:(NSError**)error {
-    NSUInteger bytesCount = strength / 8;
+    NSUInteger bytesCount = strength / BITS_PER_BYTE;
     NSMutableData *entropy = [NSMutableData dataWithLength:bytesCount];
 
     int status = SecRandomCopyBytes(kSecRandomDefault, entropy.length, entropy.mutableBytes);
