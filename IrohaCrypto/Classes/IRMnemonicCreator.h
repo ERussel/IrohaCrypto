@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, IRMnemonicLanguage) {
 
 @property(readonly, nonatomic)IRMnemonicLanguage language;
 
-+ (instancetype)defaultCreator;
++ (nonnull instancetype)defaultCreator;
 
 - (nonnull instancetype)initWithLanguage:(IRMnemonicLanguage)language;
 
