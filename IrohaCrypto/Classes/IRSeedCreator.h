@@ -45,8 +45,8 @@ typedef NS_ENUM(NSUInteger, IRSeedError) {
 
 @interface IRBIP39ScryptSeedCreator : NSObject<IRSeedCreatorProtocol>
 
-+ (instancetype)defaultCreator;
++ (nonnull instancetype)defaultCreator;
 
-- (instancetype)initWithMnemonicCreator:(nonnull IRBIP39MnemonicCreator*)mnemonicCreator;
+- (nonnull instancetype)initWithMnemonicCreator:(nonnull IRBIP39MnemonicCreator*)mnemonicCreator;
 
 @end
