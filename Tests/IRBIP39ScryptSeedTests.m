@@ -25,10 +25,10 @@ static NSString* const SCRYPT_MNEMONICS[] = {
 };
 
 static NSString* const SCRYPT_SEED[] = {
-    @"8986c5b27dfb70f58592fe53d76a765b8d75789cd28e0e630b2cfba9d1c2522a",
-    @"49ec553ea961eff6e7e7c2df51e11c45eeee0363d4509c200cde98d37165108d",
-    @"3c15118ea2b9210a9a3d690397455eacb7a3d20520f42c4416db263df2c19b0f",
-    @"63850903c3d3dbf60369fd8a63cae9a04e4afec9778eb00dfeb123233355899b"
+    @"2a58dee913307de72e6cf7ea851ab094a48be772f7177b846df19098825d1d11",
+    @"a56b245dee3da0be3d566d1b80194e5547a330a986b2834e2019412a110b3638",
+    @"fa2672dec1273487e71dcce4e14124e1004ffd9eda0e2650c8165024a7d20c6e",
+    @"62e74dda4085b3c9c0e0de6e39aa925842b99a71447c3fbdcc0d4f5f5f36428b"
 };
 
 @interface IRBIP39ScryptSeedTests : XCTestCase
