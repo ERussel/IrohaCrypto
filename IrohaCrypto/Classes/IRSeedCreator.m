@@ -11,7 +11,7 @@
 static const NSUInteger MEMORY_COST = 16384;
 static const NSUInteger PARALELIZATION_FACTOR = 1;
 static const NSUInteger BLOCK_SIZE = 8;
-
+static NSString* const WORDS_SEPARATOR = @" ";
 
 @interface IRBIP39ScryptSeedCreator()
 
@@ -67,13 +67,22 @@ static const NSUInteger BLOCK_SIZE = 8;
                                     resultMnemonic:(id<IRMnemonicProtocol> *)mnemonic
                                              error:(NSError**)error {
     *mnemonic = [_mnemonicCreator randomMnemonic:strength error:error];
-    NSData* entropy = [*mnemonic entropy];
 
     if (!(*mnemonic)) {
         return nil;
     }
 
-    return [IRBIP39ScryptSeedCreator createSeedWithPassword:entropy
+    NSString* normalizedMnemonic = [[*mnemonic toString] decomposedStringWithCompatibilityMapping];
+    NSData* password = [normalizedMnemonic dataUsingEncoding:NSUTF8StringEncoding];
+
+    if (!password) {
+        *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                     code:IRPasswordFromMnemonicFailed
+                                 userInfo:@{NSLocalizedDescriptionKey: @"Can't create password from mnemonic"}];
+        return nil;
+    }
+
+    return [IRBIP39ScryptSeedCreator createSeedWithPassword:password
                                                        salt:salt
                                                      length:seedLength
                                                       error:error];
@@ -104,7 +113,7 @@ static const NSUInteger BLOCK_SIZE = 8;
                                             salt:(nonnull NSData*)salt
                                           length:(NSUInteger)seedLength
                                            error:(NSError**)error {
-    NSArray<NSString*>* wordList = [mnemonicPhrase componentsSeparatedByString:@" "];
+    NSArray<NSString*>* wordList = [mnemonicPhrase componentsSeparatedByString:WORDS_SEPARATOR];
     id<IRMnemonicProtocol> mnemonic = [_mnemonicCreator mnemonicFromList:wordList
                                                                    error:error];
 
@@ -112,9 +121,18 @@ static const NSUInteger BLOCK_SIZE = 8;
         return nil;
     }
 
-    NSData* entropy = [mnemonic entropy];
+    NSString* normalizedMnemonic = [[mnemonic toString] decomposedStringWithCompatibilityMapping];
+    NSData* password = [normalizedMnemonic dataUsingEncoding:NSUTF8StringEncoding];
 
-    return [IRBIP39ScryptSeedCreator createSeedWithPassword:entropy
+    if (!password) {
+        *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                     code:IRPasswordFromMnemonicFailed
+                                 userInfo:@{NSLocalizedDescriptionKey: @"Can't create password from mnemonic"}];
+        return nil;
+    }
+
+
+    return [IRBIP39ScryptSeedCreator createSeedWithPassword:password
                                                        salt:salt
                                                      length:seedLength
                                                       error:error];
