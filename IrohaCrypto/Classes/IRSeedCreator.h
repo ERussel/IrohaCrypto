@@ -40,6 +40,7 @@
 
 typedef NS_ENUM(NSUInteger, IRSeedError) {
     IREmptySalt,
+    IRPasswordFromMnemonicFailed,
     IRScryptFailed
 };
 
