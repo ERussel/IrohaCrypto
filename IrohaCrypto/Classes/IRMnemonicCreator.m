@@ -47,8 +47,11 @@ static const unsigned char BITS_PER_WORD = 11;
     int status = SecRandomCopyBytes(kSecRandomDefault, entropy.length, entropy.mutableBytes);
 
     if (status != errSecSuccess) {
-        *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Can't generate %@ random bytes", @(bytesCount)]
-                                                     code:IRRandomGenerationFailed];
+        if (error) {
+            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Can't generate %@ random bytes", @(bytesCount)]
+                                                         code:IRRandomGenerationFailed];
+        }
+
         return nil;
     }
 
@@ -59,8 +62,11 @@ static const unsigned char BITS_PER_WORD = 11;
     NSUInteger entropyLength = entropy.length;
 
     if (![IRBIP39MnemonicCreator isValidEntropyLength:entropyLength]) {
-        *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Invalid entropy length %@", @(entropyLength)]
-                                                     code:IRInvalidEntropyLength];
+        if (error) {
+            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Invalid entropy length %@", @(entropyLength)]
+                                                         code:IRInvalidEntropyLength];
+        }
+
         return nil;
     }
 
@@ -95,8 +101,11 @@ static const unsigned char BITS_PER_WORD = 11;
 - (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSArray<NSString*> *)wordList error:(NSError**)error {
     NSUInteger wordsCount = wordList.count;
     if (![IRBIP39MnemonicCreator isValidWordsCount:wordsCount]) {
-        *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Invalid number of words %@ in word list", @(wordsCount)]
-                                                     code:IRInvalidNumberOfWords];
+        if (error) {
+            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Invalid number of words %@ in word list", @(wordsCount)]
+                                                         code:IRInvalidNumberOfWords];
+        }
+
         return nil;
     }
 
@@ -110,8 +119,11 @@ static const unsigned char BITS_PER_WORD = 11;
         NSUInteger vocabularyIndex = [vocabulary indexOfObject:wordList[wordIndex]];
 
         if (vocabularyIndex == NSNotFound) {
-            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Word %@ not found in language %@", wordList[wordIndex], @(_language)]
-                                                         code:IRWordNotFound];
+            if (error) {
+                *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Word %@ not found in language %@", wordList[wordIndex], @(_language)]
+                                                             code:IRWordNotFound];
+            }
+
             return nil;
         }
 
@@ -136,8 +148,11 @@ static const unsigned char BITS_PER_WORD = 11;
                                                                 checksumBytes:&entropyWithChecksumBytes[entropyLength]];
 
     if (!isValidChecksum) {
-        *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Entropy data not matching checksum"]
-                                                     code:IRChecksumFailed];
+        if (error) {
+            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Entropy data not matching checksum"]
+                                                         code:IRChecksumFailed];
+        }
+
         return nil;
     }
 
