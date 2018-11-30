@@ -76,9 +76,12 @@ static NSString* const WORDS_SEPARATOR = @" ";
     NSData* password = [normalizedMnemonic dataUsingEncoding:NSUTF8StringEncoding];
 
     if (!password) {
-        *error = [NSError errorWithDomain:NSStringFromClass([self class])
-                                     code:IRPasswordFromMnemonicFailed
-                                 userInfo:@{NSLocalizedDescriptionKey: @"Can't create password from mnemonic"}];
+        if (error) {
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRPasswordFromMnemonicFailed
+                                     userInfo:@{NSLocalizedDescriptionKey: @"Can't create password from mnemonic"}];
+        }
+
         return nil;
     }
 
@@ -125,9 +128,12 @@ static NSString* const WORDS_SEPARATOR = @" ";
     NSData* password = [normalizedMnemonic dataUsingEncoding:NSUTF8StringEncoding];
 
     if (!password) {
-        *error = [NSError errorWithDomain:NSStringFromClass([self class])
-                                     code:IRPasswordFromMnemonicFailed
-                                 userInfo:@{NSLocalizedDescriptionKey: @"Can't create password from mnemonic"}];
+        if (error) {
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRPasswordFromMnemonicFailed
+                                     userInfo:@{NSLocalizedDescriptionKey: @"Can't create password from mnemonic"}];
+        }
+
         return nil;
     }
 
@@ -157,10 +163,13 @@ static NSString* const WORDS_SEPARATOR = @" ";
                                                        length);
 
     if (status != 0) {
-        NSString *message = [NSString stringWithFormat:@"Unexpected scrypt status %@ received", @(status)];
-        *error = [NSError errorWithDomain:NSStringFromClass([self class])
-                                     code:IRScryptFailed
-                                 userInfo:@{NSLocalizedDescriptionKey: message}];
+        if (error) {
+            NSString *message = [NSString stringWithFormat:@"Unexpected scrypt status %@ received", @(status)];
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRScryptFailed
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
         return nil;
     }
 
@@ -177,9 +186,11 @@ static NSString* const WORDS_SEPARATOR = @" ";
     NSData* saltData = [normalizedSalt dataUsingEncoding:NSUTF8StringEncoding];
 
     if (!saltData) {
-        *error = [NSError errorWithDomain:NSStringFromClass([self class])
-                                     code:IREmptySalt
-                                 userInfo:@{NSLocalizedDescriptionKey: @"Unexpected nil salt"}];
+        if (error) {
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IREmptySalt
+                                     userInfo:@{NSLocalizedDescriptionKey: @"Unexpected nil salt"}];
+        }
     }
 
     return saltData;

@@ -38,7 +38,7 @@
 - (nonnull NSString*)toHexString {
     NSUInteger length = [self length];
 
-    char *cString = malloc(sizeof(unichar) * 2 * length);
+    char *cString = malloc(sizeof(char) * 2 * length);
 
     uint8_t *bytes = (uint8_t*)[self bytes];
 
@@ -46,7 +46,11 @@
         sprintf(&cString[2 * index], "%02x", bytes[index]);
     }
 
-    return [[NSString alloc] initWithCString:cString encoding:NSASCIIStringEncoding];
+    NSString *result = [[NSString alloc] initWithCString:cString encoding:NSASCIIStringEncoding];
+
+    free(cString);
+
+    return result;
 }
 
 @end
