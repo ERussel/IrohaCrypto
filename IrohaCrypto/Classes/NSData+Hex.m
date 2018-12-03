@@ -46,7 +46,7 @@
         sprintf(&cString[2 * index], "%02x", bytes[index]);
     }
 
-    cString[2*length] = 0;
+    cString[2*length] = '\0';
 
     NSString *result = [[NSString alloc] initWithCString:cString encoding:NSASCIIStringEncoding];
 
