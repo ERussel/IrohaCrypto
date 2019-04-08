@@ -18,7 +18,7 @@
 
 @interface IRCryptoKeypair : NSObject<IRCryptoKeypairProtocol>
 
-- (instancetype)initPublicKey:(_Nonnull id<IRPublicKeyProtocol>)publicKey
+- (nonnull instancetype)initPublicKey:(_Nonnull id<IRPublicKeyProtocol>)publicKey
                    privateKey:(_Nonnull id<IRPrivateKeyProtocol>)privateKey;
 
 @end

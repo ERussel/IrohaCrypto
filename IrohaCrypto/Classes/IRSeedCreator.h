@@ -15,26 +15,26 @@
                                            project:(nonnull NSString*)project
                                            purpose:(nonnull NSString*)purpose
                                             length:(NSUInteger)seedLength
-                                    resultMnemonic:(id<IRMnemonicProtocol> *)mnemonic
-                                             error:(NSError**)error;
+                                    resultMnemonic:(id<IRMnemonicProtocol> _Nullable * _Nonnull)mnemonic
+                                             error:(NSError*_Nullable*_Nullable)error;
 
 - (nullable NSData*)randomSeedWithMnemonicStrength:(IRMnemonicStrength)strength
                                               salt:(nonnull NSData*)salt
                                             length:(NSUInteger)seedLength
-                                    resultMnemonic:(id<IRMnemonicProtocol> *)mnemonic
-                                             error:(NSError**)error;
+                                    resultMnemonic:(id<IRMnemonicProtocol> _Nullable * _Nonnull)mnemonic
+                                             error:(NSError*_Nullable*_Nullable)error;
 
 - (nullable NSData*)deriveSeedFromMnemonicPhrase:(nonnull NSString*)mnemonicPhrase
                                         password:(nonnull NSString*)password
                                          project:(nonnull NSString*)project
                                          purpose:(nonnull NSString*)purpose
                                           length:(NSUInteger)seedLength
-                                           error:(NSError**)error;
+                                           error:(NSError*_Nullable*_Nullable)error;
 
 - (nullable NSData*)deriveSeedFromMnemonicPhrase:(nonnull NSString*)mnemonicPhrase
                                             salt:(nonnull NSData*)salt
                                           length:(NSUInteger)seedLength
-                                           error:(NSError**)error;
+                                           error:(NSError*_Nullable*_Nullable)error;
 
 @end
 

@@ -12,7 +12,7 @@
 @protocol IRSignatureVerifierProtocol <NSObject>
 
 - (BOOL)verify:(id<IRSignatureProtocol> _Nonnull)signature
-forOriginalData:(NSData*)originalData
+forOriginalData:(nonnull NSData*)originalData
 usingPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey;
 
 @end

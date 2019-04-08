@@ -17,8 +17,8 @@
 
 @implementation IRCryptoKeypair
 
-- (instancetype)initPublicKey:(_Nonnull id<IRPublicKeyProtocol>)publicKey
-                   privateKey:(_Nonnull id<IRPrivateKeyProtocol>)privateKey {
+- (nonnull instancetype)initPublicKey:(_Nonnull id<IRPublicKeyProtocol>)publicKey
+                           privateKey:(_Nonnull id<IRPrivateKeyProtocol>)privateKey {
     self = [super init];
 
     if (self) {

@@ -9,7 +9,7 @@
 
 @interface NSData (Hex)
 
-- (instancetype)initWithHexString:(nonnull NSString*)hexString;
+- (nullable instancetype)initWithHexString:(nonnull NSString*)hexString;
 
 - (nonnull NSString*)toHexString;
 

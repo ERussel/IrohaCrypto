@@ -191,6 +191,7 @@
 					};
 					02D61B8621771F400047F7E7 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -242,7 +243,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IrohaCrypto/IrohaCrypto.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -253,7 +254,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C27991EA549C0CD3DE9EB02F /* [CP] Check Pods Manifest.lock */ = {
@@ -308,7 +309,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IrohaCrypto/IrohaCrypto.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -319,7 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -539,7 +540,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.soramitsu.IrohaCryptoExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -560,7 +561,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.soramitsu.IrohaCryptoExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

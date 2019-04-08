@@ -9,7 +9,7 @@
 
 @implementation NSData (Hex)
 
-- (instancetype)initWithHexString:(nonnull NSString*)hexString {
+- (nullable instancetype)initWithHexString:(nonnull NSString*)hexString {
     NSUInteger length = [hexString length];
 
     if (length % 2 != 0) {

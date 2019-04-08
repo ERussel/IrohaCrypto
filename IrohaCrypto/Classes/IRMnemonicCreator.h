@@ -41,9 +41,12 @@ typedef NS_ENUM(NSUInteger, IRMnemonicLanguage) {
 
 @protocol IRMnemonicCreatorProtocol <NSObject>
 
-- (nullable id<IRMnemonicProtocol>)randomMnemonic:(IRMnemonicStrength)strength error:(NSError**)error;
-- (nullable id<IRMnemonicProtocol>)mnemonicFromEntropy:(nonnull NSData*)entropy error:(NSError**)error;
-- (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSArray<NSString*> *)wordList error:(NSError**)error;
+- (nullable id<IRMnemonicProtocol>)randomMnemonic:(IRMnemonicStrength)strength
+                                            error:(NSError*_Nullable*_Nullable)error;
+- (nullable id<IRMnemonicProtocol>)mnemonicFromEntropy:(nonnull NSData*)entropy
+                                                 error:(NSError*_Nullable*_Nullable)error;
+- (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSArray<NSString*> *)wordList
+                                              error:(NSError*_Nullable*_Nullable)error;
 
 @end
 

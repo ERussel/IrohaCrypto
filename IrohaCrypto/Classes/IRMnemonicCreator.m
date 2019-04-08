@@ -40,7 +40,8 @@ static const unsigned char BITS_PER_WORD = 11;
 
 #pragma mark - IRMnemonicCreatorProtocol
 
-- (nullable id<IRMnemonicProtocol>)randomMnemonic:(IRMnemonicStrength)strength error:(NSError**)error {
+- (nullable id<IRMnemonicProtocol>)randomMnemonic:(IRMnemonicStrength)strength
+                                            error:(NSError*_Nullable*_Nullable)error {
     NSUInteger bytesCount = strength / BITS_PER_BYTE;
     NSMutableData *entropy = [NSMutableData dataWithLength:bytesCount];
 
@@ -58,7 +59,8 @@ static const unsigned char BITS_PER_WORD = 11;
     return [self mnemonicFromEntropy:entropy error:error];
 }
 
-- (nullable id<IRMnemonicProtocol>)mnemonicFromEntropy:(nonnull NSData*)entropy error:(NSError**)error {
+- (nullable id<IRMnemonicProtocol>)mnemonicFromEntropy:(nonnull NSData*)entropy
+                                                 error:(NSError*_Nullable*_Nullable)error {
     NSUInteger entropyLength = entropy.length;
 
     if (![IRBIP39MnemonicCreator isValidEntropyLength:entropyLength]) {
@@ -98,7 +100,8 @@ static const unsigned char BITS_PER_WORD = 11;
     return [[IRMnemonic alloc] initWithWords:mnemonicWords andEntropy:entropy];
 }
 
-- (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSArray<NSString*> *)wordList error:(NSError**)error {
+- (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSArray<NSString*> *)wordList
+                                              error:(NSError*_Nullable*_Nullable)error {
     NSUInteger wordsCount = wordList.count;
     if (![IRBIP39MnemonicCreator isValidWordsCount:wordsCount]) {
         if (error) {

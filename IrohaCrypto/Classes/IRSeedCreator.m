@@ -43,8 +43,8 @@ static NSString* const WORDS_SEPARATOR = @" ";
                                            project:(nonnull NSString*)project
                                            purpose:(nonnull NSString*)purpose
                                             length:(NSUInteger)seedLength
-                                    resultMnemonic:(id<IRMnemonicProtocol> *)mnemonic
-                                             error:(NSError**)error {
+                                    resultMnemonic:(id<IRMnemonicProtocol> _Nullable * _Nonnull)mnemonic
+                                             error:(NSError*_Nullable*_Nullable)error {
     NSData* saltData = [IRBIP39ScryptSeedCreator createSaltFromPassword:password
                                                                 project:project
                                                                 purpose:purpose
@@ -64,8 +64,8 @@ static NSString* const WORDS_SEPARATOR = @" ";
 - (nullable NSData*)randomSeedWithMnemonicStrength:(IRMnemonicStrength)strength
                                               salt:(nonnull NSData*)salt
                                             length:(NSUInteger)seedLength
-                                    resultMnemonic:(id<IRMnemonicProtocol> *)mnemonic
-                                             error:(NSError**)error {
+                                    resultMnemonic:(id<IRMnemonicProtocol> _Nullable * _Nonnull)mnemonic
+                                             error:(NSError*_Nullable*_Nullable)error {
     *mnemonic = [_mnemonicCreator randomMnemonic:strength error:error];
 
     if (!(*mnemonic)) {
@@ -96,7 +96,7 @@ static NSString* const WORDS_SEPARATOR = @" ";
                                          project:(nonnull NSString*)project
                                          purpose:(nonnull NSString*)purpose
                                           length:(NSUInteger)seedLength
-                                           error:(NSError**)error {
+                                           error:(NSError*_Nullable*_Nullable)error {
     NSData* saltData = [IRBIP39ScryptSeedCreator createSaltFromPassword:password
                                                                 project:project
                                                                 purpose:purpose
@@ -115,7 +115,7 @@ static NSString* const WORDS_SEPARATOR = @" ";
 - (nullable NSData*)deriveSeedFromMnemonicPhrase:(nonnull NSString*)mnemonicPhrase
                                             salt:(nonnull NSData*)salt
                                           length:(NSUInteger)seedLength
-                                           error:(NSError**)error {
+                                           error:(NSError*_Nullable*_Nullable)error {
     NSArray<NSString*>* wordList = [mnemonicPhrase componentsSeparatedByString:WORDS_SEPARATOR];
     id<IRMnemonicProtocol> mnemonic = [_mnemonicCreator mnemonicFromList:wordList
                                                                    error:error];
@@ -149,7 +149,7 @@ static NSString* const WORDS_SEPARATOR = @" ";
 + (nullable NSData*)createSeedWithPassword:(nonnull NSData*)password
                                       salt:(nonnull NSData*)salt
                                     length:(NSUInteger)length
-                                     error:(NSError**)error {
+                                     error:(NSError*_Nullable*_Nullable)error {
     uint8_t result[length];
 
     int status = crypto_pwhash_scryptsalsa208sha256_ll((uint8_t*)(password.bytes),
@@ -179,7 +179,7 @@ static NSString* const WORDS_SEPARATOR = @" ";
 + (nullable NSData*)createSaltFromPassword:(nonnull NSString*)password
                                    project:(nonnull NSString*)project
                                    purpose:(nonnull NSString*)purpose
-                                     error:(NSError**)error {
+                                     error:(NSError*_Nullable*_Nullable)error {
     NSString* normalizedSalt = [[NSString stringWithFormat:@"%@|%@|%@", project, purpose, password]
                                 decomposedStringWithCompatibilityMapping];
 
