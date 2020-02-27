@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IRKeyDeriviationFunction.h"
 #import "IRMnemonicCreator.h"
 
 @protocol IRSeedCreatorProtocol <NSObject>
@@ -39,15 +40,12 @@
 @end
 
 typedef NS_ENUM(NSUInteger, IRSeedError) {
-    IREmptySalt,
-    IRPasswordFromMnemonicFailed,
-    IRScryptFailed
+    IREmptySalt
 };
 
-@interface IRBIP39ScryptSeedCreator : NSObject<IRSeedCreatorProtocol>
+@interface IRSeedCreator : NSObject<IRSeedCreatorProtocol>
 
-+ (nonnull instancetype)defaultCreator;
-
-- (nonnull instancetype)initWithMnemonicCreator:(nonnull IRBIP39MnemonicCreator*)mnemonicCreator;
+- (nonnull instancetype)initWithMnemonicCreator:(nonnull id<IRMnemonicCreatorProtocol>)mnemonicCreator
+                                 keyDeriviation:(nonnull id<IRKeyDeriviationFunction>)keyDeriviation;
 
 @end

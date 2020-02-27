@@ -31,14 +31,14 @@ static NSString* const SCRYPT_SEED[] = {
     @"62e74dda4085b3c9c0e0de6e39aa925842b99a71447c3fbdcc0d4f5f5f36428b"
 };
 
-@interface IRBIP39ScryptSeedTests : XCTestCase
+@interface IRScryptSeedTests : XCTestCase
 
 @end
 
-@implementation IRBIP39ScryptSeedTests
+@implementation IRScryptSeedTests
 
 - (void)testSeedMatching {
-    IRBIP39ScryptSeedCreator *seedCreator = [IRBIP39ScryptSeedCreator defaultCreator];
+    IRSeedCreator *seedCreator = [IRSeedCreator scrypt];
     for (NSUInteger index = 0; index < SCRYPT_TEST_COUNT; index++) {
         NSError *error = nil;
         NSData *seed = [seedCreator deriveSeedFromMnemonicPhrase:SCRYPT_MNEMONICS[index]
@@ -56,7 +56,7 @@ static NSString* const SCRYPT_SEED[] = {
 }
 
 - (void)testMnemonicMatchesSeedFromInfo {
-    IRBIP39ScryptSeedCreator *seedCreator = [IRBIP39ScryptSeedCreator defaultCreator];
+    IRSeedCreator *seedCreator = [IRSeedCreator scrypt];
 
     for(IRMnemonicStrength strength = IREntropy128; strength <= IREntropy320; strength += IREntropy160 - IREntropy128) {
         id<IRMnemonicProtocol> mnemonic = nil;
@@ -84,7 +84,7 @@ static NSString* const SCRYPT_SEED[] = {
 }
 
 - (void)testMnemonicMatchesSeedFromSalt {
-    IRBIP39ScryptSeedCreator *seedCreator = [IRBIP39ScryptSeedCreator defaultCreator];
+    IRSeedCreator *seedCreator = [IRSeedCreator scrypt];
 
     for (NSUInteger hashIndex = 0; hashIndex < HASHES_COUNT; hashIndex++) {
         NSData *salt = [[NSData alloc] initWithHexString:HASH_SHA_256[hashIndex]];
@@ -111,7 +111,7 @@ static NSString* const SCRYPT_SEED[] = {
 }
 
 - (void)testRandomSeedPerformanceExample {
-    IRBIP39ScryptSeedCreator *seedCreator = [IRBIP39ScryptSeedCreator defaultCreator];
+    IRSeedCreator *seedCreator = [IRSeedCreator scrypt];
 
     [self measureBlock:^{
         for(IRMnemonicStrength strength = IREntropy128; strength <= IREntropy320; strength += IREntropy160 - IREntropy128) {

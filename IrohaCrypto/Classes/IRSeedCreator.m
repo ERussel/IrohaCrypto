@@ -6,31 +6,25 @@
 //
 
 #import "IRSeedCreator.h"
-#import "crypto_pwhash_scryptsalsa208sha256.h"
 
-static const NSUInteger MEMORY_COST = 16384;
-static const NSUInteger PARALELIZATION_FACTOR = 1;
-static const NSUInteger BLOCK_SIZE = 8;
 static NSString* const WORDS_SEPARATOR = @" ";
 
-@interface IRBIP39ScryptSeedCreator()
+@interface IRSeedCreator()
 
-@property(strong, nonatomic)IRBIP39MnemonicCreator* _Nonnull mnemonicCreator;
+@property(strong, nonatomic)id<IRMnemonicCreatorProtocol> mnemonicCreator;
+@property(strong, nonatomic)id<IRKeyDeriviationFunction> keyDeriviation;
 
 @end
 
-@implementation IRBIP39ScryptSeedCreator
+@implementation IRSeedCreator
 
 #pragma mark - Initialize
 
-+ (instancetype)defaultCreator {
-    IRBIP39MnemonicCreator* mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
-    return [[IRBIP39ScryptSeedCreator alloc] initWithMnemonicCreator:mnemonicCreator];
-}
-
-- (instancetype)initWithMnemonicCreator:(IRBIP39MnemonicCreator*)mnemonicCreator {
+- (nonnull instancetype)initWithMnemonicCreator:(nonnull id<IRMnemonicCreatorProtocol>)mnemonicCreator
+                                 keyDeriviation:(nonnull id<IRKeyDeriviationFunction>)keyDeriviation {
     if (self = [super init]) {
         _mnemonicCreator = mnemonicCreator;
+        _keyDeriviation = keyDeriviation;
     }
 
     return self;
@@ -45,10 +39,10 @@ static NSString* const WORDS_SEPARATOR = @" ";
                                             length:(NSUInteger)seedLength
                                     resultMnemonic:(id<IRMnemonicProtocol> _Nullable * _Nonnull)mnemonic
                                              error:(NSError*_Nullable*_Nullable)error {
-    NSData* saltData = [IRBIP39ScryptSeedCreator createSaltFromPassword:password
-                                                                project:project
-                                                                purpose:purpose
-                                                                  error:error];
+    NSData* saltData = [IRSeedCreator createSaltFromPassword:password
+                                                     project:project
+                                                     purpose:purpose
+                                                       error:error];
 
     if (!saltData) {
         return nil;
@@ -73,22 +67,11 @@ static NSString* const WORDS_SEPARATOR = @" ";
     }
 
     NSString* normalizedMnemonic = [[*mnemonic toString] decomposedStringWithCompatibilityMapping];
-    NSData* password = [normalizedMnemonic dataUsingEncoding:NSUTF8StringEncoding];
 
-    if (!password) {
-        if (error) {
-            *error = [NSError errorWithDomain:NSStringFromClass([self class])
-                                         code:IRPasswordFromMnemonicFailed
-                                     userInfo:@{NSLocalizedDescriptionKey: @"Can't create password from mnemonic"}];
-        }
-
-        return nil;
-    }
-
-    return [IRBIP39ScryptSeedCreator createSeedWithPassword:password
-                                                       salt:salt
-                                                     length:seedLength
-                                                      error:error];
+    return [_keyDeriviation deriveKeyFrom:normalizedMnemonic
+                                     salt:salt
+                                   length:seedLength
+                                    error:error];
 }
 
 - (nullable NSData*)deriveSeedFromMnemonicPhrase:(nonnull NSString*)mnemonicPhrase
@@ -97,10 +80,10 @@ static NSString* const WORDS_SEPARATOR = @" ";
                                          purpose:(nonnull NSString*)purpose
                                           length:(NSUInteger)seedLength
                                            error:(NSError*_Nullable*_Nullable)error {
-    NSData* saltData = [IRBIP39ScryptSeedCreator createSaltFromPassword:password
-                                                                project:project
-                                                                purpose:purpose
-                                                                  error:error];
+    NSData* saltData = [IRSeedCreator createSaltFromPassword:password
+                                                     project:project
+                                                     purpose:purpose
+                                                       error:error];
 
     if (!saltData) {
         return nil;
@@ -125,55 +108,11 @@ static NSString* const WORDS_SEPARATOR = @" ";
     }
 
     NSString* normalizedMnemonic = [[mnemonic toString] decomposedStringWithCompatibilityMapping];
-    NSData* password = [normalizedMnemonic dataUsingEncoding:NSUTF8StringEncoding];
 
-    if (!password) {
-        if (error) {
-            *error = [NSError errorWithDomain:NSStringFromClass([self class])
-                                         code:IRPasswordFromMnemonicFailed
-                                     userInfo:@{NSLocalizedDescriptionKey: @"Can't create password from mnemonic"}];
-        }
-
-        return nil;
-    }
-
-
-    return [IRBIP39ScryptSeedCreator createSeedWithPassword:password
-                                                       salt:salt
-                                                     length:seedLength
-                                                      error:error];
-}
-
-#pragma mark - Helpers
-
-+ (nullable NSData*)createSeedWithPassword:(nonnull NSData*)password
-                                      salt:(nonnull NSData*)salt
-                                    length:(NSUInteger)length
-                                     error:(NSError*_Nullable*_Nullable)error {
-    uint8_t result[length];
-
-    int status = crypto_pwhash_scryptsalsa208sha256_ll((uint8_t*)(password.bytes),
-                                                       password.length,
-                                                       (uint8_t*)(salt.bytes),
-                                                       salt.length,
-                                                       MEMORY_COST,
-                                                       BLOCK_SIZE,
-                                                       PARALELIZATION_FACTOR,
-                                                       result,
-                                                       length);
-
-    if (status != 0) {
-        if (error) {
-            NSString *message = [NSString stringWithFormat:@"Unexpected scrypt status %@ received", @(status)];
-            *error = [NSError errorWithDomain:NSStringFromClass([self class])
-                                         code:IRScryptFailed
-                                     userInfo:@{NSLocalizedDescriptionKey: message}];
-        }
-
-        return nil;
-    }
-
-    return [NSData dataWithBytes:result length:length];
+    return [_keyDeriviation deriveKeyFrom:normalizedMnemonic
+                                     salt:salt
+                                   length:seedLength
+                                    error:error];
 }
 
 + (nullable NSData*)createSaltFromPassword:(nonnull NSString*)password
