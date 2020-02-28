@@ -14,7 +14,3 @@
 - (id<IRCryptoKeypairProtocol> _Nullable)deriveFromPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey;
 
 @end
-
-@interface IREd25519KeyFactory : NSObject<IRCryptoKeyFactoryProtocol>
-
-@end

@@ -6,8 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IRPublicKey.h"
-#import "IRPrivateKey.h"
+#import "IRCryptoKey.h"
 
 @protocol IRCryptoKeypairProtocol
 

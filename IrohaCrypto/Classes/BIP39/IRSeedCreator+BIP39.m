@@ -11,7 +11,7 @@
 @implementation IRSeedCreator (BIP39)
 
 + (nonnull instancetype)bip39 {
-    id<IRMnemonicCreatorProtocol> mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    id<IRMnemonicCreatorProtocol> mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
     id<IRKeyDeriviationFunction> keyDeriviation = [[IRBIP39KeyDeriviation alloc] init];
 
     return [[IRSeedCreator alloc] initWithMnemonicCreator:mnemonicCreator keyDeriviation:keyDeriviation];

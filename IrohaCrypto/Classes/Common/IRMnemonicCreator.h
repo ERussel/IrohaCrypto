@@ -51,10 +51,10 @@ typedef NS_ENUM(NSUInteger, IRMnemonicLanguage) {
 @end
 
 /**
- *  Implementation of https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
+ *  Implementation is based on https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
  */
 
-@interface IRBIP39MnemonicCreator : NSObject<IRMnemonicCreatorProtocol>
+@interface IRMnemonicCreator : NSObject<IRMnemonicCreatorProtocol>
 
 @property(readonly, nonatomic)IRMnemonicLanguage language;
 

@@ -5,16 +5,16 @@
 //  Created by Ruslan Rezin on 08/10/2018.
 //
 
-#import "IRSignature.h"
+#import "IRIrohaSignature.h"
 #import "ed25519.h"
 
-@interface IREd25519Sha512Signature()
+@interface IRIrohaSignature()
 
 @property(copy, nonatomic)NSData *rawData;
 
 @end
 
-@implementation IREd25519Sha512Signature
+@implementation IRIrohaSignature
 
 - (nullable instancetype)initWithRawData:(nonnull NSData *)data {
     if (data.length != ed25519_signature_SIZE) {

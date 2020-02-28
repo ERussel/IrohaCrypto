@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		02920380219DBB6E00D9BACD /* IRMnemonicCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */; };
 		0292040421A09FA200D9BACD /* IRScryptSeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292040321A09FA200D9BACD /* IRScryptSeedTests.m */; };
-		02C85055217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85051217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m */; };
+		02C85055217F679800C6A4E7 /* IRIrohaKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85051217F679800C6A4E7 /* IRIrohaKeyFactoryTests.m */; };
 		02C85056217F679800C6A4E7 /* IRHashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85052217F679800C6A4E7 /* IRHashTests.m */; };
-		02C85057217F679800C6A4E7 /* IRSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85054217F679800C6A4E7 /* IRSignatureTests.m */; };
+		02C85057217F679800C6A4E7 /* IRIrohaSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85054217F679800C6A4E7 /* IRIrohaSignatureTests.m */; };
 		02C85059217F687B00C6A4E7 /* IRHexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C85058217F687B00C6A4E7 /* IRHexTests.m */; };
 		02D61B8B21771F400047F7E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D61B8A21771F400047F7E7 /* AppDelegate.swift */; };
 		02D61B8D21771F400047F7E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D61B8C21771F400047F7E7 /* ViewController.swift */; };
@@ -27,15 +27,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IRMnemonicCreatorTests.m; path = ../../Tests/IRMnemonicCreatorTests.m; sourceTree = "<group>"; };
-		0292040321A09FA200D9BACD /* IRScryptSeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IRScryptSeedTests.m; path = ../../Tests/IRScryptSeedTests.m; sourceTree = "<group>"; };
+		0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRMnemonicCreatorTests.m; sourceTree = "<group>"; };
+		0292040321A09FA200D9BACD /* IRScryptSeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRScryptSeedTests.m; sourceTree = "<group>"; };
 		02C85049217F678200C6A4E7 /* IrohaCryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IrohaCryptoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C8504D217F678200C6A4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		02C85051217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRCryptoKeyFactoryTests.m; path = ../../Tests/IRCryptoKeyFactoryTests.m; sourceTree = "<group>"; };
-		02C85052217F679800C6A4E7 /* IRHashTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRHashTests.m; path = ../../Tests/IRHashTests.m; sourceTree = "<group>"; };
+		02C85051217F679800C6A4E7 /* IRIrohaKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRIrohaKeyFactoryTests.m; sourceTree = "<group>"; };
+		02C85052217F679800C6A4E7 /* IRHashTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRHashTests.m; sourceTree = "<group>"; };
 		02C85053217F679800C6A4E7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../../Tests/Constants.h; sourceTree = "<group>"; };
-		02C85054217F679800C6A4E7 /* IRSignatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRSignatureTests.m; path = ../../Tests/IRSignatureTests.m; sourceTree = "<group>"; };
-		02C85058217F687B00C6A4E7 /* IRHexTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IRHexTests.m; path = ../../Tests/IRHexTests.m; sourceTree = "<group>"; };
+		02C85054217F679800C6A4E7 /* IRIrohaSignatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRIrohaSignatureTests.m; sourceTree = "<group>"; };
+		02C85058217F687B00C6A4E7 /* IRHexTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRHexTests.m; sourceTree = "<group>"; };
 		02D61B8721771F400047F7E7 /* IrohaCryptoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrohaCryptoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D61B8A21771F400047F7E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02D61B8C21771F400047F7E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,14 +80,11 @@
 		02C8504A217F678200C6A4E7 /* IrohaCryptoTests */ = {
 			isa = PBXGroup;
 			children = (
+				84C0A4FB24096A4E0097D9AB /* Common */,
+				84C0A4FA24096A4E0097D9AB /* Iroha */,
+				84C0A4FC24096A4E0097D9AB /* Scrypt */,
 				841F1B322407D3520018E14D /* BIP39 */,
 				02C85053217F679800C6A4E7 /* Constants.h */,
-				02C85051217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m */,
-				02C85052217F679800C6A4E7 /* IRHashTests.m */,
-				02C85054217F679800C6A4E7 /* IRSignatureTests.m */,
-				02C85058217F687B00C6A4E7 /* IRHexTests.m */,
-				0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */,
-				0292040321A09FA200D9BACD /* IRScryptSeedTests.m */,
 				02C8504D217F678200C6A4E7 /* Info.plist */,
 			);
 			path = IrohaCryptoTests;
@@ -147,6 +144,36 @@
 			);
 			name = BIP39;
 			path = ../../Tests/BIP39;
+			sourceTree = "<group>";
+		};
+		84C0A4FA24096A4E0097D9AB /* Iroha */ = {
+			isa = PBXGroup;
+			children = (
+				02C85051217F679800C6A4E7 /* IRIrohaKeyFactoryTests.m */,
+				02C85054217F679800C6A4E7 /* IRIrohaSignatureTests.m */,
+			);
+			name = Iroha;
+			path = ../../Tests/Iroha;
+			sourceTree = "<group>";
+		};
+		84C0A4FB24096A4E0097D9AB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				02C85052217F679800C6A4E7 /* IRHashTests.m */,
+				02C85058217F687B00C6A4E7 /* IRHexTests.m */,
+				0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */,
+			);
+			name = Common;
+			path = ../../Tests/Common;
+			sourceTree = "<group>";
+		};
+		84C0A4FC24096A4E0097D9AB /* Scrypt */ = {
+			isa = PBXGroup;
+			children = (
+				0292040321A09FA200D9BACD /* IRScryptSeedTests.m */,
+			);
+			name = Scrypt;
+			path = ../../Tests/Scrypt;
 			sourceTree = "<group>";
 		};
 		A4A2791F64DCB0B0F177BA70 /* Pods */ = {
@@ -351,10 +378,10 @@
 				02920380219DBB6E00D9BACD /* IRMnemonicCreatorTests.m in Sources */,
 				841F1B362407D3520018E14D /* IRBIP39SeedTests.m in Sources */,
 				02C85056217F679800C6A4E7 /* IRHashTests.m in Sources */,
-				02C85055217F679800C6A4E7 /* IRCryptoKeyFactoryTests.m in Sources */,
+				02C85055217F679800C6A4E7 /* IRIrohaKeyFactoryTests.m in Sources */,
 				02C85059217F687B00C6A4E7 /* IRHexTests.m in Sources */,
 				841F1B3C2407D4830018E14D /* IRBIP39TestData+Load.m in Sources */,
-				02C85057217F679800C6A4E7 /* IRSignatureTests.m in Sources */,
+				02C85057217F679800C6A4E7 /* IRIrohaSignatureTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,23 @@
 PODS:
-  - IrohaCrypto (0.3.0)
+  - IrohaCrypto (0.3.0):
+    - IrohaCrypto/BIP32 (= 0.3.0)
+    - IrohaCrypto/BIP39 (= 0.3.0)
+    - IrohaCrypto/Common (= 0.3.0)
+    - IrohaCrypto/ECC (= 0.3.0)
+    - IrohaCrypto/Iroha (= 0.3.0)
+    - IrohaCrypto/Scrypt (= 0.3.0)
+  - IrohaCrypto/BIP32 (0.3.0):
+    - IrohaCrypto/Common
+    - IrohaCrypto/ECC
+  - IrohaCrypto/BIP39 (0.3.0):
+    - IrohaCrypto/Common
+  - IrohaCrypto/Common (0.3.0)
+  - IrohaCrypto/ECC (0.3.0):
+    - IrohaCrypto/Common
+  - IrohaCrypto/Iroha (0.3.0):
+    - IrohaCrypto/Common
+  - IrohaCrypto/Scrypt (0.3.0):
+    - IrohaCrypto/Common
 
 DEPENDENCIES:
   - IrohaCrypto (from `../`)
@@ -9,7 +27,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  IrohaCrypto: 58c81beec0128b6c38b7b7c02002fd08fc0c3a0e
+  IrohaCrypto: 9a350781a0d98a94791b5782eb36af771d7e1468
 
 PODFILE CHECKSUM: 7c88a9c3e8c2ba8a6649ec901cc50f1d233623d9
 

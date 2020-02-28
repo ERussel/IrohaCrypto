@@ -11,7 +11,7 @@
 @implementation IRSeedCreator (Scrypt)
 
 + (nonnull instancetype)scrypt {
-    id<IRMnemonicCreatorProtocol> mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    id<IRMnemonicCreatorProtocol> mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
     id<IRKeyDeriviationFunction> scrypt = [[IRScryptKeyDeriviation alloc] init];
 
     return [[IRSeedCreator alloc] initWithMnemonicCreator:mnemonicCreator

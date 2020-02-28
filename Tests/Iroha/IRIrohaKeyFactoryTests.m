@@ -11,18 +11,18 @@
 
 #import "Constants.h"
 
-@interface IRCryptoKeyFactoryTests : XCTestCase
+@interface IRIrohaKeyFactoryTests : XCTestCase
 
-@property(nonatomic, strong)IREd25519KeyFactory *keysFactory;
+@property(nonatomic, strong)IRIrohaKeyFactory *keysFactory;
 
 @end
 
-@implementation IRCryptoKeyFactoryTests
+@implementation IRIrohaKeyFactoryTests
 
 - (void)setUp {
     [super setUp];
 
-    _keysFactory = [[IREd25519KeyFactory alloc] init];
+    _keysFactory = [[IRIrohaKeyFactory alloc] init];
 }
 
 - (void)tearDown {
@@ -42,7 +42,7 @@
 - (void)testKeyDeriviation {
     for (int index = 0; index < KEYS_COUNT; index++) {
         NSData *rawKey = [[NSData alloc] initWithBase64EncodedString:PRIVATE_KEYS[index] options:0];
-        IREd25519PrivateKey *privateKey = [[IREd25519PrivateKey alloc] initWithRawData:rawKey];
+        IRIrohaPrivateKey *privateKey = [[IRIrohaPrivateKey alloc] initWithRawData:rawKey];
         id<IRCryptoKeypairProtocol> keyPair = [_keysFactory deriveFromPrivateKey:privateKey];
 
         XCTAssertEqualObjects(keyPair.privateKey.rawData, privateKey.rawData);

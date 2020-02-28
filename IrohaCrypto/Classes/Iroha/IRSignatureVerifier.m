@@ -8,9 +8,10 @@
 #import "IRSignatureVerifier.h"
 #import "ed25519.h"
 
-@implementation IREd25519Sha512Verifier
+@implementation IRIrohaSignatureVerifier
 
-- (BOOL)verify:(id<IRSignatureProtocol> _Nonnull)signature forOriginalData:(nonnull NSData *)originalData
+- (BOOL)verify:(id<IRSignatureProtocol> _Nonnull)signature
+forOriginalData:(nonnull NSData *)originalData
 usingPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey {
     signature_t signature_bytes;
     memcpy(signature_bytes.data, signature.rawData.bytes, ed25519_signature_SIZE);

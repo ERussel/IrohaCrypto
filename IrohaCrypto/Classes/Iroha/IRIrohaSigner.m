@@ -5,16 +5,17 @@
 //  Created by Ruslan Rezin on 08/10/2018.
 //
 
-#import "IRSignatureCreator.h"
+#import "IRIrohaSigner.h"
+#import "IRIrohaSignature.h"
 #import "ed25519.h"
 
-@interface IREd25519Sha512Signer()
+@interface IRIrohaSigner()
 
 @property(strong, nonatomic)_Nonnull id<IRPrivateKeyProtocol> privateKey;
 
 @end
 
-@implementation IREd25519Sha512Signer
+@implementation IRIrohaSigner
 
 - (nullable instancetype)initWithPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey {
     self = [super init];
@@ -26,7 +27,7 @@
     return self;
 }
 
-- (nullable IREd25519Sha512Signature *)sign:(nonnull NSData*)originalData {
+- (nullable IRIrohaSignature *)sign:(nonnull NSData*)originalData {
     private_key_t private_key;
     public_key_t public_key;
 
@@ -42,7 +43,7 @@
                                                    length:ed25519_signature_SIZE];
 
 
-    return [[IREd25519Sha512Signature alloc] initWithRawData:signatureData];
+    return [[IRIrohaSignature alloc] initWithRawData:signatureData];
 }
 
 @end

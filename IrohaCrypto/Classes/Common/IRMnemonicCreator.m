@@ -22,12 +22,12 @@ static const unsigned char BITS_PER_WORD = 11;
 
 @end
 
-@implementation IRBIP39MnemonicCreator
+@implementation IRMnemonicCreator
 
 #pragma mark - Initialization
 
 + (instancetype)defaultCreator {
-    return [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    return [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 }
 
 - (nonnull instancetype)initWithLanguage:(IRMnemonicLanguage)language {
@@ -49,7 +49,7 @@ static const unsigned char BITS_PER_WORD = 11;
 
     if (status != errSecSuccess) {
         if (error) {
-            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Can't generate %@ random bytes", @(bytesCount)]
+            *error = [[self class] errorWithMessage:[NSString stringWithFormat:@"Can't generate %@ random bytes", @(bytesCount)]
                                                          code:IRRandomGenerationFailed];
         }
 
@@ -63,9 +63,9 @@ static const unsigned char BITS_PER_WORD = 11;
                                                  error:(NSError*_Nullable*_Nullable)error {
     NSUInteger entropyLength = entropy.length;
 
-    if (![IRBIP39MnemonicCreator isValidEntropyLength:entropyLength]) {
+    if (![[self class] isValidEntropyLength:entropyLength]) {
         if (error) {
-            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Invalid entropy length %@", @(entropyLength)]
+            *error = [[self class] errorWithMessage:[NSString stringWithFormat:@"Invalid entropy length %@", @(entropyLength)]
                                                          code:IRInvalidEntropyLength];
         }
 
@@ -81,8 +81,8 @@ static const unsigned char BITS_PER_WORD = 11;
     unsigned char* tmpBytes = (unsigned char*)(tmpData.bytes);
 
     NSMutableArray<NSString*>* mnemonicWords = [NSMutableArray array];
-    NSArray<NSString*>* vocabulary = [IRBIP39MnemonicCreator vocabularyForLanguage:_language];
-    NSUInteger wordsCount = [IRBIP39MnemonicCreator wordsCountForEntropyLength:entropyLength];
+    NSArray<NSString*>* vocabulary = [[self class] vocabularyForLanguage:_language];
+    NSUInteger wordsCount = [[self class] wordsCountForEntropyLength:entropyLength];
 
     for(NSUInteger wordIndex = 0; wordIndex < wordsCount; wordIndex++) {
         NSUInteger vocabularyIndex = 0;
@@ -103,27 +103,27 @@ static const unsigned char BITS_PER_WORD = 11;
 - (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSArray<NSString*> *)wordList
                                               error:(NSError*_Nullable*_Nullable)error {
     NSUInteger wordsCount = wordList.count;
-    if (![IRBIP39MnemonicCreator isValidWordsCount:wordsCount]) {
+    if (![[self class] isValidWordsCount:wordsCount]) {
         if (error) {
-            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Invalid number of words %@ in word list", @(wordsCount)]
+            *error = [[self class] errorWithMessage:[NSString stringWithFormat:@"Invalid number of words %@ in word list", @(wordsCount)]
                                                          code:IRInvalidNumberOfWords];
         }
 
         return nil;
     }
 
-    NSUInteger entropyLength = [IRBIP39MnemonicCreator entropyLengthFromWordsCount:wordsCount];
-    NSUInteger numberOfChecksumBits = [IRBIP39MnemonicCreator checksumSizeForEntropyLength:entropyLength];
+    NSUInteger entropyLength = [[self class] entropyLengthFromWordsCount:wordsCount];
+    NSUInteger numberOfChecksumBits = [[self class] checksumSizeForEntropyLength:entropyLength];
     unsigned char entropyWithChecksumBytes[entropyLength + numberOfChecksumBits / BITS_PER_BYTE + 1];
 
-    NSArray<NSString*>* vocabulary = [IRBIP39MnemonicCreator vocabularyForLanguage:_language];
+    NSArray<NSString*>* vocabulary = [[self class] vocabularyForLanguage:_language];
 
     for(NSUInteger wordIndex = 0; wordIndex < wordsCount; wordIndex++) {
         NSUInteger vocabularyIndex = [vocabulary indexOfObject:wordList[wordIndex]];
 
         if (vocabularyIndex == NSNotFound) {
             if (error) {
-                *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Word %@ not found in language %@", wordList[wordIndex], @(_language)]
+                *error = [[self class] errorWithMessage:[NSString stringWithFormat:@"Word %@ not found in language %@", wordList[wordIndex], @(_language)]
                                                              code:IRWordNotFound];
             }
 
@@ -146,13 +146,13 @@ static const unsigned char BITS_PER_WORD = 11;
         }
     }
 
-    BOOL isValidChecksum = [IRBIP39MnemonicCreator validateChecksumForEntropy:entropyWithChecksumBytes
+    BOOL isValidChecksum = [[self class] validateChecksumForEntropy:entropyWithChecksumBytes
                                                                 entropyLength:entropyLength
                                                                 checksumBytes:&entropyWithChecksumBytes[entropyLength]];
 
     if (!isValidChecksum) {
         if (error) {
-            *error = [IRBIP39MnemonicCreator errorWithMessage:[NSString stringWithFormat:@"Entropy data not matching checksum"]
+            *error = [[self class] errorWithMessage:[NSString stringWithFormat:@"Entropy data not matching checksum"]
                                                          code:IRChecksumFailed];
         }
 
@@ -200,7 +200,7 @@ static const unsigned char BITS_PER_WORD = 11;
 
     unsigned char* hashBytes = (unsigned char*)(hash.bytes);
 
-    NSUInteger checksumSizeInBits = [IRBIP39MnemonicCreator checksumSizeForEntropyLength:entropyLength];
+    NSUInteger checksumSizeInBits = [[self class] checksumSizeForEntropyLength:entropyLength];
 
     for(NSUInteger bitIndex = 0; bitIndex < checksumSizeInBits; bitIndex++) {
         unsigned char hashByte = hashBytes[bitIndex / BITS_PER_BYTE];
@@ -218,7 +218,7 @@ static const unsigned char BITS_PER_WORD = 11;
 }
 
 + (nonnull NSError*)errorWithMessage:(nonnull NSString*)message code:(NSUInteger)code {
-    return [NSError errorWithDomain:NSStringFromClass([IRBIP39MnemonicCreator class])
+    return [NSError errorWithDomain:NSStringFromClass([[self class] class])
                                code:code
                            userInfo:@{NSLocalizedDescriptionKey: message}];
 }

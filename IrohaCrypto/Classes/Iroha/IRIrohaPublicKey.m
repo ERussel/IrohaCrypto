@@ -5,16 +5,16 @@
 //  Created by Ruslan Rezin on 07/10/2018.
 //
 
-#import "IRPublicKey.h"
+#import "IRIrohaPublicKey.h"
 #import "ed25519.h"
 
-@interface IREd25519PublicKey()
+@interface IRIrohaPublicKey()
 
 @property(copy, nonatomic)NSData *rawData;
 
 @end
 
-@implementation IREd25519PublicKey
+@implementation IRIrohaPublicKey
 
 - (nullable instancetype)initWithRawData:(NSData *)data {
     if (data.length != ed25519_pubkey_SIZE) {

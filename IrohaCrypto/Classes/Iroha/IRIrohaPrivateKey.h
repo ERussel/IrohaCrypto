@@ -8,10 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "IRCryptoKey.h"
 
-@protocol IRPrivateKeyProtocol <IRCryptoKeyProtocol>
-
-@end
-
-@interface IREd25519PrivateKey : NSObject<IRPrivateKeyProtocol>
+@interface IRIrohaPrivateKey : NSObject<IRPrivateKeyProtocol>
 
 @end

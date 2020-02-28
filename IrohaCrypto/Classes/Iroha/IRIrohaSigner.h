@@ -6,16 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IRPrivateKey.h"
+#import "IRCryptoKey.h"
 #import "IRSignature.h"
 
-@protocol IRSignatureCreatorProtocol
-
-- (id<IRSignatureProtocol> _Nullable)sign:(nonnull NSData*)originalData;
-
-@end
-
-@interface IREd25519Sha512Signer : NSObject<IRSignatureCreatorProtocol>
+@interface IRIrohaSigner : NSObject<IRSignatureCreatorProtocol>
 
 - (nullable instancetype)initWithPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey;
 

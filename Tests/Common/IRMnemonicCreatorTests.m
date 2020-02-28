@@ -17,7 +17,7 @@
 @implementation IRMnemonicCreatorTests
 
 - (void)testMnemonicCreationPerformance {
-    IRBIP39MnemonicCreator *mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     [self measureBlock:^{
         for(IRMnemonicStrength strength = IREntropy128; strength <= IREntropy320; strength += 32) {
@@ -28,7 +28,7 @@
 }
 
 - (void)testMnemonicValidness {
-    IRBIP39MnemonicCreator *mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     for(IRMnemonicStrength strength = IREntropy128; strength <= IREntropy320; strength += 32) {
         NSData *entropy = [self randomData:strength / 8];
@@ -44,7 +44,7 @@
 }
 
 - (void)testEntropyToMnemonic {
-    IRBIP39MnemonicCreator *mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     for(int index = 0; index < MNEMONIC_COUNT; index++) {
         NSData *entropy = [[NSData alloc] initWithHexString:MNEMONIC_ENTROPY[index]];
@@ -59,7 +59,7 @@
 }
 
 - (void)testMnemonicToEntropy {
-    IRBIP39MnemonicCreator *mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     for(int index = 0; index < MNEMONIC_COUNT; index++) {
         NSArray<NSString*>* words = [MNEMONIC_STRING[index] componentsSeparatedByString:@" "];
@@ -74,7 +74,7 @@
 }
 
 - (void)testInvalidChecksum {
-    IRBIP39MnemonicCreator *mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     NSError *error;
     id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromList:[INVALID_CHECKSUM_MNEMONIC componentsSeparatedByString:@" "]
@@ -84,7 +84,7 @@
 }
 
 - (void)testInvalidEntropyLength {
-    IRBIP39MnemonicCreator *mnemonicCreator = [[IRBIP39MnemonicCreator alloc] initWithLanguage:IREnglish];
+    IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     for(NSUInteger strength = IREntropy128 + 1; strength < IREntropy160; strength++) {
         NSData *entropy = [self randomData:strength];

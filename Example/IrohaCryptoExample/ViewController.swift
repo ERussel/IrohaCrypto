@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet private var publicKeyLabel: UILabel!
     @IBOutlet private var signatureLabel: UILabel!
 
-    private let keyFactory = IREd25519KeyFactory();
+    private let keyFactory = IRIrohaKeyFactory();
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         let publicKeyString = keypair.publicKey().rawData().base64EncodedString()
         publicKeyLabel.text = publicKeyString
 
-        guard let signer = IREd25519Sha512Signer(privateKey: keypair.privateKey()) else {
+        guard let signer = IRIrohaSigner(privateKey: keypair.privateKey()) else {
             print("Can't create signer from private key: \(privateKeyString)")
             return
         }
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             let optionalRawKey = privatePhraseTextView.text.data(using: .utf8)
 
             if let rawKey = (optionalRawKey as NSData?)?.sha3(.variant256) {
-                optionalPrivateKey = IREd25519PrivateKey(rawData: rawKey)
+                optionalPrivateKey = IRIrohaPrivateKey(rawData: rawKey)
             }
         }
 
