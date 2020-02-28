@@ -36,6 +36,7 @@ Pod::Spec.new do |s|
     ecc.dependency 'IrohaCrypto/Common'
     ecc.source_files = 'IrohaCrypto/Classes/ECC/**/*'
     ecc.public_header_files = 'IrohaCrypto/Classes/ECC/**/*.h'
+    ecc.vendored_frameworks = 'ECC256k1.framework'
   end
 
   s.subspec 'BIP39' do |bip39|
