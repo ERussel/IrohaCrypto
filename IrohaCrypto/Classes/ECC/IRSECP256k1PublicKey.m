@@ -5,15 +5,15 @@
 //  Created by Ruslan Rezin on 28.02.2020.
 //
 
-#import "IRECC255k1PublicKey.h"
+#import "IRSECP256k1PublicKey.h"
 
-@interface IRECC255k1PublicKey()
+@interface IRSECP256k1PublicKey()
 
 @property(copy, nonatomic)NSData *rawData;
 
 @end
 
-@implementation IRECC255k1PublicKey
+@implementation IRSECP256k1PublicKey
 
 - (nullable instancetype)initWithRawData:(NSData *)data {
     if (data.length != [[self class] length]) {

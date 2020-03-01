@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "IRSignature.h"
 
-@interface IRECC255k1Signature : NSObject<IRSignatureProtocol>
+@interface IRSECP256k1Signature : NSObject<IRSignatureProtocol>
 
 + (NSUInteger)length;
 

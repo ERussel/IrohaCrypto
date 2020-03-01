@@ -8,6 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "IRCryptoKeyFactory.h"
 
-@interface IRECC255k1KeyFactory : NSObject<IRCryptoKeyFactoryProtocol>
+@interface IRSECP256k1KeyFactory : NSObject<IRCryptoKeyFactoryProtocol>
 
 @end

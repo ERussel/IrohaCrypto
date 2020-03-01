@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "IRCryptoKey.h"
 
-@interface IRECC255k1PublicKey : NSObject<IRPublicKeyProtocol>
+@interface IRSECP256k1PublicKey : NSObject<IRPublicKeyProtocol>
 
 + (NSUInteger)length;
 

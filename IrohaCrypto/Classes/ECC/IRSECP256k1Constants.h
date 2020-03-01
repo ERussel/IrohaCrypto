@@ -8,6 +8,6 @@
 #ifndef IRECCConstants_h
 #define IRECCConstants_h
 
-#define ECC_SUCCESS 1
+#define SECP256k1_SUCCESS 1
 
 #endif /* IRECCConstants_h */

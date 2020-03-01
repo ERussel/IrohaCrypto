@@ -5,15 +5,16 @@
 //  Created by Ruslan Rezin on 08/10/2018.
 //
 
-#import "IRECC255k1Signature.h"
+#import "IRSECP256k1Signature.h"
+#import "IRSECP256k1Constants.h"
 
-@interface IRECC255k1Signature()
+@interface IRSECP256k1Signature()
 
 @property(copy, nonatomic)NSData *rawData;
 
 @end
 
-@implementation IRECC255k1Signature
+@implementation IRSECP256k1Signature
 
 - (nullable instancetype)initWithRawData:(nonnull NSData *)data {
     if (data.length != [[self class] length]) {

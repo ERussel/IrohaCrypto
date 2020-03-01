@@ -5,19 +5,19 @@
 //  Created by Ruslan Rezin on 08/10/2018.
 //
 
-#import "IRECC255k1Verifier.h"
-#import "IRECC255k1Signature.h"
-#import "IRECC255k1PublicKey.h"
+#import "IRSECP256k1Verifier.h"
+#import "IRSECP256k1Signature.h"
+#import "IRSECP256k1PublicKey.h"
 #import <ECC256k1/secp256k1.h>
-#import "IRECCConstants.h"
+#import "IRSECP256k1Constants.h"
 
-@interface IRECC255k1Verifier()
+@interface IRSECP256k1Verifier()
 
 @property(nonatomic)secp256k1_context *context;
 
 @end
 
-@implementation IRECC255k1Verifier
+@implementation IRSECP256k1Verifier
 
 #pragma mark - Initialize
 
@@ -37,17 +37,17 @@
 forOriginalData:(nonnull NSData *)originalData
 usingPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey {
     secp256k1_ecdsa_signature signatureRaw;
-    memcpy(signatureRaw.data, signature.rawData.bytes, [IRECC255k1Signature length]);
+    memcpy(signatureRaw.data, signature.rawData.bytes, [IRSECP256k1Signature length]);
 
     secp256k1_pubkey publicKeyRaw;
-    memcpy(publicKeyRaw.data, publicKey.rawData.bytes, [IRECC255k1PublicKey length]);
+    memcpy(publicKeyRaw.data, publicKey.rawData.bytes, [IRSECP256k1PublicKey length]);
 
     int result = secp256k1_ecdsa_verify(_context,
                                         &signatureRaw,
                                         originalData.bytes,
                                         &publicKeyRaw);
 
-    return result == ECC_SUCCESS;
+    return result == SECP256k1_SUCCESS;
 }
 
 @end

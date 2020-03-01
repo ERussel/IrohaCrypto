@@ -5,19 +5,19 @@
 //  Created by Ruslan Rezin on 28.02.2020.
 //
 
-#import "IRECC255k1KeyFactory.h"
-#import "IRECC255k1PrivateKey.h"
-#import "IRECC255k1PublicKey.h"
+#import "IRSECP256k1KeyFactory.h"
+#import "IRSECP256k1PrivateKey.h"
+#import "IRSECP256k1PublicKey.h"
 #import <ECC256k1/secp256k1.h>
-#import "IRECCConstants.h"
+#import "IRSECP256k1Constants.h"
 
-@interface IRECC255k1KeyFactory()
+@interface IRSECP256k1KeyFactory()
 
 @property(nonatomic)secp256k1_context *context;
 
 @end
 
-@implementation IRECC255k1KeyFactory
+@implementation IRSECP256k1KeyFactory
 
 #pragma mark - Initialize
 
@@ -36,7 +36,7 @@
 #pragma mark - IRKeyFactory
 
 - (id<IRCryptoKeypairProtocol> _Nullable)createRandomKeypair {
-    NSMutableData *privateKeyData = [NSMutableData dataWithLength:[IRECC255k1PrivateKey length]];
+    NSMutableData *privateKeyData = [NSMutableData dataWithLength:[IRSECP256k1PrivateKey length]];
 
     int result = SecRandomCopyBytes(kSecRandomDefault, privateKeyData.length, privateKeyData.mutableBytes);
 
@@ -44,7 +44,7 @@
         return nil;
     }
 
-    IRECC255k1PrivateKey *privateKey = [[IRECC255k1PrivateKey alloc] initWithRawData:privateKeyData];
+    IRSECP256k1PrivateKey *privateKey = [[IRSECP256k1PrivateKey alloc] initWithRawData:privateKeyData];
 
     if (!privateKey) {
         return nil;
@@ -58,13 +58,13 @@
 
     int result = secp256k1_ec_pubkey_create(_context, &publicKeyRaw, privateKey.rawData.bytes);
 
-    if (result != ECC_SUCCESS) {
+    if (result != SECP256k1_SUCCESS) {
         return nil;
     }
 
-    NSData *publicKeyData = [NSData dataWithBytes:publicKeyRaw.data length:[IRECC255k1PublicKey length]];
+    NSData *publicKeyData = [NSData dataWithBytes:publicKeyRaw.data length:[IRSECP256k1PublicKey length]];
 
-    IRECC255k1PublicKey *publicKey = [[IRECC255k1PublicKey alloc] initWithRawData:publicKeyData];
+    IRSECP256k1PublicKey *publicKey = [[IRSECP256k1PublicKey alloc] initWithRawData:publicKeyData];
 
     if (!publicKey) {
         return nil;

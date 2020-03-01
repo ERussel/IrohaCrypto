@@ -5,19 +5,19 @@
 //  Created by Ruslan Rezin on 08/10/2018.
 //
 
-#import "IRECC255k1Signer.h"
-#import "IRECC255k1Signature.h"
+#import "IRSECP256k1Signer.h"
+#import "IRSECP256k1Signature.h"
 #import <ECC256k1/secp256k1.h>
-#import "IRECCConstants.h"
+#import "IRSECP256k1Constants.h"
 
-@interface IRECC255k1Signer()
+@interface IRSECP256k1Signer()
 
 @property(strong, nonatomic)_Nonnull id<IRPrivateKeyProtocol> privateKey;
 @property(nonatomic)secp256k1_context *context;
 
 @end
 
-@implementation IRECC255k1Signer
+@implementation IRSECP256k1Signer
 
 #pragma mark - Initialization
 
@@ -49,13 +49,13 @@
                                       NULL,
                                       NULL);
 
-    if (result != ECC_SUCCESS) {
+    if (result != SECP256k1_SUCCESS) {
         return nil;
     }
 
-    NSData *data = [NSData dataWithBytes:signatureRaw.data length:[IRECC255k1Signature length]];
+    NSData *data = [NSData dataWithBytes:signatureRaw.data length:[IRSECP256k1Signature length]];
 
-    return [[IRECC255k1Signature alloc] initWithRawData: data];
+    return [[IRSECP256k1Signature alloc] initWithRawData: data];
 }
 
 @end

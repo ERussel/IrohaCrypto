@@ -9,6 +9,6 @@
 #import "IRCryptoKey.h"
 #import "IRSignature.h"
 
-@interface IRECC255k1Verifier : NSObject<IRSignatureVerifierProtocol>
+@interface IRSECP256k1Verifier : NSObject<IRSignatureVerifierProtocol>
 
 @end

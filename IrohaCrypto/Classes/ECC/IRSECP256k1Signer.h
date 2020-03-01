@@ -9,7 +9,7 @@
 #import "IRCryptoKey.h"
 #import "IRSignature.h"
 
-@interface IRECC255k1Signer : NSObject<IRSignatureCreatorProtocol>
+@interface IRSECP256k1Signer : NSObject<IRSignatureCreatorProtocol>
 
 - (nullable instancetype)initWithPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey;
 
