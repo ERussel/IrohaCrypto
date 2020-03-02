@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IrohaCrypto'
-  s.version          = '0.2.6'
+  s.version          = '0.3.0'
   s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by Iroha blockchain.'
 
   s.homepage         = 'https://github.com/soramitsu'
@@ -18,15 +18,38 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'IrohaCrypto/Classes/**/*', 'IrohaCryptoImp/**/*.h', 'libsodium-ios/**/*.h'
-  s.public_header_files = 'IrohaCrypto/Classes/**/*.h'
-  s.private_header_files = 'IrohaCryptoImp/**/*.h', 'libsodium-ios/**/*.h'
-  s.vendored_libraries = 'IrohaCryptoImp/libed25519.a', 'libsodium-ios/lib/libsodium.a'
-  s.preserve_paths = 'IrohaCryptoImp/**/*.h', 'libsodium-ios/**/*.h'
+  s.subspec 'Common' do |cn|
+    cn.source_files = 'IrohaCrypto/Classes/Common/**/*'
+    cn.public_header_files = 'IrohaCrypto/Classes/Common/**/*.h'
+  end
+
+  s.subspec 'Iroha' do |ir|
+    ir.dependency 'IrohaCrypto/Common'
+    ir.source_files = 'IrohaCrypto/Classes/Iroha/**/*', 'IrohaCryptoImp/**/*.h'
+    ir.public_header_files = 'IrohaCrypto/Classes/Iroha/**/*.h'
+    ir.private_header_files = 'IrohaCryptoImp/**/*.h'
+    ir.vendored_libraries = 'IrohaCryptoImp/libed25519.a'
+    ir.preserve_paths = 'IrohaCryptoImp/**/*.h'
+  end
+
+  s.subspec 'BIP39' do |bip39|
+    bip39.dependency 'IrohaCrypto/Common'
+    bip39.source_files = 'IrohaCrypto/Classes/BIP39/**/*'
+    bip39.public_header_files = 'IrohaCrypto/Classes/BIP39/**/*.h'
+  end
+
+  s.subspec 'Scrypt' do |sct|
+    sct.dependency 'IrohaCrypto/Common'
+    sct.dependency 'scrypt.c', '~> 0.1'
+    sct.source_files = 'IrohaCrypto/Classes/Scrypt/**/*'
+    sct.public_header_files = 'IrohaCrypto/Classes/Scrypt/**/*.h'
+  end
+
   s.pod_target_xcconfig = { 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }
 
   s.test_spec do |ts|
       ts.source_files = 'Tests/**/*.{h,m}'
+      ts.resources = ['Tests/**/*.json']
   end
 
 end
