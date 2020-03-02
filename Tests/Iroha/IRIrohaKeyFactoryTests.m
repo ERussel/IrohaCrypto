@@ -32,7 +32,7 @@
 }
 
 - (void)testRandomKeypair {
-    id<IRCryptoKeypairProtocol> keypair = [_keysFactory createRandomKeypair];
+    id<IRCryptoKeypairProtocol> keypair = [_keysFactory createRandomKeypair:nil];
 
     XCTAssertNotNil(keypair);
     XCTAssertNotNil([keypair.publicKey rawData]);
@@ -42,8 +42,11 @@
 - (void)testKeyDeriviation {
     for (int index = 0; index < KEYS_COUNT; index++) {
         NSData *rawKey = [[NSData alloc] initWithBase64EncodedString:PRIVATE_KEYS[index] options:0];
-        IRIrohaPrivateKey *privateKey = [[IRIrohaPrivateKey alloc] initWithRawData:rawKey];
-        id<IRCryptoKeypairProtocol> keyPair = [_keysFactory deriveFromPrivateKey:privateKey];
+        IRIrohaPrivateKey *privateKey = [[IRIrohaPrivateKey alloc] initWithRawData:rawKey
+                                                                             error:nil];
+        
+        id<IRCryptoKeypairProtocol> keyPair = [_keysFactory deriveFromPrivateKey:privateKey
+                                                                           error:nil];
 
         XCTAssertEqualObjects(keyPair.privateKey.rawData, privateKey.rawData);
         XCTAssertEqualObjects([keyPair.publicKey.rawData base64EncodedStringWithOptions:0], PUBLIC_KEYS[index]);

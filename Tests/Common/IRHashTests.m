@@ -28,7 +28,7 @@
 - (void)testSha3256 {
     for (int index = 0; index < HASHES_COUNT; index++) {
         NSData *originalData = [MESSAGES[index] dataUsingEncoding:NSUTF8StringEncoding];
-        NSData *hashedData = [originalData sha3:IRSha3Variant256];
+        NSData *hashedData = [originalData sha3:IRSha3Variant256 error:nil];
         NSData *expectedData = [[NSData alloc] initWithBase64EncodedString:HASH_SHA_256[index] options:0];
 
         XCTAssertEqualObjects(hashedData, expectedData);
@@ -38,7 +38,7 @@
 - (void)testSha3512 {
     for (int index = 0; index < HASHES_COUNT; index++) {
         NSData *originalData = [MESSAGES[index] dataUsingEncoding:NSUTF8StringEncoding];
-        NSData *hashedData = [originalData sha3:IRSha3Variant512];
+        NSData *hashedData = [originalData sha3:IRSha3Variant512 error:nil];
         NSData *expectedData = [[NSData alloc] initWithBase64EncodedString:HASH_SHA_512[index] options:0];
 
         XCTAssertEqualObjects(hashedData, expectedData);

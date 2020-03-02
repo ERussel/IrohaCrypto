@@ -17,17 +17,16 @@
 
 @implementation IRIrohaSigner
 
-- (nullable instancetype)initWithPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey {
-    self = [super init];
-    
-    if (self) {
+- (nonnull instancetype)initWithPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey {
+    if (self = [super init]) {
         self.privateKey = privateKey;
     }
 
     return self;
 }
 
-- (nullable IRIrohaSignature *)sign:(nonnull NSData*)originalData {
+- (nullable IRIrohaSignature *)sign:(nonnull NSData*)originalData
+                              error:(NSError*_Nullable*_Nullable)error {
     private_key_t private_key;
     public_key_t public_key;
 
@@ -43,7 +42,7 @@
                                                    length:ed25519_signature_SIZE];
 
 
-    return [[IRIrohaSignature alloc] initWithRawData:signatureData];
+    return [[IRIrohaSignature alloc] initWithRawData:signatureData error:error];
 }
 
 @end

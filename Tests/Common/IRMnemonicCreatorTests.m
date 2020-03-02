@@ -36,7 +36,7 @@
         id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromEntropy:entropy error:nil];
         XCTAssertNotNil(mnemonic);
 
-        id<IRMnemonicProtocol> restoredMnemonic = [mnemonicCreator mnemonicFromList:mnemonic.allWords error:nil];
+        id<IRMnemonicProtocol> restoredMnemonic = [mnemonicCreator mnemonicFromList:mnemonic.toString error:nil];
         XCTAssertNotNil(restoredMnemonic);
 
         XCTAssertEqualObjects(entropy, restoredMnemonic.entropy);
@@ -47,7 +47,7 @@
     IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     for(int index = 0; index < MNEMONIC_COUNT; index++) {
-        NSData *entropy = [[NSData alloc] initWithHexString:MNEMONIC_ENTROPY[index]];
+        NSData *entropy = [[NSData alloc] initWithHexString:MNEMONIC_ENTROPY[index] error:nil];
 
         id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromEntropy:entropy error:nil];
         XCTAssertNotNil(mnemonic);
@@ -62,12 +62,10 @@
     IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     for(int index = 0; index < MNEMONIC_COUNT; index++) {
-        NSArray<NSString*>* words = [MNEMONIC_STRING[index] componentsSeparatedByString:@" "];
-
-        id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromList:words error:nil];
+        id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromList:MNEMONIC_STRING[index] error:nil];
         XCTAssertNotNil(mnemonic);
 
-        NSData *expectedEntropy = [[NSData alloc] initWithHexString:MNEMONIC_ENTROPY[index]];
+        NSData *expectedEntropy = [[NSData alloc] initWithHexString:MNEMONIC_ENTROPY[index] error:nil];
         NSData *resultEntropy = mnemonic.entropy;
         XCTAssertEqualObjects(expectedEntropy, resultEntropy);
     }
@@ -77,7 +75,7 @@
     IRMnemonicCreator *mnemonicCreator = [[IRMnemonicCreator alloc] initWithLanguage:IREnglish];
 
     NSError *error;
-    id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromList:[INVALID_CHECKSUM_MNEMONIC componentsSeparatedByString:@" "]
+    id<IRMnemonicProtocol> mnemonic = [mnemonicCreator mnemonicFromList:INVALID_CHECKSUM_MNEMONIC
                                                                   error:&error];
     XCTAssertNil(mnemonic);
     XCTAssertEqual([error code], IRChecksumFailed);

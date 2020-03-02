@@ -45,7 +45,7 @@ typedef NS_ENUM(NSUInteger, IRMnemonicLanguage) {
                                             error:(NSError*_Nullable*_Nullable)error;
 - (nullable id<IRMnemonicProtocol>)mnemonicFromEntropy:(nonnull NSData*)entropy
                                                  error:(NSError*_Nullable*_Nullable)error;
-- (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSArray<NSString*> *)wordList
+- (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSString *)mnemonicPhrase
                                               error:(NSError*_Nullable*_Nullable)error;
 
 @end

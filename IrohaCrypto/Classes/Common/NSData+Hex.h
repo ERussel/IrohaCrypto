@@ -7,9 +7,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, IRHexDataError) {
+    IRHexDataInvalidHexString
+};
+
 @interface NSData (Hex)
 
-- (nullable instancetype)initWithHexString:(nonnull NSString*)hexString;
+- (nullable instancetype)initWithHexString:(nonnull NSString*)hexString
+                                     error:(NSError*_Nullable*_Nullable)error;
 
 - (nonnull NSString*)toHexString;
 

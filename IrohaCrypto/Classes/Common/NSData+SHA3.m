@@ -14,7 +14,7 @@ static const int SHA3_512_SIZE = 64;
 
 @implementation NSData (SHA3)
 
-- (nullable NSData *)sha3:(IRSha3Variant)variant {
+- (nullable NSData *)sha3:(IRSha3Variant)variant error:(NSError*_Nullable*_Nullable)error {
     int result = 0;
     int size = 0;
     unsigned char *hash = NULL;
@@ -36,6 +36,13 @@ static const int SHA3_512_SIZE = 64;
     free(hash);
 
     if (result == 0) {
+        if (error) {
+            NSString *message = @"Unexpected error";
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRSha3AlgoFailed
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
         return nil;
     }
 

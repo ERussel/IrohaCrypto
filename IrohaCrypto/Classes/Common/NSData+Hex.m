@@ -9,10 +9,17 @@
 
 @implementation NSData (Hex)
 
-- (nullable instancetype)initWithHexString:(nonnull NSString*)hexString {
+- (nullable instancetype)initWithHexString:(nonnull NSString*)hexString error:(NSError*_Nullable*_Nullable)error {
     NSUInteger length = [hexString length];
 
     if (length % 2 != 0) {
+        if (error) {
+            NSString *message = @"String length must be even";
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRHexDataInvalidHexString
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
         return nil;
     }
 
@@ -21,6 +28,13 @@
     [characterSet invert];
 
     if ([hexString rangeOfCharacterFromSet:characterSet].location != NSNotFound) {
+        if (error) {
+            NSString *message = @"String contains invalid characters";
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRHexDataInvalidHexString
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
         return nil;
     }
 

@@ -33,7 +33,7 @@
 
 - (void)testHexToData {
     for (int index; index < MESSAGES_COUNT; index++) {
-        NSData *data = [[NSData alloc] initWithHexString:HEX_MESSAGES[index]];
+        NSData *data = [[NSData alloc] initWithHexString:HEX_MESSAGES[index] error:nil];
         NSData *expected = [[NSData alloc] initWithBase64EncodedString:MESSAGES[index] options:0];
         XCTAssertEqualObjects(data, expected);
     }

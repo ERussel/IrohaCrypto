@@ -16,8 +16,17 @@
 
 @implementation IRIrohaPublicKey
 
-- (nullable instancetype)initWithRawData:(NSData *)data {
+- (nullable instancetype)initWithRawData:(NSData *)data
+                                   error:(NSError*_Nullable*_Nullable)error {
     if (data.length != ed25519_pubkey_SIZE) {
+        if (error) {
+            NSString *message = [NSString stringWithFormat:@"Raw key size must be %@ but %@ received",
+                                 @(ed25519_pubkey_SIZE), @(data.length)];
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRCryptoKeyErrorInvalidRawData
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
         return nil;
     }
 

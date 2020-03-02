@@ -49,7 +49,7 @@ static NSString* const SCRYPT_SEED[] = {
                                                            error:&error];
         XCTAssertNil(error);
 
-        NSData *expectedSeed = [[NSData alloc] initWithHexString:SCRYPT_SEED[index]];
+        NSData *expectedSeed = [[NSData alloc] initWithHexString:SCRYPT_SEED[index] error:nil];
 
         XCTAssertEqualObjects(seed, expectedSeed);
     }
@@ -87,7 +87,7 @@ static NSString* const SCRYPT_SEED[] = {
     IRSeedCreator *seedCreator = [IRSeedCreator scrypt];
 
     for (NSUInteger hashIndex = 0; hashIndex < HASHES_COUNT; hashIndex++) {
-        NSData *salt = [[NSData alloc] initWithHexString:HASH_SHA_256[hashIndex]];
+        NSData *salt = [[NSData alloc] initWithHexString:HASH_SHA_256[hashIndex] error:nil];
 
         for(IRMnemonicStrength strength = IREntropy128; strength <= IREntropy320; strength += IREntropy160 - IREntropy128) {
             id<IRMnemonicProtocol> mnemonic = nil;

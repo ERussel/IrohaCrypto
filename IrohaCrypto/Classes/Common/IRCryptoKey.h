@@ -9,10 +9,14 @@
 
 @protocol IRCryptoKeyProtocol
 
-- (nullable instancetype)initWithRawData:(nonnull NSData*)data;
+- (nullable instancetype)initWithRawData:(nonnull NSData*)data error:(NSError*_Nullable*_Nullable)error;
 - (nonnull NSData*)rawData;
 
 @end
+
+typedef NS_ENUM(NSUInteger, IRCryptoKeyError) {
+    IRCryptoKeyErrorInvalidRawData
+};
 
 @protocol IRPrivateKeyProtocol <IRCryptoKeyProtocol>
 

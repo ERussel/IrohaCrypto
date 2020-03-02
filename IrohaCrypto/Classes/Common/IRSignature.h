@@ -10,14 +10,20 @@
 
 @protocol IRSignatureProtocol
 
-- (nullable instancetype)initWithRawData:(nonnull NSData*)data;
+- (nullable instancetype)initWithRawData:(nonnull NSData*)data error:(NSError*_Nullable*_Nullable)error;
 - (nonnull NSData*)rawData;
 
 @end
 
+typedef NS_ENUM(NSUInteger, IRSignatureError) {
+    IRSignatureErrorInvalidRawData,
+    IRSignatureErrorSignerFailed
+};
+
 @protocol IRSignatureCreatorProtocol
 
-- (id<IRSignatureProtocol> _Nullable)sign:(nonnull NSData*)originalData;
+- (nullable id<IRSignatureProtocol>)sign:(nonnull NSData*)originalData
+                                   error:(NSError*_Nullable*_Nullable)error;
 
 @end
 

@@ -16,8 +16,16 @@
 
 @implementation IRIrohaSignature
 
-- (nullable instancetype)initWithRawData:(nonnull NSData *)data {
+- (nullable instancetype)initWithRawData:(nonnull NSData *)data error:(NSError*_Nullable*_Nullable)error {
     if (data.length != ed25519_signature_SIZE) {
+        if (error) {
+            NSString *message = [NSString stringWithFormat:@"Raw signature size must be %@ but %@ received",
+                                 @(ed25519_signature_SIZE), @(data.length)];
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRSignatureErrorInvalidRawData
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
         return nil;
     }
 

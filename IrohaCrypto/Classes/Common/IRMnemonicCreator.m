@@ -100,8 +100,10 @@ static const unsigned char BITS_PER_WORD = 11;
     return [[IRMnemonic alloc] initWithWords:mnemonicWords andEntropy:entropy];
 }
 
-- (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSArray<NSString*> *)wordList
+- (nullable id<IRMnemonicProtocol>)mnemonicFromList:(nonnull NSString *)mnemonicPhrase
                                               error:(NSError*_Nullable*_Nullable)error {
+    NSCharacterSet *whitespace = [NSCharacterSet whitespaceCharacterSet];
+    NSArray *wordList = [mnemonicPhrase componentsSeparatedByCharactersInSet:whitespace];
     NSUInteger wordsCount = wordList.count;
     if (![[self class] isValidWordsCount:wordsCount]) {
         if (error) {

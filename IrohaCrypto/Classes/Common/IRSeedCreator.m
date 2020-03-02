@@ -99,8 +99,7 @@ static NSString* const WORDS_SEPARATOR = @" ";
                                             salt:(nonnull NSData*)salt
                                           length:(NSUInteger)seedLength
                                            error:(NSError*_Nullable*_Nullable)error {
-    NSArray<NSString*>* wordList = [mnemonicPhrase componentsSeparatedByString:WORDS_SEPARATOR];
-    id<IRMnemonicProtocol> mnemonic = [_mnemonicCreator mnemonicFromList:wordList
+    id<IRMnemonicProtocol> mnemonic = [_mnemonicCreator mnemonicFromList:mnemonicPhrase
                                                                    error:error];
 
     if (!mnemonic) {

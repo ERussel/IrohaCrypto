@@ -11,6 +11,6 @@
 
 @interface IRIrohaSigner : NSObject<IRSignatureCreatorProtocol>
 
-- (nullable instancetype)initWithPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey;
+- (nonnull instancetype)initWithPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey;
 
 @end

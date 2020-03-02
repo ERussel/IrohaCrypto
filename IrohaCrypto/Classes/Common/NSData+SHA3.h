@@ -12,8 +12,12 @@ typedef NS_ENUM(NSInteger, IRSha3Variant) {
     IRSha3Variant512
 };
 
+typedef NS_ENUM(NSUInteger, IRSha3Error) {
+    IRSha3AlgoFailed
+};
+
 @interface NSData (SHA3)
 
-- (nullable NSData *)sha3:(IRSha3Variant)variant;
+- (nullable NSData *)sha3:(IRSha3Variant)variant error:(NSError*_Nullable*_Nullable)error;
 
 @end

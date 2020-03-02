@@ -8,9 +8,15 @@
 #import <Foundation/Foundation.h>
 #import "IRCryptoKeypair.h"
 
+typedef NS_ENUM(NSUInteger, IRCryptoKeyFactoryError) {
+    IRCryptoKeyFactoryErrorGeneratorFailed,
+    IRCryptoKeyFactoryErrorDeriviationFailed
+};
+
 @protocol IRCryptoKeyFactoryProtocol <NSObject>
 
-- (id<IRCryptoKeypairProtocol> _Nullable)createRandomKeypair;
-- (id<IRCryptoKeypairProtocol> _Nullable)deriveFromPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey;
+- (id<IRCryptoKeypairProtocol> _Nullable)createRandomKeypair:(NSError*_Nullable*_Nullable)error;
+- (id<IRCryptoKeypairProtocol> _Nullable)deriveFromPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey
+                                                        error:(NSError*_Nullable*_Nullable)error;
 
 @end
