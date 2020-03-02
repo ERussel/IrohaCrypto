@@ -6,7 +6,7 @@
 //
 
 #import "IRScryptKeyDeriviation.h"
-#import "crypto_pwhash_scryptsalsa208sha256.h"
+#import "scrypt.h"
 
 static const NSUInteger MEMORY_COST = 16384;
 static const NSUInteger PARALELIZATION_FACTOR = 1;
@@ -22,15 +22,15 @@ static const NSUInteger BLOCK_SIZE = 8;
 
     NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
 
-    int status = crypto_pwhash_scryptsalsa208sha256_ll((uint8_t*)(passwordData.bytes),
-                                                       passwordData.length,
-                                                       (uint8_t*)(salt.bytes),
-                                                       salt.length,
-                                                       MEMORY_COST,
-                                                       BLOCK_SIZE,
-                                                       PARALELIZATION_FACTOR,
-                                                       result,
-                                                       length);
+    int status = crypto_scrypt((uint8_t*)(passwordData.bytes),
+                               passwordData.length,
+                               (uint8_t*)(salt.bytes),
+                               salt.length,
+                               MEMORY_COST,
+                               BLOCK_SIZE,
+                               PARALELIZATION_FACTOR,
+                               result,
+                               length);
 
     if (status != 0) {
         if (error) {
