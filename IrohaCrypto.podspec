@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IrohaCrypto'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by Iroha blockchain.'
 
   s.homepage         = 'https://github.com/soramitsu'
@@ -43,6 +43,16 @@ Pod::Spec.new do |s|
     sct.dependency 'scrypt.c', '~> 0.1'
     sct.source_files = 'IrohaCrypto/Classes/Scrypt/**/*'
     sct.public_header_files = 'IrohaCrypto/Classes/Scrypt/**/*.h'
+  end
+
+  s.subspec 'Snorkel' do |skl|
+    skl.dependency 'IrohaCrypto/Common'
+    skl.dependency 'IrohaCrypto/BIP39'
+    skl.source_files = 'IrohaCrypto/Classes/Snorkel/**/*', 'SnorkelImp/**/*.h'
+    skl.public_header_files = 'IrohaCrypto/Classes/Snorkel/**/*.h'
+    skl.private_header_files = 'SnorkelImp/**/*.h'
+    skl.vendored_libraries = 'SnorkelImp/libsr25519crust.a'
+    skl.preserve_paths = 'SnorkelImp/**/*.h'
   end
 
   s.pod_target_xcconfig = { 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }

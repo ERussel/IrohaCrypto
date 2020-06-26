@@ -9,7 +9,7 @@
 
 @protocol IRKeyDeriviationFunction <NSObject>
 
-- (nullable NSData*)deriveKeyFrom:(nonnull NSString*)password
+- (nullable NSData*)deriveKeyFrom:(nonnull NSData*)password
                              salt:(nonnull NSData*)salt
                            length:(NSUInteger)length
                             error:(NSError*_Nullable*_Nullable)error;

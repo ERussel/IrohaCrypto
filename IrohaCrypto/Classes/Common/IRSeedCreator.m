@@ -68,7 +68,7 @@ static NSString* const WORDS_SEPARATOR = @" ";
 
     NSString* normalizedMnemonic = [[*mnemonic toString] decomposedStringWithCompatibilityMapping];
 
-    return [_keyDeriviation deriveKeyFrom:normalizedMnemonic
+    return [_keyDeriviation deriveKeyFrom:[normalizedMnemonic dataUsingEncoding:NSUTF8StringEncoding]
                                      salt:salt
                                    length:seedLength
                                     error:error];
@@ -108,7 +108,7 @@ static NSString* const WORDS_SEPARATOR = @" ";
 
     NSString* normalizedMnemonic = [[mnemonic toString] decomposedStringWithCompatibilityMapping];
 
-    return [_keyDeriviation deriveKeyFrom:normalizedMnemonic
+    return [_keyDeriviation deriveKeyFrom:[normalizedMnemonic dataUsingEncoding:NSUTF8StringEncoding]
                                      salt:salt
                                    length:seedLength
                                     error:error];

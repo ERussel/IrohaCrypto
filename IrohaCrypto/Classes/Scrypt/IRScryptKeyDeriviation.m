@@ -14,16 +14,14 @@ static const NSUInteger BLOCK_SIZE = 8;
 
 @implementation IRScryptKeyDeriviation
 
-- (nullable NSData*)deriveKeyFrom:(NSString *)password
+- (nullable NSData*)deriveKeyFrom:(NSData *)password
                              salt:(NSData *)salt
                            length:(NSUInteger)length
                             error:(NSError*_Nullable*_Nullable)error {
     uint8_t result[length];
 
-    NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
-
-    int status = crypto_scrypt((uint8_t*)(passwordData.bytes),
-                               passwordData.length,
+    int status = crypto_scrypt((uint8_t*)(password.bytes),
+                               password.length,
                                (uint8_t*)(salt.bytes),
                                salt.length,
                                MEMORY_COST,
