@@ -45,14 +45,14 @@ Pod::Spec.new do |s|
     sct.public_header_files = 'IrohaCrypto/Classes/Scrypt/**/*.h'
   end
 
-  s.subspec 'Snorkel' do |skl|
-    skl.dependency 'IrohaCrypto/Common'
-    skl.dependency 'IrohaCrypto/BIP39'
-    skl.source_files = 'IrohaCrypto/Classes/Snorkel/**/*', 'SnorkelImp/**/*.h'
-    skl.public_header_files = 'IrohaCrypto/Classes/Snorkel/**/*.h'
-    skl.private_header_files = 'SnorkelImp/**/*.h'
-    skl.vendored_libraries = 'SnorkelImp/libsr25519crust.a'
-    skl.preserve_paths = 'SnorkelImp/**/*.h'
+  s.subspec 'sr25519' do |sr|
+    sr.dependency 'IrohaCrypto/Common'
+    sr.dependency 'IrohaCrypto/BIP39'
+    sr.source_files = 'IrohaCrypto/Classes/sr25519/**/*', 'sr25519Imp/**/*.h'
+    sr.public_header_files = 'IrohaCrypto/Classes/sr25519/**/*.h'
+    sr.private_header_files = 'sr25519Imp/**/*.h'
+    sr.vendored_libraries = 'sr25519Imp/libsr25519crust.a'
+    sr.preserve_paths = 'sr25519Imp/**/*.h'
   end
 
   s.pod_target_xcconfig = { 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }
