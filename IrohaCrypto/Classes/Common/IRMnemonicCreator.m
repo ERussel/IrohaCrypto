@@ -220,7 +220,7 @@ static const unsigned char BITS_PER_WORD = 11;
 }
 
 + (nonnull NSError*)errorWithMessage:(nonnull NSString*)message code:(NSUInteger)code {
-    return [NSError errorWithDomain:NSStringFromClass([[self class] class])
+    return [NSError errorWithDomain:NSStringFromClass([self class])
                                code:code
                            userInfo:@{NSLocalizedDescriptionKey: message}];
 }

@@ -38,8 +38,4 @@
     return self;
 }
 
-- (nonnull NSData *)rawData {
-    return _rawData;
-}
-
 @end

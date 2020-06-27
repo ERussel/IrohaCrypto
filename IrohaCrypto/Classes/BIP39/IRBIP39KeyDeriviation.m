@@ -5,18 +5,17 @@ static const NSUInteger ROUND_COUNT = 2048;
 
 @implementation IRBIP39KeyDeriviation
 
-- (nullable NSData*)deriveKeyFrom:(nonnull NSString*)password
+- (nullable NSData*)deriveKeyFrom:(nonnull NSData*)password
                              salt:(nonnull NSData*)salt
                            length:(NSUInteger)length
                             error:(NSError*_Nullable*_Nullable)error {
 
-    NSUInteger passwordLength = [password lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-    const char *passwordData = [password UTF8String];
+    NSUInteger passwordLength = [password length];
 
     NSMutableData *key = [NSMutableData dataWithLength:length];
 
     int result = CCKeyDerivationPBKDF(kCCPBKDF2,
-                                      passwordData,
+                                      password.bytes,
                                       passwordLength,
                                       salt.bytes,
                                       salt.length,
