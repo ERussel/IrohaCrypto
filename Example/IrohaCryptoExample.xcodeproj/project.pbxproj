@@ -30,6 +30,12 @@
 		8490139824A6434A008F705E /* kusamaPubkeyTestVectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 8490139724A6434A008F705E /* kusamaPubkeyTestVectors.json */; };
 		8490139B24A644E8008F705E /* SNAccountTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490139A24A644E8008F705E /* SNAccountTestData.m */; };
 		8490139E24A645CB008F705E /* SNAccountTestData+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490139D24A645CB008F705E /* SNAccountTestData+Load.m */; };
+		8490153424AC846E008F705E /* base58test.json in Resources */ = {isa = PBXBuildFile; fileRef = 8490153324AC846E008F705E /* base58test.json */; };
+		8490153624AC84A6008F705E /* IRBase58Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153524AC84A6008F705E /* IRBase58Tests.m */; };
+		8490153924AC855F008F705E /* IRBase58TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153824AC855F008F705E /* IRBase58TestData.m */; };
+		8490153C24AC8609008F705E /* IRBase58TestData+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153B24AC8609008F705E /* IRBase58TestData+Load.m */; };
+		8490154324AC942A008F705E /* Blake2sTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490154224AC942A008F705E /* Blake2sTests.m */; };
+		8490154924ACB360008F705E /* SS58AddressFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490154824ACB360008F705E /* SS58AddressFactoryTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +72,14 @@
 		8490139A24A644E8008F705E /* SNAccountTestData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNAccountTestData.m; sourceTree = "<group>"; };
 		8490139C24A645CB008F705E /* SNAccountTestData+Load.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SNAccountTestData+Load.h"; sourceTree = "<group>"; };
 		8490139D24A645CB008F705E /* SNAccountTestData+Load.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SNAccountTestData+Load.m"; sourceTree = "<group>"; };
+		8490153324AC846E008F705E /* base58test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = base58test.json; sourceTree = "<group>"; };
+		8490153524AC84A6008F705E /* IRBase58Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRBase58Tests.m; sourceTree = "<group>"; };
+		8490153724AC855F008F705E /* IRBase58TestData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRBase58TestData.h; sourceTree = "<group>"; };
+		8490153824AC855F008F705E /* IRBase58TestData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRBase58TestData.m; sourceTree = "<group>"; };
+		8490153A24AC8609008F705E /* IRBase58TestData+Load.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRBase58TestData+Load.h"; sourceTree = "<group>"; };
+		8490153B24AC8609008F705E /* IRBase58TestData+Load.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IRBase58TestData+Load.m"; sourceTree = "<group>"; };
+		8490154224AC942A008F705E /* Blake2sTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Blake2sTests.m; sourceTree = "<group>"; };
+		8490154824ACB360008F705E /* SS58AddressFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SS58AddressFactoryTests.m; sourceTree = "<group>"; };
 		C86A7B671D6593C871CD90E3 /* Pods_IrohaCrypto_IrohaCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IrohaCrypto_IrohaCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFBE092955D311B59246789 /* Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9891E598602CB1FE1A23F9A /* Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +108,7 @@
 		02C8504A217F678200C6A4E7 /* IrohaCryptoTests */ = {
 			isa = PBXGroup;
 			children = (
+				8490154124AC940A008F705E /* Blake2s */,
 				8490139024A62340008F705E /* SR25519 */,
 				84C0A4FB24096A4E0097D9AB /* Common */,
 				84C0A4FA24096A4E0097D9AB /* Iroha */,
@@ -172,9 +187,18 @@
 				8490139A24A644E8008F705E /* SNAccountTestData.m */,
 				8490139C24A645CB008F705E /* SNAccountTestData+Load.h */,
 				8490139D24A645CB008F705E /* SNAccountTestData+Load.m */,
+				8490154824ACB360008F705E /* SS58AddressFactoryTests.m */,
 			);
 			name = SR25519;
 			path = ../../Tests/SR25519;
+			sourceTree = "<group>";
+		};
+		8490154124AC940A008F705E /* Blake2s */ = {
+			isa = PBXGroup;
+			children = (
+				8490154224AC942A008F705E /* Blake2sTests.m */,
+			);
+			path = Blake2s;
 			sourceTree = "<group>";
 		};
 		84C0A4FA24096A4E0097D9AB /* Iroha */ = {
@@ -193,6 +217,12 @@
 				02C85052217F679800C6A4E7 /* IRHashTests.m */,
 				02C85058217F687B00C6A4E7 /* IRHexTests.m */,
 				0292037F219DBB6E00D9BACD /* IRMnemonicCreatorTests.m */,
+				8490153524AC84A6008F705E /* IRBase58Tests.m */,
+				8490153324AC846E008F705E /* base58test.json */,
+				8490153724AC855F008F705E /* IRBase58TestData.h */,
+				8490153824AC855F008F705E /* IRBase58TestData.m */,
+				8490153A24AC8609008F705E /* IRBase58TestData+Load.h */,
+				8490153B24AC8609008F705E /* IRBase58TestData+Load.m */,
 			);
 			name = Common;
 			path = ../../Tests/Common;
@@ -229,7 +259,7 @@
 				02C85045217F678200C6A4E7 /* Sources */,
 				02C85046217F678200C6A4E7 /* Frameworks */,
 				02C85047217F678200C6A4E7 /* Resources */,
-				CBAEA6A34856FD2769791738 /* [CP] Embed Pods Frameworks */,
+				E01C011FAF678CE25820A61E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,7 +278,7 @@
 				02D61B8321771F400047F7E7 /* Sources */,
 				02D61B8421771F400047F7E7 /* Frameworks */,
 				02D61B8521771F400047F7E7 /* Resources */,
-				0CD274A5000452FE445CED45 /* [CP] Embed Pods Frameworks */,
+				F58ED3BAF114DD4D1D756E93 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -305,6 +335,7 @@
 				8490138924A60F23008F705E /* substrateTestVectors.json in Resources */,
 				841F1B352407D3520018E14D /* bip39vectors.json in Resources */,
 				8490139824A6434A008F705E /* kusamaPubkeyTestVectors.json in Resources */,
+				8490153424AC846E008F705E /* base58test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,23 +352,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CD274A5000452FE445CED45 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C27991EA549C0CD3DE9EB02F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,7 +396,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CBAEA6A34856FD2769791738 /* [CP] Embed Pods Frameworks */ = {
+		E01C011FAF678CE25820A61E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -399,6 +413,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F58ED3BAF114DD4D1D756E93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -406,19 +437,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8490154924ACB360008F705E /* SS58AddressFactoryTests.m in Sources */,
 				841F1B392407D37A0018E14D /* IRBIP39TestData.m in Sources */,
 				0292040421A09FA200D9BACD /* IRScryptSeedTests.m in Sources */,
 				02920380219DBB6E00D9BACD /* IRMnemonicCreatorTests.m in Sources */,
 				8490139424A62340008F705E /* SNKeyFactoryTests.m in Sources */,
+				8490153924AC855F008F705E /* IRBase58TestData.m in Sources */,
 				8490139324A62340008F705E /* SNBIP39SeedTests.m in Sources */,
 				8490139E24A645CB008F705E /* SNAccountTestData+Load.m in Sources */,
 				841F1B362407D3520018E14D /* IRBIP39SeedTests.m in Sources */,
 				02C85056217F679800C6A4E7 /* IRHashTests.m in Sources */,
 				02C85055217F679800C6A4E7 /* IRIrohaKeyFactoryTests.m in Sources */,
+				8490153C24AC8609008F705E /* IRBase58TestData+Load.m in Sources */,
 				02C85059217F687B00C6A4E7 /* IRHexTests.m in Sources */,
+				8490153624AC84A6008F705E /* IRBase58Tests.m in Sources */,
 				841F1B3C2407D4830018E14D /* IRBIP39TestData+Load.m in Sources */,
 				8490139B24A644E8008F705E /* SNAccountTestData.m in Sources */,
 				02C85057217F679800C6A4E7 /* IRIrohaSignatureTests.m in Sources */,
+				8490154324AC942A008F705E /* Blake2sTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
