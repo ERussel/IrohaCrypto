@@ -46,6 +46,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'sr25519' do |sr|
+    sr.dependency 'IrohaCrypto/blake2'
     sr.dependency 'IrohaCrypto/Common'
     sr.dependency 'IrohaCrypto/BIP39'
     sr.source_files = 'IrohaCrypto/Classes/sr25519/**/*', 'sr25519Imp/**/*.h'
@@ -55,12 +56,12 @@ Pod::Spec.new do |s|
     sr.preserve_paths = 'sr25519Imp/**/*.h'
   end
 
-  s.subspec 'blake2s' do |b2s|
-    b2s.source_files = 'IrohaCrypto/Classes/blake2s/**/*', 'blake2sImp/**/*.h'
-    b2s.public_header_files = 'IrohaCrypto/Classes/blake2s/**/*.h'
-    b2s.private_header_files = 'blake2sImp/**/*.h'
-    b2s.vendored_libraries = 'blake2sImp/libblake2s.a'
-    b2s.preserve_paths = 'blake2sImp/**/*.h'
+  s.subspec 'blake2' do |b2|
+    b2.source_files = 'IrohaCrypto/Classes/blake2/**/*', 'blake2Imp/**/*.h'
+    b2.public_header_files = 'IrohaCrypto/Classes/blake2/**/*.h'
+    b2.private_header_files = 'blake2sImp/**/*.h'
+    b2.vendored_libraries = 'blake2Imp/libblake2.a'
+    b2.preserve_paths = 'blake2Imp/**/*.h'
   end
 
   s.pod_target_xcconfig = { 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }

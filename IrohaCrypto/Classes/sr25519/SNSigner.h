@@ -16,7 +16,7 @@
 
 @end
 
-@interface SNSigner : NSObject
+@interface SNSigner : NSObject<SNSignerProtocol>
 
 - (nonnull instancetype)initWithKeypair:(id<SNKeypairProtocol> _Nonnull)keypair;
 
