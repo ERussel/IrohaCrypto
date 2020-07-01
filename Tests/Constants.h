@@ -122,4 +122,6 @@ static NSString * const MNEMONIC_STRING[] = {
 
 static NSString * const INVALID_CHECKSUM_MNEMONIC = @"come void effort suffer camp survey warrior heavy shoot primary clutch crush open amazing screen patrol group space point ten exist slush involve unfold";
 
+
+
 #endif /* Constants_h */
