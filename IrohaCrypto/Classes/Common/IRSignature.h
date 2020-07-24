@@ -17,7 +17,8 @@
 
 typedef NS_ENUM(NSUInteger, IRSignatureError) {
     IRSignatureErrorInvalidRawData,
-    IRSignatureErrorSignerFailed
+    IRSignatureErrorSignerFailed,
+    IRSignatureErrorRecoverFailed
 };
 
 @protocol IRSignatureCreatorProtocol
@@ -32,5 +33,13 @@ typedef NS_ENUM(NSUInteger, IRSignatureError) {
 - (BOOL)verify:(id<IRSignatureProtocol> _Nonnull)signature
 forOriginalData:(nonnull NSData*)originalData
 usingPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey;
+
+@end
+
+@protocol IRRecoverableVerifierProtocol <IRSignatureVerifierProtocol>
+
+- (nullable id<IRPublicKeyProtocol>)recoverFromSignature:(id<IRSignatureProtocol> _Nonnull)signature
+                                         forOriginalData:(nonnull NSData*)originalData
+                                                   error:(NSError*_Nullable*_Nullable)error;
 
 @end
