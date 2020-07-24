@@ -18,11 +18,11 @@ typedef NS_ENUM(NSUInteger, SNKeyFactoryError) {
 - (id<SNKeypairProtocol> _Nullable)createKeypairFromSeed:(NSData* _Nonnull)seed
                                                    error:(NSError*_Nullable*_Nullable)error;
 
-- (id<SNKeypairProtocol> _Nullable)createKeypairHard:(nonnull SNKeypair*)parent
+- (id<SNKeypairProtocol> _Nullable)createKeypairHard:(id<SNKeypairProtocol> _Nonnull)parent
                                            chaincode:(nonnull NSData*)chaincode
                                                error:(NSError*_Nullable*_Nullable)error;
 
-- (id<SNKeypairProtocol> _Nullable)createKeypairSoft:(nonnull SNKeypair*)parent
+- (id<SNKeypairProtocol> _Nullable)createKeypairSoft:(id<SNKeypairProtocol> _Nonnull)parent
                                            chaincode:(nonnull NSData*)chaincode
                                                error:(NSError*_Nullable*_Nullable)error;
 
