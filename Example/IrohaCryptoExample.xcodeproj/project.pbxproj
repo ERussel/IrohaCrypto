@@ -27,6 +27,8 @@
 		842D1E5724CB707B00C30A7A /* Blake2sTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5524CB707B00C30A7A /* Blake2sTests.m */; };
 		842D1E5A24CB850200C30A7A /* Secp256k1KeypairTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5924CB850200C30A7A /* Secp256k1KeypairTests.m */; };
 		842D1E5C24CB851D00C30A7A /* Secp256k1SigningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5B24CB851D00C30A7A /* Secp256k1SigningTests.m */; };
+		842D1E5F24CD7DDE00C30A7A /* EDSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5E24CD7DDE00C30A7A /* EDSignatureTests.m */; };
+		842D1E6224CD89AA00C30A7A /* EDKeypairFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E6124CD89AA00C30A7A /* EDKeypairFactoryTests.m */; };
 		8490138924A60F23008F705E /* substrateTestVectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 8490138824A60F23008F705E /* substrateTestVectors.json */; };
 		8490139324A62340008F705E /* SNBIP39SeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490139124A62340008F705E /* SNBIP39SeedTests.m */; };
 		8490139424A62340008F705E /* SNKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490139224A62340008F705E /* SNKeyFactoryTests.m */; };
@@ -69,6 +71,9 @@
 		842D1E5524CB707B00C30A7A /* Blake2sTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blake2sTests.m; sourceTree = "<group>"; };
 		842D1E5924CB850200C30A7A /* Secp256k1KeypairTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secp256k1KeypairTests.m; sourceTree = "<group>"; };
 		842D1E5B24CB851D00C30A7A /* Secp256k1SigningTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Secp256k1SigningTests.m; sourceTree = "<group>"; };
+		842D1E5E24CD7DDE00C30A7A /* EDSignatureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSignatureTests.m; sourceTree = "<group>"; };
+		842D1E6024CD830100C30A7A /* EDTestConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTestConstants.h; sourceTree = "<group>"; };
+		842D1E6124CD89AA00C30A7A /* EDKeypairFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDKeypairFactoryTests.m; sourceTree = "<group>"; };
 		8490138824A60F23008F705E /* substrateTestVectors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = substrateTestVectors.json; sourceTree = "<group>"; };
 		8490139124A62340008F705E /* SNBIP39SeedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNBIP39SeedTests.m; sourceTree = "<group>"; };
 		8490139224A62340008F705E /* SNKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNKeyFactoryTests.m; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 		02C8504A217F678200C6A4E7 /* IrohaCryptoTests */ = {
 			isa = PBXGroup;
 			children = (
+				842D1E5D24CD7D4100C30A7A /* ed25519 */,
 				842D1E5824CB850200C30A7A /* secp256k1 */,
 				842D1E5424CB707B00C30A7A /* Blake2s */,
 				8490139024A62340008F705E /* SR25519 */,
@@ -198,6 +204,16 @@
 			);
 			name = secp256k1;
 			path = ../../Tests/secp256k1;
+			sourceTree = "<group>";
+		};
+		842D1E5D24CD7D4100C30A7A /* ed25519 */ = {
+			isa = PBXGroup;
+			children = (
+				842D1E5E24CD7DDE00C30A7A /* EDSignatureTests.m */,
+				842D1E6024CD830100C30A7A /* EDTestConstants.h */,
+				842D1E6124CD89AA00C30A7A /* EDKeypairFactoryTests.m */,
+			);
+			path = ed25519;
 			sourceTree = "<group>";
 		};
 		8490139024A62340008F705E /* SR25519 */ = {
@@ -460,9 +476,11 @@
 				8490139424A62340008F705E /* SNKeyFactoryTests.m in Sources */,
 				8490153924AC855F008F705E /* IRBase58TestData.m in Sources */,
 				8490139324A62340008F705E /* SNBIP39SeedTests.m in Sources */,
+				842D1E6224CD89AA00C30A7A /* EDKeypairFactoryTests.m in Sources */,
 				8490139E24A645CB008F705E /* SNAccountTestData+Load.m in Sources */,
 				842D1E5C24CB851D00C30A7A /* Secp256k1SigningTests.m in Sources */,
 				841F1B362407D3520018E14D /* IRBIP39SeedTests.m in Sources */,
+				842D1E5F24CD7DDE00C30A7A /* EDSignatureTests.m in Sources */,
 				842D1E5A24CB850200C30A7A /* Secp256k1KeypairTests.m in Sources */,
 				02C85056217F679800C6A4E7 /* IRHashTests.m in Sources */,
 				02C85055217F679800C6A4E7 /* IRIrohaKeyFactoryTests.m in Sources */,

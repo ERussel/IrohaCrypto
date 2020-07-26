@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
   s.subspec 'blake2' do |b2|
     b2.source_files = 'IrohaCrypto/Classes/blake2/**/*', 'blake2Imp/**/*.h'
     b2.public_header_files = 'IrohaCrypto/Classes/blake2/**/*.h'
-    b2.private_header_files = 'blake2sImp/**/*.h'
+    b2.private_header_files = 'blake2Imp/**/*.h'
     b2.vendored_libraries = 'blake2Imp/libblake2.a'
     b2.preserve_paths = 'blake2Imp/**/*.h'
   end
@@ -70,6 +70,15 @@ Pod::Spec.new do |s|
     secp.public_header_files = 'IrohaCrypto/Classes/secp256k1/**/*.h'
     secp.vendored_frameworks = 'secp256k1Imp/secp256k1.framework'
     secp.preserve_paths = 'secp256k1Imp/**/*.h'
+  end
+
+  s.subspec 'ed25519' do |ed|
+    ed.dependency 'IrohaCrypto/Common'
+    ed.source_files = 'IrohaCrypto/Classes/ed25519/**/*', 'ed25519Imp/**/*.h'
+    ed.public_header_files = 'IrohaCrypto/Classes/ed25519/**/*.h'
+    ed.private_header_files = 'ed25519Imp/**/*.h'
+    ed.vendored_libraries = 'ed25519Imp/libed25519_sha2.a'
+    ed.preserve_paths = 'ed25519Imp/**/*.h'
   end
 
   s.pod_target_xcconfig = { 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }
