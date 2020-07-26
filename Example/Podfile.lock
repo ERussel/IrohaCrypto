@@ -3,6 +3,7 @@ PODS:
     - IrohaCrypto/BIP39 (= 0.5.0)
     - IrohaCrypto/blake2 (= 0.5.0)
     - IrohaCrypto/Common (= 0.5.0)
+    - IrohaCrypto/ed25519 (= 0.5.0)
     - IrohaCrypto/Iroha (= 0.5.0)
     - IrohaCrypto/Scrypt (= 0.5.0)
     - IrohaCrypto/secp256k1 (= 0.5.0)
@@ -11,6 +12,8 @@ PODS:
     - IrohaCrypto/Common
   - IrohaCrypto/blake2 (0.5.0)
   - IrohaCrypto/Common (0.5.0)
+  - IrohaCrypto/ed25519 (0.5.0):
+    - IrohaCrypto/Common
   - IrohaCrypto/Iroha (0.5.0):
     - IrohaCrypto/Common
   - IrohaCrypto/Scrypt (0.5.0):
@@ -36,7 +39,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  IrohaCrypto: 3412ce4e5f03c51e3968d8d24dc35b2fd4c48ab3
+  IrohaCrypto: 83be7f48369b8b2cc04a7bd8727f198ea3ad1a7c
   scrypt.c: b42ae06183251329d2b2c620c226fb541a4a3592
 
 PODFILE CHECKSUM: 090cdf3e5819729438de794e136ffaa6b24d3abc
