@@ -12,15 +12,27 @@
 static NSString * const PREFIX = @"SS58PRE";
 static const UInt8 CHECKSUM_LENGTH = 2;
 static const UInt8 ADDRESS_LENGTH = 35;
+static const UInt8 ACCOUNT_ID_LENGTH = 32;
 
 @implementation SS58AddressFactory
 
-- (nullable NSString*)addressFromPublicKey:(nonnull SNPublicKey*)publicKey
+- (nullable NSString*)addressFromPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey
                                       type:(SNAddressType)type
                                      error:(NSError*_Nullable*_Nullable)error {
     NSMutableData *addressData = [NSMutableData data];
     [addressData appendData:[NSData dataWithBytes:&type length:1]];
-    [addressData appendData:publicKey.rawData];
+
+    NSData *accountId = publicKey.rawData;
+
+    if ([accountId length] != ACCOUNT_ID_LENGTH) {
+        accountId = [accountId blake2bWithError:error];
+
+        if (!accountId) {
+            return nil;
+        }
+    }
+
+    [addressData appendData:accountId];
 
     NSMutableData *checksumData = [NSMutableData data];
     [checksumData appendData:[PREFIX dataUsingEncoding:NSUTF8StringEncoding]];
@@ -37,9 +49,9 @@ static const UInt8 ADDRESS_LENGTH = 35;
     return [addressData toBase58];
 }
 
-- (nullable SNPublicKey*)publicKeyFromAddress:(nonnull NSString*)address
-                                         type:(SNAddressType)type
-                                        error:(NSError*_Nullable*_Nullable)error {
+- (nullable NSData*)accountIdFromAddress:(nonnull NSString*)address
+                                    type:(SNAddressType)type
+                                   error:(NSError*_Nullable*_Nullable)error {
     NSData *ss58Data = [[NSData alloc] initWithBase58String:address];
 
     if ([ss58Data length] != ADDRESS_LENGTH) {
@@ -91,10 +103,9 @@ static const UInt8 ADDRESS_LENGTH = 35;
         return nil;
     }
 
-    NSData *publicKeyData = [addressData subdataWithRange:NSMakeRange(1, addressData.length - 1)];
+    NSData *accountId = [addressData subdataWithRange:NSMakeRange(1, ACCOUNT_ID_LENGTH)];
 
-    return [[SNPublicKey alloc] initWithRawData:publicKeyData
-                                          error:error];
+    return accountId;
 }
 
 @end

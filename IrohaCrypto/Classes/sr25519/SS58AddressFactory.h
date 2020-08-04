@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SNPublicKey.h"
+#import "IRCryptoKey.h"
 
 typedef NS_ENUM(UInt8, SNAddressType) {
     SNAddressTypePolkadotMain = 0,
@@ -24,13 +24,13 @@ typedef NS_ENUM(NSUInteger, SNAddressFactoryError) {
 
 @protocol SS58AddressFactoryProtocol
 
-- (nullable NSString*)addressFromPublicKey:(nonnull SNPublicKey*)publicKey
+- (nullable NSString*)addressFromPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey
                                       type:(SNAddressType)type
                                      error:(NSError*_Nullable*_Nullable)error;
 
-- (nullable SNPublicKey*)publicKeyFromAddress:(nonnull NSString*)address
-                                         type:(SNAddressType)type
-                                        error:(NSError*_Nullable*_Nullable)error;
+- (nullable NSData*)accountIdFromAddress:(nonnull NSString*)address
+                                    type:(SNAddressType)type
+                                   error:(NSError*_Nullable*_Nullable)error;
 
 @end
 
