@@ -73,9 +73,9 @@ static NSString * const PUBLIC_KEYS[] = {
 
     NSError *error;
     for (int i = 0; i < ADDRESS_COUNT; i++) {
-        SNPublicKey *publicKey = [factory publicKeyFromAddress:ADDRESSES[i]
-                                                          type:SNAddressTypeKusamaMain
-                                                         error:&error];
+        NSData *accountId = [factory accountIdFromAddress:ADDRESSES[i]
+                                                     type:SNAddressTypeKusamaMain
+                                                    error:&error];
 
         if (error != nil) {
             NSString *message = [error localizedDescription];
@@ -83,7 +83,7 @@ static NSString * const PUBLIC_KEYS[] = {
             return;
         }
 
-        XCTAssertEqualObjects(PUBLIC_KEYS[i], [publicKey.rawData toHexString]);
+        XCTAssertEqualObjects(PUBLIC_KEYS[i], [accountId toHexString]);
     }
 }
 
