@@ -87,4 +87,56 @@ static NSString * const PUBLIC_KEYS[] = {
     }
 }
 
+- (void)testAddressFromSecp256k1 {
+    // given
+
+    NSString *expectedAddress = @"FGVmwMmpEm13aYCDtAJ5Fqxd3t5CxnWaWZMBc5Ey4E7xpMh";
+
+    SS58AddressFactory *factory = [[SS58AddressFactory alloc] init];
+
+    NSError *error;
+
+    NSData *privateKeyData = [[NSData alloc] initWithHexString:@"d9706f279b7f26cfc67d04c58afeaa2da690ece1a0cc4756279755f4a05961ce" error:&error];
+
+    if (error != nil) {
+        NSString *message = [error localizedDescription];
+        XCTFail("%@", message);
+        return;
+    }
+
+    SECPrivateKey *privateKey = [[SECPrivateKey alloc] initWithRawData:privateKeyData
+                                                                 error:&error];
+
+    if (error != nil) {
+        NSString *message = [error localizedDescription];
+        XCTFail("%@", message);
+        return;
+    }
+
+    // when
+
+    SECKeyFactory *keyFactory = [[SECKeyFactory alloc] init];
+    id<IRCryptoKeypairProtocol> keypair = [keyFactory deriveFromPrivateKey:privateKey error:&error];
+
+    if (error != nil) {
+        NSString *message = [error localizedDescription];
+        XCTFail("%@", message);
+        return;
+    }
+
+    NSString *address = [factory addressFromPublicKey:keypair.publicKey
+                                                 type:SNAddressTypeKusamaMain
+                                                error:&error];
+
+    if (error != nil) {
+        NSString *message = [error localizedDescription];
+        XCTFail("%@", message);
+        return;
+    }
+
+    // then
+
+    XCTAssertEqualObjects(address, expectedAddress);
+}
+
 @end
