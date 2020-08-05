@@ -25,7 +25,7 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
     NSData *accountId = publicKey.rawData;
 
     if ([accountId length] != ACCOUNT_ID_LENGTH) {
-        accountId = [accountId blake2bWithError:error];
+        accountId = [accountId blake2b:ACCOUNT_ID_LENGTH error:error];
 
         if (!accountId) {
             return nil;
