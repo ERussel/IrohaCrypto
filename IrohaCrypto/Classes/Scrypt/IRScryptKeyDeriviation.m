@@ -18,15 +18,31 @@ static const NSUInteger BLOCK_SIZE = 8;
                              salt:(NSData *)salt
                            length:(NSUInteger)length
                             error:(NSError*_Nullable*_Nullable)error {
+    return [self deriveKeyFrom:password
+                          salt:salt
+                       scryptN:MEMORY_COST
+                       scryptP:PARALELIZATION_FACTOR
+                       scryptR:BLOCK_SIZE
+                        length:length
+                         error:error];
+}
+
+- (nullable NSData*)deriveKeyFrom:(nonnull NSData *)password
+                             salt:(nonnull NSData *)salt
+                          scryptN:(NSUInteger)scryptN
+                          scryptP:(NSUInteger)scryptP
+                          scryptR:(NSUInteger)scryptR
+                           length:(NSUInteger)length
+                            error:(NSError*_Nullable*_Nullable)error {
     uint8_t result[length];
 
     int status = crypto_scrypt((uint8_t*)(password.bytes),
                                password.length,
                                (uint8_t*)(salt.bytes),
                                salt.length,
-                               MEMORY_COST,
-                               BLOCK_SIZE,
-                               PARALELIZATION_FACTOR,
+                               scryptN,
+                               (uint32_t)scryptR,
+                               (uint32_t)scryptP,
                                result,
                                length);
 
