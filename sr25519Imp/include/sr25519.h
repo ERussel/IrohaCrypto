@@ -1,7 +1,7 @@
 #ifndef __SR25519_INCLUDE_GUARD_H__
 #define __SR25519_INCLUDE_GUARD_H__
 
-/* Generated with cbindgen:0.14.2 */
+/* Generated with cbindgen:0.14.3 */
 
 /* THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT. Ref: https://github.com/Warchant/sr25519-crust */
 
@@ -113,6 +113,16 @@ void sr25519_derive_public_soft(uint8_t *pubkey_out,
                                 const uint8_t *cc_ptr);
 
 /**
+ * Retrives secret key from ed25519 representation.
+ *
+ * * secret_out: 64 bytes, pre-allocated output buffer of SR25519_SECRET_SIZE bytes
+ * * secret_ptr: generation seed - input buffer of SR25519_SECRET_SIZE bytes
+ *
+ */
+void sr25519_from_ed25519_bytes(uint8_t *secret_out,
+                                const uint8_t *secret_ptr);
+
+/**
  * Generate a key pair.
  *
  * * keypair_out: keypair [32b key | 32b nonce | 32b public], pre-allocated output buffer of SR25519_KEYPAIR_SIZE bytes
@@ -140,6 +150,16 @@ void sr25519_sign(uint8_t *signature_out,
                   const uint8_t *secret_ptr,
                   const uint8_t *message_ptr,
                   unsigned long message_length);
+
+/**
+ * Converts secret key to ed25519 representation.
+ *
+ * * secret_out: 64 bytes, pre-allocated output buffer of SR25519_SECRET_SIZE bytes
+ * * secret_ptr: generation seed - input buffer of SR25519_SECRET_SIZE bytes
+ *
+ */
+void sr25519_to_ed25519_bytes(uint8_t *secret_out,
+                              const uint8_t *secret_ptr);
 
 /**
  * Verify a message and its corresponding against a public key;
