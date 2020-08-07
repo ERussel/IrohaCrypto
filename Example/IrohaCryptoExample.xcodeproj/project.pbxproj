@@ -29,6 +29,7 @@
 		842D1E5C24CB851D00C30A7A /* Secp256k1SigningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5B24CB851D00C30A7A /* Secp256k1SigningTests.m */; };
 		842D1E5F24CD7DDE00C30A7A /* EDSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5E24CD7DDE00C30A7A /* EDSignatureTests.m */; };
 		842D1E6224CD89AA00C30A7A /* EDKeypairFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E6124CD89AA00C30A7A /* EDKeypairFactoryTests.m */; };
+		843C49D624DD369600B71DDA /* SNPrivateKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C49D524DD369600B71DDA /* SNPrivateKeyTests.m */; };
 		8490138924A60F23008F705E /* substrateTestVectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 8490138824A60F23008F705E /* substrateTestVectors.json */; };
 		8490139324A62340008F705E /* SNBIP39SeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490139124A62340008F705E /* SNBIP39SeedTests.m */; };
 		8490139424A62340008F705E /* SNKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490139224A62340008F705E /* SNKeyFactoryTests.m */; };
@@ -74,6 +75,7 @@
 		842D1E5E24CD7DDE00C30A7A /* EDSignatureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSignatureTests.m; sourceTree = "<group>"; };
 		842D1E6024CD830100C30A7A /* EDTestConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTestConstants.h; sourceTree = "<group>"; };
 		842D1E6124CD89AA00C30A7A /* EDKeypairFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDKeypairFactoryTests.m; sourceTree = "<group>"; };
+		843C49D524DD369600B71DDA /* SNPrivateKeyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNPrivateKeyTests.m; sourceTree = "<group>"; };
 		8490138824A60F23008F705E /* substrateTestVectors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = substrateTestVectors.json; sourceTree = "<group>"; };
 		8490139124A62340008F705E /* SNBIP39SeedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNBIP39SeedTests.m; sourceTree = "<group>"; };
 		8490139224A62340008F705E /* SNKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNKeyFactoryTests.m; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				8490139C24A645CB008F705E /* SNAccountTestData+Load.h */,
 				8490139D24A645CB008F705E /* SNAccountTestData+Load.m */,
 				8490154824ACB360008F705E /* SS58AddressFactoryTests.m */,
+				843C49D524DD369600B71DDA /* SNPrivateKeyTests.m */,
 			);
 			name = SR25519;
 			path = ../../Tests/SR25519;
@@ -490,6 +493,7 @@
 				841F1B3C2407D4830018E14D /* IRBIP39TestData+Load.m in Sources */,
 				842D1E5724CB707B00C30A7A /* Blake2sTests.m in Sources */,
 				8490139B24A644E8008F705E /* SNAccountTestData.m in Sources */,
+				843C49D624DD369600B71DDA /* SNPrivateKeyTests.m in Sources */,
 				02C85057217F679800C6A4E7 /* IRIrohaSignatureTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
