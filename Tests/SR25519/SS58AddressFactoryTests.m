@@ -85,10 +85,16 @@ static NSString * const PUBLIC_KEYS[] = {
 
         XCTAssertEqualObjects(PUBLIC_KEYS[i], [accountId toHexString]);
 
-        SNAddressType addressType = [factory typeFromAddress:ADDRESSES[i]
-                                                       error:&error];
+        NSNumber* addressType = [factory typeFromAddress:ADDRESSES[i]
+                                                   error:&error];
 
-        XCTAssertEqual(addressType, SNAddressTypeKusamaMain);
+        if (error != nil) {
+            NSString *message = [error localizedDescription];
+            XCTFail("%@", message);
+            return;
+        }
+
+        XCTAssertEqual([addressType intValue], SNAddressTypeKusamaMain);
     }
 }
 
