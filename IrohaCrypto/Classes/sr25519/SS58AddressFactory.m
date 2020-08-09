@@ -108,4 +108,35 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
     return accountId;
 }
 
+- (SNAddressType)typeFromAddress:(nonnull NSString*)address error:(NSError*_Nullable*_Nullable)error {
+    NSData *ss58Data = [[NSData alloc] initWithBase58String:address];
+
+    if ([ss58Data length] != ADDRESS_LENGTH) {
+        if (error) {
+            NSString *message = @"Only sr25519 account id supported";
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:SNAddressFactoryUnsupported
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
+        return 0;
+    }
+
+    uint8_t type = ((uint8_t*)ss58Data.bytes)[0];
+
+    if ((type >= SNAddressTypePolkadotMain && type <= SNAddressTypeKusamaSecondary) ||
+        (type == SNAddressTypeGenericSubstrate)) {
+        return type;
+    } else {
+        if (error) {
+            NSString *message = [NSString stringWithFormat:@"Unsupported address type: %@", @(type)];
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:SNAddressFactoryUnsupported
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
+        return 0;
+    }
+}
+
 @end
