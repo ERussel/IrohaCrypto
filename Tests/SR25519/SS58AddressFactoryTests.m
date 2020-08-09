@@ -84,6 +84,11 @@ static NSString * const PUBLIC_KEYS[] = {
         }
 
         XCTAssertEqualObjects(PUBLIC_KEYS[i], [accountId toHexString]);
+
+        SNAddressType addressType = [factory typeFromAddress:ADDRESSES[i]
+                                                       error:&error];
+
+        XCTAssertEqual(addressType, SNAddressTypeKusamaMain);
     }
 }
 

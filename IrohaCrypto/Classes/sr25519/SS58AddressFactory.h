@@ -32,6 +32,9 @@ typedef NS_ENUM(NSUInteger, SNAddressFactoryError) {
                                     type:(SNAddressType)type
                                    error:(NSError*_Nullable*_Nullable)error;
 
+- (SNAddressType)typeFromAddress:(nonnull NSString*)address
+                           error:(NSError*_Nullable*_Nullable)error;
+
 @end
 
 @interface SS58AddressFactory : NSObject<SS58AddressFactoryProtocol>
