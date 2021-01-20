@@ -24,6 +24,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Iroha' do |ir|
+    ir.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'VALID_ARCHS' => 'x86_64 armv7 arm64'  }
     ir.dependency 'IrohaCrypto/Common'
     ir.source_files = 'IrohaCrypto/Classes/Iroha/**/*', 'IrohaCryptoImp/**/*.h'
     ir.public_header_files = 'IrohaCrypto/Classes/Iroha/**/*.h'
@@ -46,6 +47,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'sr25519' do |sr|
+    sr.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'VALID_ARCHS' => 'x86_64 armv7 arm64'  }
     sr.dependency 'IrohaCrypto/blake2'
     sr.dependency 'IrohaCrypto/Common'
     sr.dependency 'IrohaCrypto/BIP39'
@@ -57,6 +59,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'blake2' do |b2|
+    b2.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'VALID_ARCHS' => 'x86_64 armv7 arm64'  }
     b2.source_files = 'IrohaCrypto/Classes/blake2/**/*', 'blake2Imp/**/*.h'
     b2.public_header_files = 'IrohaCrypto/Classes/blake2/**/*.h'
     b2.private_header_files = 'blake2Imp/**/*.h'
@@ -67,10 +70,11 @@ Pod::Spec.new do |s|
   s.subspec 'secp256k1' do |secp|
     secp.dependency 'IrohaCrypto/Common'
     secp.dependency 'secp256k1.c', '~> 0.1'
-    secp.source_files = 'IrohaCrypto/Classes/secp256k1/**/*', 'secp256k1Imp/**/*.h'
+    secp.source_files = 'IrohaCrypto/Classes/secp256k1/**/*'
   end
 
   s.subspec 'ed25519' do |ed|
+    ed.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'VALID_ARCHS' => 'x86_64 armv7 arm64'  }
     ed.dependency 'IrohaCrypto/Common'
     ed.source_files = 'IrohaCrypto/Classes/ed25519/**/*', 'ed25519Imp/**/*.h'
     ed.public_header_files = 'IrohaCrypto/Classes/ed25519/**/*.h'
