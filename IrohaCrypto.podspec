@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IrohaCrypto'
-  s.version          = '0.7.2'
+  s.version          = '0.7.3'
   s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by blockchains.'
 
   s.homepage         = 'https://github.com/soramitsu'
@@ -66,10 +66,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'secp256k1' do |secp|
     secp.dependency 'IrohaCrypto/Common'
+    secp.dependency 'secp256k1.c', '~> 0.1'
     secp.source_files = 'IrohaCrypto/Classes/secp256k1/**/*', 'secp256k1Imp/**/*.h'
-    secp.public_header_files = 'IrohaCrypto/Classes/secp256k1/**/*.h'
-    secp.vendored_frameworks = 'secp256k1Imp/secp256k1.framework'
-    secp.preserve_paths = 'secp256k1Imp/**/*.h'
   end
 
   s.subspec 'ed25519' do |ed|
