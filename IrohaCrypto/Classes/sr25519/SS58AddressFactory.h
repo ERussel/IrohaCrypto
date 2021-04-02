@@ -13,6 +13,7 @@ typedef NS_ENUM(UInt8, SNAddressType) {
     SNAddressTypePolkadotSecondary = 1,
     SNAddressTypeKusamaMain = 2,
     SNAddressTypeKusamaSecondary = 3,
+    SNAddressTypeSoraMain = 69,
     SNAddressTypeGenericSubstrate = 42
 };
 
