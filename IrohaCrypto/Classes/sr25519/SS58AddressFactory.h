@@ -13,6 +13,7 @@ typedef NS_ENUM(UInt8, SNAddressType) {
     SNAddressTypePolkadotSecondary = 1,
     SNAddressTypeKusamaMain = 2,
     SNAddressTypeKusamaSecondary = 3,
+    SNAddressTypeSoraMain = 69,
     SNAddressTypeGenericSubstrate = 42
 };
 
@@ -25,11 +26,11 @@ typedef NS_ENUM(NSUInteger, SNAddressFactoryError) {
 @protocol SS58AddressFactoryProtocol
 
 - (nullable NSString*)addressFromPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey
-                                      type:(SNAddressType)type
+                                      type:(UInt8)type
                                      error:(NSError*_Nullable*_Nullable)error;
 
 - (nullable NSData*)accountIdFromAddress:(nonnull NSString*)address
-                                    type:(SNAddressType)type
+                                    type:(UInt8)type
                                    error:(NSError*_Nullable*_Nullable)error;
 
 - (nullable NSNumber*)typeFromAddress:(nonnull NSString*)address
