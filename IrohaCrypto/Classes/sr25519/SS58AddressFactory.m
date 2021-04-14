@@ -17,10 +17,27 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
 @implementation SS58AddressFactory
 
 - (nullable NSString*)addressFromPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey
-                                      type:(SNAddressType)type
+                                      type:(UInt8)type
                                      error:(NSError*_Nullable*_Nullable)error {
+
+    UInt16 ident = type & 0b0011111111111111;
+
     NSMutableData *addressData = [NSMutableData data];
-    [addressData appendData:[NSData dataWithBytes:&type length:1]];
+
+    switch (ident) {
+        case 0 ... 63:
+            [addressData appendData:[NSData dataWithBytes:&type length:1]];
+            break;
+        case 64 ... 127:;
+            UInt8 first = ((ident & 0b0000000011111100) >> 2) | 0b01000000;
+            UInt8 second = (ident >> 8 | (ident & 0b0000000000000011) << 6);
+
+            [addressData appendBytes:&first length:1];
+            [addressData appendBytes:&second length:1];
+            break;
+        default:
+            break;
+    }
 
     NSData *accountId = publicKey.rawData;
 
@@ -49,12 +66,28 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
     return [addressData toBase58];
 }
 
+- (UInt8) decodeTypeFromData:(NSData *)addressData {
+    UInt8 first = ((uint8_t*)addressData.bytes)[0];
+    switch (first) {
+    case 0 ... 63:
+        return first;
+    case 64 ... 127:;
+        UInt8 second = ((uint8_t*)addressData.bytes)[1];
+        UInt8 lower = first << 2 | second >> 6;
+        UInt8 upper = second & 0b00111111;
+        return lower | (upper << 8);
+    default:
+        break;
+    }
+    return 0;
+}
+
 - (nullable NSData*)accountIdFromAddress:(nonnull NSString*)address
-                                    type:(SNAddressType)type
+                                    type:(UInt8)type
                                    error:(NSError*_Nullable*_Nullable)error {
     NSData *ss58Data = [[NSData alloc] initWithBase58String:address];
 
-    if ([ss58Data length] != ADDRESS_LENGTH) {
+    if ([ss58Data length] != ADDRESS_LENGTH && [ss58Data length] != ADDRESS_LENGTH + 1) {
         if (error) {
             NSString *message = @"Only sr25519 account id supported";
             *error = [NSError errorWithDomain:NSStringFromClass([self class])
@@ -69,7 +102,7 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
     NSData *expectedChecksum = [ss58Data subdataWithRange: checksumRange];
     NSData *addressData = [ss58Data subdataWithRange:NSMakeRange(0, checksumRange.location)];
 
-    uint8_t addressType = ((uint8_t*)addressData.bytes)[0];
+    uint8_t addressType = [self decodeTypeFromData: addressData];
 
     if (addressType != type) {
         if (error) {
@@ -102,8 +135,8 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
 
         return nil;
     }
-
-    NSData *accountId = [addressData subdataWithRange:NSMakeRange(1, ACCOUNT_ID_LENGTH)];
+    int shift = addressType > 63 ? 2 : 1;
+    NSData *accountId = [addressData subdataWithRange:NSMakeRange(shift, ACCOUNT_ID_LENGTH)];
 
     return accountId;
 }
@@ -112,7 +145,7 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
                                 error:(NSError*_Nullable*_Nullable)error {
     NSData *ss58Data = [[NSData alloc] initWithBase58String:address];
 
-    if ([ss58Data length] != ADDRESS_LENGTH) {
+    if ([ss58Data length] != ADDRESS_LENGTH && [ss58Data length] != ADDRESS_LENGTH + 1) {
         if (error) {
             NSString *message = @"Only sr25519 account id supported";
             *error = [NSError errorWithDomain:NSStringFromClass([self class])
@@ -123,7 +156,7 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
         return nil;
     }
 
-    uint8_t type = ((uint8_t*)ss58Data.bytes)[0];
+    uint8_t type = [self decodeTypeFromData: ss58Data];
 
     return [NSNumber numberWithInt:type];
 }
