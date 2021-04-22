@@ -25,19 +25,14 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
 
     NSMutableData *addressData = [NSMutableData data];
 
-    switch (ident) {
-        case 0 ... 63:
-            [addressData appendData:[NSData dataWithBytes:&type length:1]];
-            break;
-        case 64 ... 127:;
-            UInt8 first = ((ident & 0b0000000011111100) >> 2) | 0b01000000;
-            UInt8 second = (ident >> 8 | (ident & 0b0000000000000011) << 6);
+    if (ident < 64) {
+        [addressData appendData:[NSData dataWithBytes:&type length:1]];
+    } else {
+        UInt8 first = ((ident & 0b0000000011111100) >> 2) | 0b01000000;
+        UInt8 second = (ident >> 8 | (ident & 0b0000000000000011) << 6);
 
-            [addressData appendBytes:&first length:1];
-            [addressData appendBytes:&second length:1];
-            break;
-        default:
-            break;
+        [addressData appendBytes:&first length:1];
+        [addressData appendBytes:&second length:1];
     }
 
     NSData *accountId = publicKey.rawData;
@@ -69,18 +64,14 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
 
 - (UInt8) decodeTypeFromData:(NSData *)addressData {
     UInt8 prefix = ((uint8_t*)addressData.bytes)[0];
-    switch (prefix) {
-    case 0 ... 63:
+    if (prefix < 64) {
         return prefix;
-    case 64 ... 127:;
+    } else {
         UInt8 second = ((uint8_t*)addressData.bytes)[1];
         UInt8 lower = prefix << 2 | second >> 6;
         UInt8 upper = second & 0b00111111;
         return lower | (upper << 8);
-    default:
-        break;
     }
-    return 0;
 }
 
 - (nullable NSData*)accountIdFromAddress:(nonnull NSString*)address
