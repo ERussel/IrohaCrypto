@@ -11,7 +11,8 @@
 
 static NSString * const PREFIX = @"SS58PRE";
 static const UInt8 CHECKSUM_LENGTH = 2;
-static const UInt8 ADDRESS_LENGTH = 35;
+static const UInt8 SIMPLE_ADDRESS_LENGTH = 35;
+static const UInt8 FULL_ADDRESS_LENGTH = 36;
 static const UInt8 ACCOUNT_ID_LENGTH = 32;
 
 @implementation SS58AddressFactory
@@ -67,13 +68,13 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
 }
 
 - (UInt8) decodeTypeFromData:(NSData *)addressData {
-    UInt8 first = ((uint8_t*)addressData.bytes)[0];
-    switch (first) {
+    UInt8 prefix = ((uint8_t*)addressData.bytes)[0];
+    switch (prefix) {
     case 0 ... 63:
-        return first;
+        return prefix;
     case 64 ... 127:;
         UInt8 second = ((uint8_t*)addressData.bytes)[1];
-        UInt8 lower = first << 2 | second >> 6;
+        UInt8 lower = prefix << 2 | second >> 6;
         UInt8 upper = second & 0b00111111;
         return lower | (upper << 8);
     default:
@@ -87,9 +88,9 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
                                    error:(NSError*_Nullable*_Nullable)error {
     NSData *ss58Data = [[NSData alloc] initWithBase58String:address];
 
-    if ([ss58Data length] != ADDRESS_LENGTH && [ss58Data length] != ADDRESS_LENGTH + 1) {
+    if ([ss58Data length] != SIMPLE_ADDRESS_LENGTH && [ss58Data length] != FULL_ADDRESS_LENGTH) {
         if (error) {
-            NSString *message = @"Only sr25519 account id supported";
+            NSString *message = @"Only account id based addresses are supported";
             *error = [NSError errorWithDomain:NSStringFromClass([self class])
                                          code:SNAddressFactoryUnsupported
                                      userInfo:@{NSLocalizedDescriptionKey: message}];
@@ -145,9 +146,9 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
                                 error:(NSError*_Nullable*_Nullable)error {
     NSData *ss58Data = [[NSData alloc] initWithBase58String:address];
 
-    if ([ss58Data length] != ADDRESS_LENGTH && [ss58Data length] != ADDRESS_LENGTH + 1) {
+    if ([ss58Data length] != SIMPLE_ADDRESS_LENGTH && [ss58Data length] != FULL_ADDRESS_LENGTH) {
         if (error) {
-            NSString *message = @"Only sr25519 account id supported";
+            NSString *message = @"Only account id based addresses are supported";
             *error = [NSError errorWithDomain:NSStringFromClass([self class])
                                          code:SNAddressFactoryUnsupported
                                      userInfo:@{NSLocalizedDescriptionKey: message}];

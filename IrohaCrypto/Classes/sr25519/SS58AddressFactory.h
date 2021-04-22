@@ -8,15 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "IRCryptoKey.h"
 
-typedef NS_ENUM(UInt8, SNAddressType) {
-    SNAddressTypePolkadotMain = 0,
-    SNAddressTypePolkadotSecondary = 1,
-    SNAddressTypeKusamaMain = 2,
-    SNAddressTypeKusamaSecondary = 3,
-    SNAddressTypeSoraMain = 69,
-    SNAddressTypeGenericSubstrate = 42
-};
-
 typedef NS_ENUM(NSUInteger, SNAddressFactoryError) {
     SNAddressFactoryUnsupported,
     SNAddressFactoryIncorrectChecksum,
