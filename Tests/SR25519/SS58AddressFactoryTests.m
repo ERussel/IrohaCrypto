@@ -13,7 +13,7 @@ static const int ADDRESS_COUNT = 6;
 
 static NSString * const ADDRESSES[] = {
     @"EzSUv17LNHTU2xdPKLuLkPy7fCD795DZ6d5CnF4x4HSkcb4",
-    @"DV7xfT8VBuHXH8jqHvAEG3SD9T2NmaQBUiNo3UhPDXJjjCv",
+    @"cnUVLAjzRsrXrzEiqjxMpBwvb6YgdBy8DKibonvZgtcQY5ZKe",
     @"J6JSp4acVrUZ66tXarVMd1wtPgUQZxxe23qNoqNrpGz2xhL",
     @"E8gokmz3qYJfB2iFJuvt6HY2JHv1Jy8MjGGduR7boGi4duV",
     @"cnUVLAjzRsrXrzEiqjxMpBwvb6YgdBy8DKibonvZgtcQY5ZKe",
@@ -22,7 +22,7 @@ static NSString * const ADDRESSES[] = {
 
 static NSString * const PUBLIC_KEYS[] = {
     @"6addccf0b805e2d0dc445239b800201e1fb6f17f92ef4eaa1516f4d0e2cf1664",
-    @"284519e94e8e38145b562fd3dab85909c554bd3645f5f9a37ce95d03801afe3f",
+    @"84bdc405d139399bba3ccea5d3de23316c9deeab661f57e2f4d1720cc6649859",
     @"f40aebc0b1f17260f028faf12827e2804cf1afdf7a952191042cf74c539bd870",
     @"44ebc0867945b9ab730db393c6fd4b703404aac34bfbd896f36523aa58fe0758",
     @"84bdc405d139399bba3ccea5d3de23316c9deeab661f57e2f4d1720cc6649859",
