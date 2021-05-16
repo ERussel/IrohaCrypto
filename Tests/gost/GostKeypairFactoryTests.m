@@ -15,7 +15,7 @@
 
 @implementation GostKeypairFactoryTests
 
-- (void)testGenerateKeypair {
+- (void)testGenerateKeypairAndEncodingDecoding {
     GostKeyFactory *factory = [[GostKeyFactory alloc] init];
 
     NSError *error = nil;

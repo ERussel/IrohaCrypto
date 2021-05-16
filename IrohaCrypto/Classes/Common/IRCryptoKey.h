@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol IRCryptoKeyProtocol
+@protocol IRCryptoKeyProtocol<NSObject>
 
 - (nullable instancetype)initWithRawData:(nonnull NSData*)data error:(NSError*_Nullable*_Nullable)error;
 - (nonnull NSData*)rawData;

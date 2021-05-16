@@ -97,6 +97,10 @@
 
 - (id<IRCryptoKeypairProtocol> _Nullable)deriveFromPrivateKey:(id<IRPrivateKeyProtocol> _Nonnull)privateKey
                                                         error:(NSError*_Nullable*_Nullable)error {
+    if (error) {
+        *error = [GostKeyFactory createErrorWithMessage:@"Unsupported"];
+    }
+
     return nil;
 }
 
