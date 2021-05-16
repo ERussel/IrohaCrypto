@@ -106,7 +106,7 @@
 
 + (NSError*)createErrorWithMessage:(NSString*)message {
     return [NSError errorWithDomain:NSStringFromClass([self class])
-                               code:GostKeyFactoryFailed
+                               code:GostKeyFactoryCode
                            userInfo:@{NSLocalizedDescriptionKey: message}];
 }
 

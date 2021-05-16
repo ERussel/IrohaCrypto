@@ -136,7 +136,7 @@
 
 + (NSError*)createErrorWithMessage:(NSString*)message {
     return [NSError errorWithDomain:NSStringFromClass([self class])
-                               code:GostPrivateKeyFailed
+                               code:GostPublicKeyCode
                            userInfo:@{NSLocalizedDescriptionKey: message}];
 }
 

@@ -9,9 +9,13 @@
 #define GostError_h
 
 typedef NS_ENUM(NSInteger, GostErrorCode) {
-    GostEngineCreationFailed,
-    GostKeyFactoryFailed,
-    GostPrivateKeyFailed
+    GostEngineCode,
+    GostKeyFactoryCode,
+    GostPrivateKeyCode,
+    GostPublicKeyCode,
+    GostSignatureCode,
+    GostSignerCode,
+    GostSignatureVerifierCode
 };
 
 #define ENGINE_SUCCESS 1

@@ -40,6 +40,7 @@
 		8490153924AC855F008F705E /* IRBase58TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153824AC855F008F705E /* IRBase58TestData.m */; };
 		8490153C24AC8609008F705E /* IRBase58TestData+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153B24AC8609008F705E /* IRBase58TestData+Load.m */; };
 		8490154924ACB360008F705E /* SS58AddressFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490154824ACB360008F705E /* SS58AddressFactoryTests.m */; };
+		84B5396C26512B5000E9E511 /* GostSignerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5396B26512B5000E9E511 /* GostSignerTests.m */; };
 		84DE6C3D2649C48F002AF1EF /* EDKeypairFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6C3B2649C48F002AF1EF /* EDKeypairFactoryTests.m */; };
 		84DE6C3E2649C48F002AF1EF /* EDSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6C3C2649C48F002AF1EF /* EDSignatureTests.m */; };
 		84DE6C4A2649C4B8002AF1EF /* StribogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6C492649C4B8002AF1EF /* StribogTests.m */; };
@@ -91,6 +92,7 @@
 		8490153A24AC8609008F705E /* IRBase58TestData+Load.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRBase58TestData+Load.h"; sourceTree = "<group>"; };
 		8490153B24AC8609008F705E /* IRBase58TestData+Load.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IRBase58TestData+Load.m"; sourceTree = "<group>"; };
 		8490154824ACB360008F705E /* SS58AddressFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SS58AddressFactoryTests.m; sourceTree = "<group>"; };
+		84B5396B26512B5000E9E511 /* GostSignerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GostSignerTests.m; sourceTree = "<group>"; };
 		84DE6C3A2649C48F002AF1EF /* EDTestConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTestConstants.h; sourceTree = "<group>"; };
 		84DE6C3B2649C48F002AF1EF /* EDKeypairFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDKeypairFactoryTests.m; sourceTree = "<group>"; };
 		84DE6C3C2649C48F002AF1EF /* EDSignatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSignatureTests.m; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				84DE6C492649C4B8002AF1EF /* StribogTests.m */,
 				841871A0264C8BE000720BDB /* GostKeypairFactoryTests.m */,
+				84B5396B26512B5000E9E511 /* GostSignerTests.m */,
 			);
 			name = gost;
 			path = ../../Tests/gost;
@@ -493,6 +496,7 @@
 				841F1B392407D37A0018E14D /* IRBIP39TestData.m in Sources */,
 				0292040421A09FA200D9BACD /* IRScryptSeedTests.m in Sources */,
 				02920380219DBB6E00D9BACD /* IRMnemonicCreatorTests.m in Sources */,
+				84B5396C26512B5000E9E511 /* GostSignerTests.m in Sources */,
 				8490139424A62340008F705E /* SNKeyFactoryTests.m in Sources */,
 				8490153924AC855F008F705E /* IRBase58TestData.m in Sources */,
 				8490139324A62340008F705E /* SNBIP39SeedTests.m in Sources */,

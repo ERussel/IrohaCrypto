@@ -35,7 +35,7 @@
 
 + (NSError*)createErrorWithMessage:(NSString*)message {
     return [NSError errorWithDomain:NSStringFromClass([self class])
-                               code:GostEngineCreationFailed
+                               code:GostEngineCode
                            userInfo:@{NSLocalizedDescriptionKey: message}];
 }
 
