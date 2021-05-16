@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IrohaCrypto'
-  s.version          = '0.7.4'
+  s.version          = '0.8.0'
   s.summary          = 'Provides object oriented wrappers for C/C++ crypto functions used by blockchains.'
 
   s.homepage         = 'https://github.com/soramitsu'
@@ -81,6 +81,16 @@ Pod::Spec.new do |s|
     ed.private_header_files = 'ed25519Imp/**/*.h'
     ed.vendored_libraries = 'ed25519Imp/libed25519_sha2.a'
     ed.preserve_paths = 'ed25519Imp/**/*.h'
+  end
+
+  s.subspec 'gost' do |gt|
+    gt.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'VALID_ARCHS' => 'x86_64 armv7 arm64'  }
+    gt.dependency 'IrohaCrypto/Common'
+    gt.source_files = 'IrohaCrypto/Classes/gost/**/*', 'gostImp/**/*.h'
+    gt.public_header_files = 'IrohaCrypto/Classes/gost/Public/**/*.h'
+    gt.private_header_files = 'IrohaCrypto/Classes/gost/Private/**/*.h', 'gostImp/**/*.h'
+    gt.vendored_libraries = 'gostImp/libopenssl.a'
+    gt.preserve_paths = 'gostImp/**/*.h'
   end
 
   s.pod_target_xcconfig = { 'CLANG_WARN_DOCUMENTATION_COMMENTS' => "NO" }

@@ -1,28 +1,31 @@
 PODS:
-  - IrohaCrypto (0.7.4):
-    - IrohaCrypto/BIP39 (= 0.7.4)
-    - IrohaCrypto/blake2 (= 0.7.4)
-    - IrohaCrypto/Common (= 0.7.4)
-    - IrohaCrypto/ed25519 (= 0.7.4)
-    - IrohaCrypto/Iroha (= 0.7.4)
-    - IrohaCrypto/Scrypt (= 0.7.4)
-    - IrohaCrypto/secp256k1 (= 0.7.4)
-    - IrohaCrypto/sr25519 (= 0.7.4)
-  - IrohaCrypto/BIP39 (0.7.4):
+  - IrohaCrypto (0.8.0):
+    - IrohaCrypto/BIP39 (= 0.8.0)
+    - IrohaCrypto/blake2 (= 0.8.0)
+    - IrohaCrypto/Common (= 0.8.0)
+    - IrohaCrypto/ed25519 (= 0.8.0)
+    - IrohaCrypto/gost (= 0.8.0)
+    - IrohaCrypto/Iroha (= 0.8.0)
+    - IrohaCrypto/Scrypt (= 0.8.0)
+    - IrohaCrypto/secp256k1 (= 0.8.0)
+    - IrohaCrypto/sr25519 (= 0.8.0)
+  - IrohaCrypto/BIP39 (0.8.0):
     - IrohaCrypto/Common
-  - IrohaCrypto/blake2 (0.7.4)
-  - IrohaCrypto/Common (0.7.4)
-  - IrohaCrypto/ed25519 (0.7.4):
+  - IrohaCrypto/blake2 (0.8.0)
+  - IrohaCrypto/Common (0.8.0)
+  - IrohaCrypto/ed25519 (0.8.0):
     - IrohaCrypto/Common
-  - IrohaCrypto/Iroha (0.7.4):
+  - IrohaCrypto/gost (0.8.0):
     - IrohaCrypto/Common
-  - IrohaCrypto/Scrypt (0.7.4):
+  - IrohaCrypto/Iroha (0.8.0):
+    - IrohaCrypto/Common
+  - IrohaCrypto/Scrypt (0.8.0):
     - IrohaCrypto/Common
     - scrypt.c (~> 0.1)
-  - IrohaCrypto/secp256k1 (0.7.4):
+  - IrohaCrypto/secp256k1 (0.8.0):
     - IrohaCrypto/Common
     - secp256k1.c (~> 0.1)
-  - IrohaCrypto/sr25519 (0.7.4):
+  - IrohaCrypto/sr25519 (0.8.0):
     - IrohaCrypto/BIP39
     - IrohaCrypto/blake2
     - IrohaCrypto/Common
@@ -42,10 +45,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  IrohaCrypto: 753b4f9c2af9ddb97538e6b919d087f87112e708
+  IrohaCrypto: b2e10eb431c99d8d0373bb990bab1f3192d01dfa
   scrypt.c: b42ae06183251329d2b2c620c226fb541a4a3592
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
 
 PODFILE CHECKSUM: 090cdf3e5819729438de794e136ffaa6b24d3abc
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

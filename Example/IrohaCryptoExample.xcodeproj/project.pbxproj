@@ -20,6 +20,7 @@
 		02D61B9521771F410047F7E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D61B9321771F410047F7E7 /* LaunchScreen.storyboard */; };
 		2817CE7C97D0674382F2272E /* Pods_IrohaCrypto_IrohaCryptoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A1810515BA7920095CDACE4 /* Pods_IrohaCrypto_IrohaCryptoExample.framework */; };
 		6F7044DF1A60C3DDFF699738 /* Pods_IrohaCrypto_IrohaCryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86A7B671D6593C871CD90E3 /* Pods_IrohaCrypto_IrohaCryptoTests.framework */; };
+		841871A1264C8BE000720BDB /* GostKeypairFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841871A0264C8BE000720BDB /* GostKeypairFactoryTests.m */; };
 		841F1B352407D3520018E14D /* bip39vectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 841F1B332407D3520018E14D /* bip39vectors.json */; };
 		841F1B362407D3520018E14D /* IRBIP39SeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F1B342407D3520018E14D /* IRBIP39SeedTests.m */; };
 		841F1B392407D37A0018E14D /* IRBIP39TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F1B382407D37A0018E14D /* IRBIP39TestData.m */; };
@@ -27,8 +28,6 @@
 		842D1E5724CB707B00C30A7A /* Blake2sTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5524CB707B00C30A7A /* Blake2sTests.m */; };
 		842D1E5A24CB850200C30A7A /* Secp256k1KeypairTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5924CB850200C30A7A /* Secp256k1KeypairTests.m */; };
 		842D1E5C24CB851D00C30A7A /* Secp256k1SigningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5B24CB851D00C30A7A /* Secp256k1SigningTests.m */; };
-		842D1E5F24CD7DDE00C30A7A /* EDSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E5E24CD7DDE00C30A7A /* EDSignatureTests.m */; };
-		842D1E6224CD89AA00C30A7A /* EDKeypairFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D1E6124CD89AA00C30A7A /* EDKeypairFactoryTests.m */; };
 		843C49D624DD369600B71DDA /* SNPrivateKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C49D524DD369600B71DDA /* SNPrivateKeyTests.m */; };
 		8490138924A60F23008F705E /* substrateTestVectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 8490138824A60F23008F705E /* substrateTestVectors.json */; };
 		8490139324A62340008F705E /* SNBIP39SeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490139124A62340008F705E /* SNBIP39SeedTests.m */; };
@@ -41,6 +40,9 @@
 		8490153924AC855F008F705E /* IRBase58TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153824AC855F008F705E /* IRBase58TestData.m */; };
 		8490153C24AC8609008F705E /* IRBase58TestData+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153B24AC8609008F705E /* IRBase58TestData+Load.m */; };
 		8490154924ACB360008F705E /* SS58AddressFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490154824ACB360008F705E /* SS58AddressFactoryTests.m */; };
+		84DE6C3D2649C48F002AF1EF /* EDKeypairFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6C3B2649C48F002AF1EF /* EDKeypairFactoryTests.m */; };
+		84DE6C3E2649C48F002AF1EF /* EDSignatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6C3C2649C48F002AF1EF /* EDSignatureTests.m */; };
+		84DE6C4A2649C4B8002AF1EF /* StribogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6C492649C4B8002AF1EF /* StribogTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,7 @@
 		6587131F84355F24ED7B61AF /* Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample.debug.xcconfig"; sourceTree = "<group>"; };
 		6A1810515BA7920095CDACE4 /* Pods_IrohaCrypto_IrohaCryptoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IrohaCrypto_IrohaCryptoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		770555D80415B52BE18A4088 /* Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoExample/Pods-IrohaCrypto-IrohaCryptoExample.release.xcconfig"; sourceTree = "<group>"; };
+		841871A0264C8BE000720BDB /* GostKeypairFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GostKeypairFactoryTests.m; sourceTree = "<group>"; };
 		841F1B332407D3520018E14D /* bip39vectors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bip39vectors.json; sourceTree = "<group>"; };
 		841F1B342407D3520018E14D /* IRBIP39SeedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBIP39SeedTests.m; sourceTree = "<group>"; };
 		841F1B372407D37A0018E14D /* IRBIP39TestData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRBIP39TestData.h; sourceTree = "<group>"; };
@@ -72,9 +75,6 @@
 		842D1E5524CB707B00C30A7A /* Blake2sTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blake2sTests.m; sourceTree = "<group>"; };
 		842D1E5924CB850200C30A7A /* Secp256k1KeypairTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secp256k1KeypairTests.m; sourceTree = "<group>"; };
 		842D1E5B24CB851D00C30A7A /* Secp256k1SigningTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Secp256k1SigningTests.m; sourceTree = "<group>"; };
-		842D1E5E24CD7DDE00C30A7A /* EDSignatureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSignatureTests.m; sourceTree = "<group>"; };
-		842D1E6024CD830100C30A7A /* EDTestConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTestConstants.h; sourceTree = "<group>"; };
-		842D1E6124CD89AA00C30A7A /* EDKeypairFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDKeypairFactoryTests.m; sourceTree = "<group>"; };
 		843C49D524DD369600B71DDA /* SNPrivateKeyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNPrivateKeyTests.m; sourceTree = "<group>"; };
 		8490138824A60F23008F705E /* substrateTestVectors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = substrateTestVectors.json; sourceTree = "<group>"; };
 		8490139124A62340008F705E /* SNBIP39SeedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNBIP39SeedTests.m; sourceTree = "<group>"; };
@@ -91,6 +91,10 @@
 		8490153A24AC8609008F705E /* IRBase58TestData+Load.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRBase58TestData+Load.h"; sourceTree = "<group>"; };
 		8490153B24AC8609008F705E /* IRBase58TestData+Load.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IRBase58TestData+Load.m"; sourceTree = "<group>"; };
 		8490154824ACB360008F705E /* SS58AddressFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SS58AddressFactoryTests.m; sourceTree = "<group>"; };
+		84DE6C3A2649C48F002AF1EF /* EDTestConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTestConstants.h; sourceTree = "<group>"; };
+		84DE6C3B2649C48F002AF1EF /* EDKeypairFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDKeypairFactoryTests.m; sourceTree = "<group>"; };
+		84DE6C3C2649C48F002AF1EF /* EDSignatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSignatureTests.m; sourceTree = "<group>"; };
+		84DE6C492649C4B8002AF1EF /* StribogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StribogTests.m; sourceTree = "<group>"; };
 		C86A7B671D6593C871CD90E3 /* Pods_IrohaCrypto_IrohaCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IrohaCrypto_IrohaCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFBE092955D311B59246789 /* Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9891E598602CB1FE1A23F9A /* Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +123,8 @@
 		02C8504A217F678200C6A4E7 /* IrohaCryptoTests */ = {
 			isa = PBXGroup;
 			children = (
-				842D1E5D24CD7D4100C30A7A /* ed25519 */,
+				84DE6C392649C48F002AF1EF /* ed25519 */,
+				84DE6C382649C46F002AF1EF /* gost */,
 				842D1E5824CB850200C30A7A /* secp256k1 */,
 				842D1E5424CB707B00C30A7A /* Blake2s */,
 				8490139024A62340008F705E /* SR25519 */,
@@ -208,16 +213,6 @@
 			path = ../../Tests/secp256k1;
 			sourceTree = "<group>";
 		};
-		842D1E5D24CD7D4100C30A7A /* ed25519 */ = {
-			isa = PBXGroup;
-			children = (
-				842D1E5E24CD7DDE00C30A7A /* EDSignatureTests.m */,
-				842D1E6024CD830100C30A7A /* EDTestConstants.h */,
-				842D1E6124CD89AA00C30A7A /* EDKeypairFactoryTests.m */,
-			);
-			path = ed25519;
-			sourceTree = "<group>";
-		};
 		8490139024A62340008F705E /* SR25519 */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +265,27 @@
 			);
 			name = Scrypt;
 			path = ../../Tests/Scrypt;
+			sourceTree = "<group>";
+		};
+		84DE6C382649C46F002AF1EF /* gost */ = {
+			isa = PBXGroup;
+			children = (
+				84DE6C492649C4B8002AF1EF /* StribogTests.m */,
+				841871A0264C8BE000720BDB /* GostKeypairFactoryTests.m */,
+			);
+			name = gost;
+			path = ../../Tests/gost;
+			sourceTree = "<group>";
+		};
+		84DE6C392649C48F002AF1EF /* ed25519 */ = {
+			isa = PBXGroup;
+			children = (
+				84DE6C3A2649C48F002AF1EF /* EDTestConstants.h */,
+				84DE6C3B2649C48F002AF1EF /* EDKeypairFactoryTests.m */,
+				84DE6C3C2649C48F002AF1EF /* EDSignatureTests.m */,
+			);
+			name = ed25519;
+			path = ../../Tests/ed25519;
 			sourceTree = "<group>";
 		};
 		A4A2791F64DCB0B0F177BA70 /* Pods */ = {
@@ -336,6 +352,7 @@
 				TargetAttributes = {
 					02C85048217F678200C6A4E7 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1240;
 					};
 					02D61B8621771F400047F7E7 = {
 						CreatedOnToolsVersion = 10.0;
@@ -479,19 +496,21 @@
 				8490139424A62340008F705E /* SNKeyFactoryTests.m in Sources */,
 				8490153924AC855F008F705E /* IRBase58TestData.m in Sources */,
 				8490139324A62340008F705E /* SNBIP39SeedTests.m in Sources */,
-				842D1E6224CD89AA00C30A7A /* EDKeypairFactoryTests.m in Sources */,
 				8490139E24A645CB008F705E /* SNAccountTestData+Load.m in Sources */,
 				842D1E5C24CB851D00C30A7A /* Secp256k1SigningTests.m in Sources */,
 				841F1B362407D3520018E14D /* IRBIP39SeedTests.m in Sources */,
-				842D1E5F24CD7DDE00C30A7A /* EDSignatureTests.m in Sources */,
+				841871A1264C8BE000720BDB /* GostKeypairFactoryTests.m in Sources */,
 				842D1E5A24CB850200C30A7A /* Secp256k1KeypairTests.m in Sources */,
 				02C85056217F679800C6A4E7 /* IRHashTests.m in Sources */,
 				02C85055217F679800C6A4E7 /* IRIrohaKeyFactoryTests.m in Sources */,
 				8490153C24AC8609008F705E /* IRBase58TestData+Load.m in Sources */,
+				84DE6C4A2649C4B8002AF1EF /* StribogTests.m in Sources */,
 				02C85059217F687B00C6A4E7 /* IRHexTests.m in Sources */,
 				8490153624AC84A6008F705E /* IRBase58Tests.m in Sources */,
 				841F1B3C2407D4830018E14D /* IRBIP39TestData+Load.m in Sources */,
+				84DE6C3D2649C48F002AF1EF /* EDKeypairFactoryTests.m in Sources */,
 				842D1E5724CB707B00C30A7A /* Blake2sTests.m in Sources */,
+				84DE6C3E2649C48F002AF1EF /* EDSignatureTests.m in Sources */,
 				8490139B24A644E8008F705E /* SNAccountTestData.m in Sources */,
 				843C49D624DD369600B71DDA /* SNPrivateKeyTests.m in Sources */,
 				02C85057217F679800C6A4E7 /* IRIrohaSignatureTests.m in Sources */,
@@ -533,8 +552,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9891E598602CB1FE1A23F9A /* Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ANAULAA354;
+				DEVELOPMENT_TEAM = BRJJ3BVSX7;
 				INFOPLIST_FILE = IrohaCryptoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -544,6 +564,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.soramitsu.IrohaCryptoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -552,8 +574,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDFBE092955D311B59246789 /* Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ANAULAA354;
+				DEVELOPMENT_TEAM = BRJJ3BVSX7;
 				INFOPLIST_FILE = IrohaCryptoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -563,6 +586,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.soramitsu.IrohaCryptoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -689,7 +713,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ANAULAA354;
+				DEVELOPMENT_TEAM = BRJJ3BVSX7;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = IrohaCryptoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -710,7 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ANAULAA354;
+				DEVELOPMENT_TEAM = BRJJ3BVSX7;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = IrohaCryptoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
