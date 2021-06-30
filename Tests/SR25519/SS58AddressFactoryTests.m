@@ -30,12 +30,12 @@ static NSString * const PUBLIC_KEYS[] = {
 };
 
 static UInt8 const TYPES[] = {
-    SNAddressTypeKusamaMain,
-    SNAddressTypeKusamaMain,
-    SNAddressTypeKusamaMain,
-    SNAddressTypeKusamaMain,
-    SNAddressTypeSoraMain,
-    SNAddressTypeSoraMain
+    2,
+    69,
+    2,
+    2,
+    69,
+    69
 };
 
 @interface SS58AddressFactoryTests : XCTestCase
@@ -67,7 +67,7 @@ static UInt8 const TYPES[] = {
             return;
         }
 
-        NSString *address = [factory addressFromPublicKey:publicKey
+        NSString *address = [factory addressFromAccountId:publicKey.rawData
                                                      type:TYPES[i]
                                                     error:&error];
 
@@ -148,8 +148,8 @@ static UInt8 const TYPES[] = {
         return;
     }
 
-    NSString *address = [factory addressFromPublicKey:keypair.publicKey
-                                                 type:SNAddressTypeKusamaMain
+    NSString *address = [factory addressFromAccountId:keypair.publicKey.rawData
+                                                 type:2
                                                 error:&error];
 
     if (error != nil) {
