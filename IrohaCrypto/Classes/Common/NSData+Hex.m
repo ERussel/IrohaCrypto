@@ -38,18 +38,22 @@
         return nil;
     }
 
-    uint8_t *bytes = malloc(sizeof(uint8_t) * length / 2);
+    NSMutableData *resultData = [[NSMutableData alloc] init];
+    unsigned char whole_byte;
+    char byte_chars[3] = {'\0','\0','\0'};
 
-    const char* cString = [hexString cStringUsingEncoding:NSASCIIStringEncoding];
-
-    for(int index = 0; index + 2 <= length; index += 2) {
-        sscanf(&cString[index], "%02" SCNx8, &bytes[index / 2]);
+    for (int i = 0; i < ([hexString length] / 2); i++) {
+        byte_chars[0] = [hexString characterAtIndex:i * 2];
+        byte_chars[1] = [hexString characterAtIndex:i * 2 + 1];
+        whole_byte = strtol(byte_chars, NULL, 16);
+        [resultData appendBytes:&whole_byte length:1];
     }
 
-    return [self initWithBytesNoCopy:bytes length:length / 2];
+    return resultData;
 }
 
 - (nonnull NSString*)toHexString {
+    unsigned char hex_str[]= "0123456789abcdef";
     NSUInteger length = [self length];
 
     char *cString = malloc(sizeof(char) * 2 * length + 1);
@@ -57,7 +61,8 @@
     uint8_t *bytes = (uint8_t*)[self bytes];
 
     for (int index = 0; index < length; index++) {
-        sprintf(&cString[2 * index], "%02x", bytes[index]);
+        cString[index * 2 + 0] = hex_str[(bytes[index] >> 4) & 0x0F];
+        cString[index * 2 + 1] = hex_str[(bytes[index]) & 0x0F];
     }
 
     cString[2*length] = '\0';
