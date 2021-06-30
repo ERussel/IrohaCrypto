@@ -16,12 +16,12 @@ typedef NS_ENUM(NSUInteger, SNAddressFactoryError) {
 
 @protocol SS58AddressFactoryProtocol
 
-- (nullable NSString*)addressFromPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey
-                                      type:(UInt8)type
+- (nullable NSString*)addressFromAccountId:(NSData* _Nonnull)accountId
+                                      type:(UInt16)type
                                      error:(NSError*_Nullable*_Nullable)error;
 
 - (nullable NSData*)accountIdFromAddress:(nonnull NSString*)address
-                                    type:(UInt8)type
+                                    type:(UInt16)type
                                    error:(NSError*_Nullable*_Nullable)error;
 
 - (nullable NSNumber*)typeFromAddress:(nonnull NSString*)address

@@ -67,7 +67,7 @@ static UInt8 const TYPES[] = {
             return;
         }
 
-        NSString *address = [factory addressFromPublicKey:publicKey
+        NSString *address = [factory addressFromAccountId:publicKey.rawData
                                                      type:TYPES[i]
                                                     error:&error];
 
@@ -148,7 +148,7 @@ static UInt8 const TYPES[] = {
         return;
     }
 
-    NSString *address = [factory addressFromPublicKey:keypair.publicKey
+    NSString *address = [factory addressFromAccountId:keypair.publicKey.rawData
                                                  type:2
                                                 error:&error];
 

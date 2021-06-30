@@ -17,8 +17,8 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
 
 @implementation SS58AddressFactory
 
-- (nullable NSString*)addressFromPublicKey:(id<IRPublicKeyProtocol> _Nonnull)publicKey
-                                      type:(UInt8)type
+- (nullable NSString*)addressFromAccountId:(NSData* _Nonnull)accountId
+                                      type:(UInt16)type
                                      error:(NSError*_Nullable*_Nullable)error {
 
     UInt16 ident = type & 0b0011111111111111;
@@ -34,8 +34,6 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
         [addressData appendBytes:&first length:1];
         [addressData appendBytes:&second length:1];
     }
-
-    NSData *accountId = publicKey.rawData;
 
     if ([accountId length] != ACCOUNT_ID_LENGTH) {
         accountId = [accountId blake2b:ACCOUNT_ID_LENGTH error:error];
@@ -62,20 +60,20 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
     return [addressData toBase58];
 }
 
-- (UInt8) decodeTypeFromData:(NSData *)addressData {
+- (UInt16) decodeTypeFromData:(NSData *)addressData {
     UInt8 prefix = ((uint8_t*)addressData.bytes)[0];
     if (prefix < 64) {
-        return prefix;
+        return (UInt16)prefix;
     } else {
         UInt8 second = ((uint8_t*)addressData.bytes)[1];
-        UInt8 lower = prefix << 2 | second >> 6;
-        UInt8 upper = second & 0b00111111;
+        UInt16 lower = prefix << 2 | second >> 6;
+        UInt16 upper = second & 0b00111111;
         return lower | (upper << 8);
     }
 }
 
 - (nullable NSData*)accountIdFromAddress:(nonnull NSString*)address
-                                    type:(UInt8)type
+                                    type:(UInt16)type
                                    error:(NSError*_Nullable*_Nullable)error {
     NSData *ss58Data = [[NSData alloc] initWithBase58String:address];
 
