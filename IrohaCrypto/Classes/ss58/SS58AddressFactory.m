@@ -61,14 +61,14 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
 }
 
 - (UInt16) decodeTypeFromData:(NSData *)addressData {
-    UInt8 prefix = ((uint8_t*)addressData.bytes)[0];
+    UInt8 prefix = ((UInt8*)addressData.bytes)[0];
     if (prefix < 64) {
         return (UInt16)prefix;
     } else {
-        UInt8 second = ((uint8_t*)addressData.bytes)[1];
-        UInt16 lower = prefix << 2 | second >> 6;
-        UInt16 upper = second & 0b00111111;
-        return lower | (upper << 8);
+        UInt8 second = ((UInt8*)addressData.bytes)[1];
+        UInt8 lower = prefix << 2 | second >> 6;
+        UInt8 upper = second & 0b00111111;
+        return ((UInt16)lower) | (((UInt16)upper) << 8);
     }
 }
 
@@ -92,7 +92,7 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
     NSData *expectedChecksum = [ss58Data subdataWithRange: checksumRange];
     NSData *addressData = [ss58Data subdataWithRange:NSMakeRange(0, checksumRange.location)];
 
-    uint8_t addressType = [self decodeTypeFromData: addressData];
+    UInt16 addressType = [self decodeTypeFromData: addressData];
 
     if (addressType != type) {
         if (error) {
@@ -146,7 +146,7 @@ static const UInt8 ACCOUNT_ID_LENGTH = 32;
         return nil;
     }
 
-    uint8_t type = [self decodeTypeFromData: ss58Data];
+    UInt16 type = [self decodeTypeFromData: ss58Data];
 
     return [NSNumber numberWithInt:type];
 }

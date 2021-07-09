@@ -9,7 +9,7 @@
 @import XCTest;
 @import IrohaCrypto;
 
-static const int ADDRESS_COUNT = 6;
+static const int ADDRESS_COUNT = 7;
 
 static NSString * const ADDRESSES[] = {
     @"EzSUv17LNHTU2xdPKLuLkPy7fCD795DZ6d5CnF4x4HSkcb4",
@@ -17,7 +17,8 @@ static NSString * const ADDRESSES[] = {
     @"J6JSp4acVrUZ66tXarVMd1wtPgUQZxxe23qNoqNrpGz2xhL",
     @"E8gokmz3qYJfB2iFJuvt6HY2JHv1Jy8MjGGduR7boGi4duV",
     @"cnUVLAjzRsrXrzEiqjxMpBwvb6YgdBy8DKibonvZgtcQY5ZKe",
-    @"cnUMZcGtMm89EPo2iioG6fcJLkGcvF536AgaZ4APx1wbXbhLK"
+    @"cnUMZcGtMm89EPo2iioG6fcJLkGcvF536AgaZ4APx1wbXbhLK",
+    @"bXmPjofWcPik4PsfNjsPeZKggLWrwxcRMcHZk7JDW7bCWjCD1"
 };
 
 static NSString * const PUBLIC_KEYS[] = {
@@ -26,16 +27,18 @@ static NSString * const PUBLIC_KEYS[] = {
     @"f40aebc0b1f17260f028faf12827e2804cf1afdf7a952191042cf74c539bd870",
     @"44ebc0867945b9ab730db393c6fd4b703404aac34bfbd896f36523aa58fe0758",
     @"84bdc405d139399bba3ccea5d3de23316c9deeab661f57e2f4d1720cc6649859",
-    @"7ed10bd982f3aabeaf18d1909aa4dd4d6a49bd049d4385287a9343b3f74c4010"
+    @"7ed10bd982f3aabeaf18d1909aa4dd4d6a49bd049d4385287a9343b3f74c4010",
+    @"d44563d4603bbec05349b4644ca2e880088692e9a95bfbe400d2c5055baf3d7f"
 };
 
-static UInt8 const TYPES[] = {
+static UInt16 const TYPES[] = {
     2,
     69,
     2,
     2,
     69,
-    69
+    69,
+    10041
 };
 
 @interface SS58AddressFactoryTests : XCTestCase
