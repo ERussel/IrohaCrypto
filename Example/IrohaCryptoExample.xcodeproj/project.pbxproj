@@ -41,6 +41,7 @@
 		8490153624AC84A6008F705E /* IRBase58Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153524AC84A6008F705E /* IRBase58Tests.m */; };
 		8490153924AC855F008F705E /* IRBase58TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153824AC855F008F705E /* IRBase58TestData.m */; };
 		8490153C24AC8609008F705E /* IRBase58TestData+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490153B24AC8609008F705E /* IRBase58TestData+Load.m */; };
+		849E16E82715A1C50065B305 /* Secp256k1PublicKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849E16E72715A1C50065B305 /* Secp256k1PublicKeyTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		8490153824AC855F008F705E /* IRBase58TestData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRBase58TestData.m; sourceTree = "<group>"; };
 		8490153A24AC8609008F705E /* IRBase58TestData+Load.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRBase58TestData+Load.h"; sourceTree = "<group>"; };
 		8490153B24AC8609008F705E /* IRBase58TestData+Load.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IRBase58TestData+Load.m"; sourceTree = "<group>"; };
+		849E16E72715A1C50065B305 /* Secp256k1PublicKeyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Secp256k1PublicKeyTests.m; sourceTree = "<group>"; };
 		C86A7B671D6593C871CD90E3 /* Pods_IrohaCrypto_IrohaCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IrohaCrypto_IrohaCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFBE092955D311B59246789 /* Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9891E598602CB1FE1A23F9A /* Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IrohaCrypto-IrohaCryptoTests/Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				842D1E5924CB850200C30A7A /* Secp256k1KeypairTests.m */,
 				842D1E5B24CB851D00C30A7A /* Secp256k1SigningTests.m */,
+				849E16E72715A1C50065B305 /* Secp256k1PublicKeyTests.m */,
 			);
 			name = secp256k1;
 			path = ../../Tests/secp256k1;
@@ -346,6 +349,7 @@
 				TargetAttributes = {
 					02C85048217F678200C6A4E7 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1250;
 					};
 					02D61B8621771F400047F7E7 = {
 						CreatedOnToolsVersion = 10.0;
@@ -501,6 +505,7 @@
 				8488100926988B570076BC48 /* EDKeypairFactoryTests.m in Sources */,
 				8490153624AC84A6008F705E /* IRBase58Tests.m in Sources */,
 				841F1B3C2407D4830018E14D /* IRBIP39TestData+Load.m in Sources */,
+				849E16E82715A1C50065B305 /* Secp256k1PublicKeyTests.m in Sources */,
 				842D1E5724CB707B00C30A7A /* Blake2sTests.m in Sources */,
 				8490139B24A644E8008F705E /* SNAccountTestData.m in Sources */,
 				843C49D624DD369600B71DDA /* SNPrivateKeyTests.m in Sources */,
@@ -543,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9891E598602CB1FE1A23F9A /* Pods-IrohaCrypto-IrohaCryptoTests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ANAULAA354;
 				INFOPLIST_FILE = IrohaCryptoTests/Info.plist;
@@ -554,6 +560,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.soramitsu.IrohaCryptoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -562,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDFBE092955D311B59246789 /* Pods-IrohaCrypto-IrohaCryptoTests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ANAULAA354;
 				INFOPLIST_FILE = IrohaCryptoTests/Info.plist;
@@ -573,6 +582,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.jp.soramitsu.IrohaCryptoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

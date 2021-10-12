@@ -12,4 +12,8 @@
 
 + (NSUInteger)length;
 
++ (NSUInteger)uncompressedLength;
+
+- (nonnull NSData*)uncompressed;
+
 @end
