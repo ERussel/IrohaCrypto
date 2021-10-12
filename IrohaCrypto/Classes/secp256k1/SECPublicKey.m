@@ -6,6 +6,7 @@
 //
 
 #import "SECPublicKey.h"
+#import <secp256k1/secp256k1.h>
 
 @interface SECPublicKey()
 
@@ -17,6 +18,10 @@
 
 + (NSUInteger)length {
     return 33;
+}
+
++ (NSUInteger)uncompressedLength {
+    return 65;
 }
 
 - (nullable instancetype)initWithRawData:(nonnull NSData*)data error:(NSError*_Nullable*_Nullable)error {
@@ -37,6 +42,25 @@
     }
 
     return self;
+}
+
+- (nonnull NSData*)uncompressed {
+    secp256k1_pubkey rawPublicKey;
+
+    secp256k1_context *context = secp256k1_context_create(SECP256K1_CONTEXT_NONE);
+
+    int status = secp256k1_ec_pubkey_parse(context, &rawPublicKey, _rawData.bytes, [_rawData length]);
+
+    size_t uncompressedLength = [SECPublicKey uncompressedLength];
+    unsigned char uncompresedPubkey[uncompressedLength];
+
+    secp256k1_ec_pubkey_serialize(context,
+                                  uncompresedPubkey,
+                                  &uncompressedLength,
+                                  &rawPublicKey,
+                                  SECP256K1_EC_UNCOMPRESSED);
+
+    return [NSData dataWithBytes:uncompresedPubkey length:uncompressedLength];
 }
 
 @end
