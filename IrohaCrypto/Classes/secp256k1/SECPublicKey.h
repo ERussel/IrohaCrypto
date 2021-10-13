@@ -14,6 +14,6 @@
 
 + (NSUInteger)uncompressedLength;
 
-- (nonnull NSData*)uncompressed;
+- (nullable NSData*)uncompressed:(NSError*_Nullable*_Nullable)error;
 
 @end

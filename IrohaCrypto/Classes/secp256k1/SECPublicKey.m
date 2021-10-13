@@ -7,6 +7,7 @@
 
 #import "SECPublicKey.h"
 #import <secp256k1/secp256k1.h>
+#import "IRCryptoKey.h"
 
 @interface SECPublicKey()
 
@@ -44,12 +45,25 @@
     return self;
 }
 
-- (nonnull NSData*)uncompressed {
+- (nullable NSData*)uncompressed:(NSError*_Nullable*_Nullable)error {
     secp256k1_pubkey rawPublicKey;
 
     secp256k1_context *context = secp256k1_context_create(SECP256K1_CONTEXT_NONE);
 
     int status = secp256k1_ec_pubkey_parse(context, &rawPublicKey, _rawData.bytes, [_rawData length]);
+
+    if (status == 0) {
+        secp256k1_context_destroy(context);
+
+        if (error) {
+            NSString *message = [NSString stringWithFormat:@"Uncompressing unexpectedly failed"];
+            *error = [NSError errorWithDomain:NSStringFromClass([self class])
+                                         code:IRCryptoKeyErrorInvalidRawData
+                                     userInfo:@{NSLocalizedDescriptionKey: message}];
+        }
+
+        return nil;
+    }
 
     size_t uncompressedLength = [SECPublicKey uncompressedLength];
     unsigned char uncompresedPubkey[uncompressedLength];
@@ -59,6 +73,8 @@
                                   &uncompressedLength,
                                   &rawPublicKey,
                                   SECP256K1_EC_UNCOMPRESSED);
+
+    secp256k1_context_destroy(context);
 
     return [NSData dataWithBytes:uncompresedPubkey length:uncompressedLength];
 }
