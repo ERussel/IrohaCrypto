@@ -42,7 +42,13 @@ static NSString * const UNCOMPRESSED[] = {
             return;
         }
 
-        NSData *actualUncompressed = [publicKey uncompressed];
+        NSData *actualUncompressed = [publicKey uncompressed:&error];
+
+        if (error) {
+            XCTFail(@"Did receive error: %@", [error localizedDescription]);
+            return;
+        }
+
         NSData *expectedUncompressed = [[NSData alloc] initWithHexString:UNCOMPRESSED[index] error:&error];
 
         if (error) {
