@@ -10,7 +10,7 @@
 #import "GostError.h"
 #include "gost_lcl.h"
 
-#define PEM_PRIV_LEN 144
+#define DER_PRIV_LEN 72
 
 @interface GostPrivateKey()<GostEvpKeyProtocol>
 
@@ -21,9 +21,9 @@
 @implementation GostPrivateKey
 
 - (nullable instancetype)initWithRawData:(nonnull NSData*)data error:(NSError*_Nullable*_Nullable)error {
-    if ([data length] != PEM_PRIV_LEN) {
+    if ([data length] != DER_PRIV_LEN) {
         if (error) {
-            NSString *message = [NSString stringWithFormat:@"Invalid private key size: expected %@ and actual %@", @(PEM_PRIV_LEN), @([data length])];
+            NSString *message = [NSString stringWithFormat:@"Invalid private key size: expected %@ and actual %@", @(DER_PRIV_LEN), @([data length])];
             *error = [GostPrivateKey createErrorWithMessage: message];
         }
 
@@ -72,21 +72,22 @@
 
         return nil;
     }
-    int err_code = PEM_write_bio_PrivateKey(bp, evpKey, NULL, NULL, 0, 0, NULL);
+
+    int err_code = i2d_PrivateKey_bio(bp, evpKey);
     if (err_code != ENGINE_SUCCESS) {
         BIO_free(bp);
 
         if (error) {
-            *error = [GostPrivateKey createErrorWithMessage:@"Private key PEM writer failed"];
+            *error = [GostPrivateKey createErrorWithMessage:@"Private key DER writer failed"];
         }
 
         return nil;
     }
 
-    uint8_t outbuf[PEM_PRIV_LEN];
+    uint8_t outbuf[DER_PRIV_LEN];
 
-    int bytes_read = BIO_read(bp, outbuf, PEM_PRIV_LEN);
-    if (bytes_read < PEM_PRIV_LEN) {
+    int bytes_read = BIO_read(bp, outbuf, DER_PRIV_LEN);
+    if (bytes_read < DER_PRIV_LEN) {
 
         if (error) {
             *error = [GostPrivateKey createErrorWithMessage:@"Invalid private key length"];
@@ -97,7 +98,7 @@
 
     BIO_free(bp);
 
-    return [NSData dataWithBytes:outbuf length:PEM_PRIV_LEN];
+    return [NSData dataWithBytes:outbuf length:DER_PRIV_LEN];
 }
 
 + (EVP_PKEY*)decodePrivateKey:(NSData*)data error:(NSError*_Nullable*_Nullable)error {
@@ -110,8 +111,8 @@
 
         return NULL;
     }
-    int bytes_written = BIO_write(bp, [data bytes], PEM_PRIV_LEN);
-    if (bytes_written < PEM_PRIV_LEN) {
+    int bytes_written = BIO_write(bp, [data bytes], DER_PRIV_LEN);
+    if (bytes_written < DER_PRIV_LEN) {
         BIO_free(bp);
 
         if (error) {
@@ -122,7 +123,7 @@
     }
 
     EVP_PKEY *key = NULL;
-    PEM_read_bio_PrivateKey(bp, &key, 0, 0);
+    d2i_PrivateKey_bio(bp, &key);
 
     if (!key && error) {
         *error = [GostPrivateKey createErrorWithMessage:@"Private key init faled after decoding"];

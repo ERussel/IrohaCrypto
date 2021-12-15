@@ -10,7 +10,7 @@
 #import "GostError.h"
 #include "gost_lcl.h"
 
-#define PEM_PUB_LEN 182
+#define DER_PUB_LEN 104
 
 @interface GostPublicKey()<GostEvpKeyProtocol>
 
@@ -21,9 +21,9 @@
 @implementation GostPublicKey
 
 - (nullable instancetype)initWithRawData:(nonnull NSData*)data error:(NSError*_Nullable*_Nullable)error {
-    if ([data length] != PEM_PUB_LEN) {
+    if ([data length] != DER_PUB_LEN) {
         if (error) {
-            NSString *message = [NSString stringWithFormat:@"Invalid public key size: expected %@ and actual %@", @(PEM_PUB_LEN), @([data length])];
+            NSString *message = [NSString stringWithFormat:@"Invalid public key size: expected %@ and actual %@", @(DER_PUB_LEN), @([data length])];
             *error = [GostPublicKey createErrorWithMessage: message];
         }
 
@@ -73,7 +73,7 @@
 
         return nil;
     }
-    int err_code = PEM_write_bio_PUBKEY(bp, evpKey);
+    int err_code = i2d_PUBKEY_bio(bp, evpKey);
     if (err_code != ENGINE_SUCCESS) {
         BIO_free(bp);
 
@@ -84,10 +84,10 @@
         return nil;
     }
 
-    uint8_t outbuf[PEM_PUB_LEN];
+    uint8_t outbuf[DER_PUB_LEN];
 
-    int bytes_read = BIO_read(bp, outbuf, PEM_PUB_LEN);
-    if (bytes_read < PEM_PUB_LEN) {
+    int bytes_read = BIO_read(bp, outbuf, DER_PUB_LEN);
+    if (bytes_read < DER_PUB_LEN) {
 
         if (error) {
             *error = [GostPublicKey createErrorWithMessage:@"Invalid public key length"];
@@ -98,7 +98,7 @@
 
     BIO_free(bp);
 
-    return [NSData dataWithBytes:outbuf length:PEM_PUB_LEN];
+    return [NSData dataWithBytes:outbuf length:DER_PUB_LEN];
 }
 
 + (EVP_PKEY*)decodePublicKey:(NSData*)data error:(NSError*_Nullable*_Nullable)error {
@@ -112,7 +112,7 @@
         return NULL;
     }
     int bytes_written = BIO_write(bp, [data bytes], [data length]);
-    if (bytes_written < PEM_PUB_LEN) {
+    if (bytes_written < DER_PUB_LEN) {
         BIO_free(bp);
 
         if (error) {
@@ -123,7 +123,7 @@
     }
 
     EVP_PKEY *key = NULL;
-    PEM_read_bio_PUBKEY(bp, &key, 0, 0);
+    d2i_PUBKEY_bio(bp, &key);
 
     if (!key && error) {
         *error = [GostPublicKey createErrorWithMessage:@"Public key init faled after decoding"];

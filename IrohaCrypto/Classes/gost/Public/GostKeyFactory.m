@@ -46,7 +46,7 @@
         return nil;
     }
 
-    result = EVP_PKEY_CTX_ctrl(ctx, NID_id_GostR3410_2012_256, -1, EVP_PKEY_CTRL_GOST_PARAMSET, NID_id_tc26_gost_3410_2012_256_paramSetA, NULL);
+    result = EVP_PKEY_CTX_ctrl(ctx, NID_id_GostR3410_2012_256, -1, EVP_PKEY_CTRL_GOST_PARAMSET, NID_id_GostR3410_2001_CryptoPro_A_ParamSet, NULL);
 
     if (result != ENGINE_SUCCESS) {
         EVP_PKEY_CTX_free(ctx);
